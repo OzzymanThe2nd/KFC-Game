@@ -1,0 +1,11 @@
+Model Information:
+* title:	PS1 PSX Knight
+* source:	https://sketchfab.com/3d-models/ps1-psx-knight-66c3a171c44c403684fbc6ae2c7b94c1
+* author:	crimsongcat (https://sketchfab.com/crimsongcat)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "PS1 PSX Knight" (https://sketchfab.com/3d-models/ps1-psx-knight-66c3a171c44c403684fbc6ae2c7b94c1) by crimsongcat (https://sketchfab.com/crimsongcat) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

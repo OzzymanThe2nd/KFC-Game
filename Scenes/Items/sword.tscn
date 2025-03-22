@@ -1,0 +1,473 @@
+[gd_scene load_steps=13 format=3 uid="uid://jk80nskm3yhf"]
+
+[ext_resource type="Script" path="res://Scripts/Items/sword.gd" id="1_1rsed"]
+[ext_resource type="PackedScene" uid="uid://c0g3t3vbk83gd" path="res://Assets/Models/low_poly_sword_handpainted/scene.gltf" id="2_2pyyh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0fdh2"]
+size = Vector3(0.1, 1.4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mcamu"]
+size = Vector3(0.1, 0.1, 0.3)
+
+[sub_resource type="Animation" id="Animation_3ervj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_Scene/EnemyDet:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_Scene/WallDet2:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sketchfab_Scene:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.683339, -0.652166, -1.08799)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sketchfab_Scene:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.02203, -1.38035, -1.19112)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sketchfab_Scene/EnemyDet:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.321126, 0.735797, -0.0334865)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sketchfab_Scene/EnemyDet:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.268743, 0.312558, -0.1874)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sketchfab_Scene/WallDet2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.27567, 0.568581, -0.0671945)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sketchfab_Scene/WallDet2:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.268743, 0.312558, -0.1874)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:second_swing_possible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3pny6"]
+resource_name = "bounce"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.499999, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.8326, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.450625, 1),
+"update": 0,
+"values": [Vector3(-0.2, 0, 0), Vector3(-0.2, -0.6, 0.3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_Scene:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.45, 1),
+"update": 0,
+"values": [Vector3(-0.39729, -0.904454, -0.0948645), Vector3(-0.39729, -0.259508, -0.55333)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_Scene:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.45, 1),
+"update": 0,
+"values": [Vector3(-0.19646, -1.65236, 0.305703), Vector3(-0.0239529, -1.35961, -1.55041)]
+}
+
+[sub_resource type="Animation" id="Animation_8b6tp"]
+resource_name = "idle_bounce"
+length = 2.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_Scene:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.03333),
+"transitions": PackedFloat32Array(1.31951, 1.31951),
+"update": 0,
+"values": [Vector3(-0.683339, -0.652166, -1.08799), Vector3(-0.683339, -0.652166, -1.05066)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_Scene:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.03333),
+"transitions": PackedFloat32Array(1.31951, 1.31951),
+"update": 0,
+"values": [Vector3(0.02203, -1.38035, -1.19112), Vector3(0.0244346, -1.38056, -1.21475)]
+}
+
+[sub_resource type="Animation" id="Animation_5b0if"]
+resource_name = "second_swing"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_Scene:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.766667, 1, 1.3),
+"transitions": PackedFloat32Array(1.6245, 0.535887, 1, 1, 0.683019),
+"update": 0,
+"values": [Vector3(-1.609, -1.009, -1.051), Vector3(-1.35102, -0.90955, -1.06131), Vector3(-0.66838, -0.772062, -1.22102), Vector3(-0.540638, -0.823755, -1.32474), Vector3(-0.683339, -0.652166, -1.08799)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_Scene:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.766667, 1, 1.3),
+"transitions": PackedFloat32Array(1.10957, 0.757858, 1.46409, 1.46409, 1),
+"update": 0,
+"values": [Vector3(-0.204014, -1.33617, 0.33602), Vector3(-0.0766974, -1.83059, -1.04525), Vector3(-0.272047, -2.16964, 0.0127198), Vector3(-0.303436, -2.16643, -0.000830205), Vector3(0.02203, -1.38035, -1.19112)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_Scene/EnemyDet:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.533333, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_Scene/WallDet2:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.533333, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_owhvm"]
+resource_name = "sheath"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_Scene:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1),
+"transitions": PackedFloat32Array(0.659754, 0.392292, 0.329877),
+"update": 0,
+"values": [Vector3(-0.683339, -0.652166, -1.08799), Vector3(-0.683339, -0.486313, -0.12947), Vector3(-0.683339, -0.652166, -1.62678)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_Scene:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1),
+"transitions": PackedFloat32Array(0.392292, 0.707107, 0.176777),
+"update": 0,
+"values": [Vector3(0.02203, -1.38035, -1.19112), Vector3(0.0389887, -1.75854, 2.26661), Vector3(-0.033072, -1.75966, 1.89295)]
+}
+
+[sub_resource type="Animation" id="Animation_3x180"]
+resource_name = "swing"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.7, 1),
+"transitions": PackedFloat32Array(0.683019, 0.683019, 0.683019, 0.683019),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.972, 0, -1.2), Vector3(-0.95, 0, -1.25), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.7, 1, 1.01333),
+"transitions": PackedFloat32Array(1, 0.267943, 0.267943, 1, 1),
+"update": 0,
+"values": [Vector3(2.19388, 0, 0), Vector3(0, 0.907571, 0), Vector3(0, 0.750492, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_Scene/EnemyDet:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_Scene/WallDet2:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sketchfab_Scene:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.7, 1),
+"transitions": PackedFloat32Array(0.683019, 0.683019, 0.683019, 0.683019),
+"update": 0,
+"values": [Vector3(-0.546601, 0.78098, 0.00242162), Vector3(-1.43811, -1.00891, -0.827975), Vector3(-1.609, -1.009, -1.051), Vector3(-0.683339, -0.652166, -1.08799)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sketchfab_Scene:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.7, 1),
+"transitions": PackedFloat32Array(1, 0.267943, 0.267943, 1),
+"update": 0,
+"values": [Vector3(0.0409597, -1.36694, -1.9467), Vector3(-0.204014, -1.38269, 0.33602), Vector3(-0.204014, -1.33617, 0.33602), Vector3(0.02203, -1.38035, -1.19112)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:second_swing_possible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.466667, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_vbm05"]
+resource_name = "unsheath"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_Scene:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1),
+"transitions": PackedFloat32Array(0.329877, 1, 1),
+"update": 0,
+"values": [Vector3(-0.683339, -0.652166, -1.62678), Vector3(-0.683339, -0.652167, -0.363393), Vector3(-0.683339, -0.652166, -1.08799)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_Scene:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1),
+"transitions": PackedFloat32Array(0.176777, 0.482969, 1),
+"update": 0,
+"values": [Vector3(-0.033072, -1.75966, 1.89295), Vector3(-0.033072, -1.75966, 1.89295), Vector3(0.02203, -1.38035, -1.19112)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l51cl"]
+_data = {
+"RESET": SubResource("Animation_3ervj"),
+"bounce": SubResource("Animation_3pny6"),
+"idle_bounce": SubResource("Animation_8b6tp"),
+"second_swing": SubResource("Animation_5b0if"),
+"sheath": SubResource("Animation_owhvm"),
+"swing": SubResource("Animation_3x180"),
+"unsheath": SubResource("Animation_vbm05")
+}
+
+[node name="Sword" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.825254, 0.371164, -1.0486)
+script = ExtResource("1_1rsed")
+basedmg = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_0fdh2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.370564, 0)
+mesh = SubResource("BoxMesh_mcamu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l51cl")
+}
+
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_2pyyh")]
+transform = Transform3D(0.0902468, 0.1678, -0.981682, -0.928559, 0.37053, -0.0220282, 0.360046, 0.913537, 0.189251, -0.683339, -0.652166, -1.08799)
+
+[node name="EnemyDet" type="RayCast3D" parent="Sketchfab_Scene"]
+unique_name_in_owner = true
+transform = Transform3D(0.919679, 0.257495, 0.296457, -0.179618, 0.947225, -0.26552, -0.349181, 0.190944, 0.917395, 0.321126, 0.735797, -0.0334865)
+target_position = Vector3(0, 1.4, 0)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="WallDet2" type="RayCast3D" parent="Sketchfab_Scene"]
+unique_name_in_owner = true
+transform = Transform3D(0.919679, 0.257495, 0.296457, -0.179618, 0.947225, -0.26552, -0.349181, 0.190944, 0.917395, 0.27567, 0.568581, -0.0671945)
+target_position = Vector3(0, 1.33, 0)
+hit_from_inside = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://0h8u27l10o2i"]
+
+[ext_resource type="LabelSettings" uid="uid://4q4ec65ooiba" path="res://menu_font.tres" id="1_bwowc"]
+[ext_resource type="Script" path="res://Scripts/menus/paused.gd" id="1_v14pf"]
+[ext_resource type="FontFile" uid="uid://cmtxgcvukvcbw" path="res://Assets/Fonts/pixeldroidMenuRegular.otf" id="3_2c68w"]
+
+[node name="Pause Menu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v14pf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.278431, 0.278431, 0.278431, 0.788235)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.5
+offset_top = 226.0
+offset_right = 72.5
+offset_bottom = 269.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 86
+text = "Paused"
+label_settings = ExtResource("1_bwowc")
+horizontal_alignment = 1
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -180.0
+offset_right = 53.0
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_2c68w")
+theme_override_font_sizes/font_size = 68
+text = "Quit"
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

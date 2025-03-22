@@ -1,0 +1,11 @@
+Model Information:
+* title:	Medieval Combat Dummy
+* source:	https://sketchfab.com/3d-models/medieval-combat-dummy-0b3ab64360374a0e9ee3a5923c437995
+* author:	CaptainHC (https://sketchfab.com/CaptainHC)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Medieval Combat Dummy" (https://sketchfab.com/3d-models/medieval-combat-dummy-0b3ab64360374a0e9ee3a5923c437995) by CaptainHC (https://sketchfab.com/CaptainHC) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

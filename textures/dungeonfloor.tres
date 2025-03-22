@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cyyqis8sjjx4v"]
+
+[ext_resource type="Texture2D" uid="uid://b2imkg8vugt4v" path="res://textures/dungeonfloor.png" id="1_8obep"]
+
+[resource]
+albedo_texture = ExtResource("1_8obep")
+metallic_specular = 0.0
+texture_filter = 2

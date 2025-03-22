@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://eqconbjer20d"]
+
+[ext_resource type="Texture2D" uid="uid://csfl1mef5nfgx" path="res://icon.svg" id="1_ghar4"]
+[ext_resource type="Script" path="res://Scripts/inv_items.gd" id="2_24lq5"]
+
+[resource]
+script = ExtResource("2_24lq5")
+name = "debug bow"
+img = ExtResource("1_ghar4")
+type = "bow"

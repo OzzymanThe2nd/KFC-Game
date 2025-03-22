@@ -1,0 +1,160 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgmjjqgcye80v"]
+
+[ext_resource type="Script" path="res://Scripts/warp_point.gd" id="1_ihl81"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_81vcq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1bmq4"]
+
+[node name="Warp Point" type="Node3D"]
+script = ExtResource("1_ihl81")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_81vcq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_1bmq4")
+skeleton = NodePath("../..")
+
+[node name="Menu" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -300.0
+offset_right = 600.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.294118, 0.294118, 0.294118, 0.796078)
+
+[node name="GridContainer" type="GridContainer" parent="Menu/ColorRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 1216.0
+offset_bottom = 600.0
+theme_override_constants/h_separation = 270
+theme_override_constants/v_separation = 200
+columns = 4
+
+[node name="Panel" type="Panel" parent="Menu/ColorRect/GridContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button1" type="Button" parent="Menu/ColorRect/GridContainer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel2" type="Panel" parent="Menu/ColorRect/GridContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button2" type="Button" parent="Menu/ColorRect/GridContainer/Panel2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel3" type="Panel" parent="Menu/ColorRect/GridContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button3" type="Button" parent="Menu/ColorRect/GridContainer/Panel3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel4" type="Panel" parent="Menu/ColorRect/GridContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button4" type="Button" parent="Menu/ColorRect/GridContainer/Panel4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel5" type="Panel" parent="Menu/ColorRect/GridContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel5"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button5" type="Button" parent="Menu/ColorRect/GridContainer/Panel5"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel6" type="Panel" parent="Menu/ColorRect/GridContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel6"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button6" type="Button" parent="Menu/ColorRect/GridContainer/Panel6"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel7" type="Panel" parent="Menu/ColorRect/GridContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel7"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button7" type="Button" parent="Menu/ColorRect/GridContainer/Panel7"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel8" type="Panel" parent="Menu/ColorRect/GridContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel8"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button8" type="Button" parent="Menu/ColorRect/GridContainer/Panel8"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Menu/ColorRect/GridContainer/Panel/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/GridContainer/Panel2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/GridContainer/Panel3/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/GridContainer/Panel4/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/GridContainer/Panel5/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/GridContainer/Panel6/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/GridContainer/Panel7/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/GridContainer/Panel8/Button8" to="." method="_on_button_8_pressed"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://kt884j1pj16d"]
+
+[ext_resource type="Texture2D" uid="uid://bsw8s4mxeed3y" path="res://textures/debug chest.png" id="1_2u1cb"]
+[ext_resource type="Script" path="res://Scripts/inv_items.gd" id="2_1s2l5"]
+
+[resource]
+script = ExtResource("2_1s2l5")
+name = "debug chest"
+img = ExtResource("1_2u1cb")
+type = "chest"

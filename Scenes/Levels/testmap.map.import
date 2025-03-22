@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://brpiv7xabe6wd"
+path="res://.godot/imported/testmap.map-6c38410743a27fc14ef69bc9dc6a86ba.tres"
+
+[deps]
+
+source_file="res://Scenes/Levels/testmap.map"
+dest_files=["res://.godot/imported/testmap.map-6c38410743a27fc14ef69bc9dc6a86ba.tres"]
+
+[params]
+

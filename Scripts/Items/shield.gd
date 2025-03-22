@@ -1,0 +1,1 @@
+extends shield_base

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Buckler
+* source:	https://sketchfab.com/3d-models/buckler-a15ecb00c0d14ca29ddc9cb03c5557a1
+* author:	colton.smith.art (https://sketchfab.com/colton.smith.art)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Buckler" (https://sketchfab.com/3d-models/buckler-a15ecb00c0d14ca29ddc9cb03c5557a1) by colton.smith.art (https://sketchfab.com/colton.smith.art) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

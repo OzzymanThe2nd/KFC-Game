@@ -1,0 +1,249 @@
+[gd_scene load_steps=13 format=3 uid="uid://bk7275hc57yde"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/debug_enemy.gd" id="1_6yxyo"]
+[ext_resource type="PackedScene" uid="uid://c0g3t3vbk83gd" path="res://Assets/Models/low_poly_sword_handpainted/scene.gltf" id="2_g5qsc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2i0gp"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gkotw"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.4
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2m2f7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_42bcj"]
+size = Vector3(15, 5, 15)
+
+[sub_resource type="Animation" id="Animation_d2xq4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_Scene:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.647, 0.15, -0.169)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_Scene:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.55467, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xalcy"]
+resource_name = "attack"
+length = 2.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_Scene:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1.16667, 1.5, 2.3),
+"transitions": PackedFloat32Array(1.46409, 0.68302, 1, 1.8025, 1),
+"update": 0,
+"values": [Vector3(0.647, 0.15, -0.169), Vector3(0.659953, -0.262241, 0.0996624), Vector3(0.438121, -0.0857, -0.434), Vector3(0.438121, -0.0857, -0.434), Vector3(0.647, 0.15, -0.169)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_Scene:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1.16667, 1.5, 2.3),
+"transitions": PackedFloat32Array(1.23114, 0.659754, 1, 1.8025, 1),
+"update": 0,
+"values": [Vector3(0, 1.55467, 0), Vector3(0.0354884, 1.78893, 0.634624), Vector3(0.767656, 2.2825, -0.877542), Vector3(0.767656, 2.2825, -0.877542), Vector3(0, 1.55467, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_36580"]
+resource_name = "bounceback"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_Scene:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 2.1),
+"transitions": PackedFloat32Array(1.7411, 0.732042, 1),
+"update": 0,
+"values": [Vector3(0.801, 0.15, -0.169), Vector3(0.801, 0.15, -0.169), Vector3(0.647, 0.15, -0.169)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_Scene:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 2.1),
+"transitions": PackedFloat32Array(1.7411, 0.594603, 1),
+"update": 0,
+"values": [Vector3(0.013697, 1.56228, 1.01468), Vector3(0.013697, 1.56228, 1.01468), Vector3(0.00774004, 1.55665, 0.500575)]
+}
+
+[sub_resource type="Animation" id="Animation_yh50v"]
+resource_name = "death"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1, 0), Vector3(0, -1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0), Vector3(1.5708, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_Scene:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.647, 0.15, -0.169), Vector3(0.646759, -0.97701, -0.169196)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_Scene:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.55467, 0), Vector3(1.2824, 2.19967, -0.362518)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6pqmc"]
+_data = {
+"RESET": SubResource("Animation_d2xq4"),
+"attack": SubResource("Animation_xalcy"),
+"bounceback": SubResource("Animation_36580"),
+"death": SubResource("Animation_yh50v")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uo88f"]
+
+[node name="Enemy" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_6yxyo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_2i0gp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.361833, -0.530607)
+mesh = SubResource("CylinderMesh_gkotw")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_2m2f7")
+
+[node name="Player Det" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player Det"]
+shape = SubResource("BoxShape3D_42bcj")
+
+[node name="Attack Timer" type="Timer" parent="."]
+
+[node name="Melee Detector" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 4
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_g5qsc")]
+transform = Transform3D(0.011288, 0, 0.699909, 0, 0.7, 0, -0.699909, 0, 0.011288, 0.647, 0.15, -0.169)
+
+[node name="Shield Det" type="RayCast3D" parent="Sketchfab_Scene"]
+unique_name_in_owner = true
+transform = Transform3D(0.93913, 0.342089, -0.0317877, -0.341692, 0.920367, -0.190184, -0.0358035, 0.189469, 0.981234, -0.0034104, 0, -0.211458)
+enabled = false
+target_position = Vector3(0, 2, 0)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="Player Det" type="RayCast3D" parent="Sketchfab_Scene"]
+unique_name_in_owner = true
+transform = Transform3D(0.93913, 0.342089, -0.0317877, -0.341692, 0.920367, -0.190184, -0.0358035, 0.189469, 0.981234, -0.0034104, 0, -0.211458)
+enabled = false
+target_position = Vector3(0, 2, 0)
+collision_mask = 4
+hit_from_inside = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6pqmc")
+}
+
+[node name="TestArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532815, 0, -1)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestArea"]
+shape = SubResource("BoxShape3D_uo88f")
+
+[connection signal="body_entered" from="Player Det" to="." method="_on_player_det_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]

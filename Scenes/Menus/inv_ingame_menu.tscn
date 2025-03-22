@@ -1,0 +1,264 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbj563ox2wh47"]
+
+[ext_resource type="Script" path="res://Scripts/menus/inv_ingame_menu.gd" id="1_r7ogb"]
+[ext_resource type="Texture2D" uid="uid://cpgapsu55fnj1" path="res://textures/border.png" id="2_ednt7"]
+[ext_resource type="PackedScene" uid="uid://dksakehgk051q" path="res://Scenes/Menus/inv_ui_slot.tscn" id="3_41o4a"]
+[ext_resource type="LabelSettings" uid="uid://4q4ec65ooiba" path="res://menu_font.tres" id="4_gfb2d"]
+[ext_resource type="AudioStream" uid="uid://6jnl6xuvplgt" path="res://Assets/Sounds/MenuCloseBleepBloop2.wav" id="5_18ayc"]
+[ext_resource type="AudioStream" uid="uid://bdfq7p2yepp1w" path="res://Assets/Sounds/OpenBleep1.wav" id="6_qdomn"]
+[ext_resource type="AudioStream" uid="uid://b7khdhik7w6m5" path="res://Assets/Sounds/Select4.wav" id="7_lifi3"]
+[ext_resource type="AudioStream" uid="uid://cluba1lcpr67q" path="res://Assets/Sounds/CloseBloop2.wav" id="8_idytv"]
+
+[node name="Menu Box" type="Control"]
+process_mode = 3
+custom_minimum_size = Vector2(172, 132)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_r7ogb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.294118, 0.294118, 0.294118, 0.796078)
+
+[node name="Full Inventory" type="NinePatchRect" parent="."]
+layout_mode = 1
+offset_right = 667.0
+offset_bottom = 1080.0
+texture = ExtResource("2_ednt7")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="Full Inventory"]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 63.0
+offset_right = 868.0
+offset_bottom = 1283.0
+scale = Vector2(0.8, 0.8)
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="inv_ui_slot" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot2" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot3" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot4" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot5" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot6" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot7" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot8" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot9" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot10" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot11" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot12" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot13" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot14" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot15" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot16" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot17" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot18" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot19" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot20" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot21" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot22" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot23" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="inv_ui_slot24" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Full Inventory"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 5.0
+offset_right = 225.0
+offset_bottom = 60.0
+text = "Inventory"
+label_settings = ExtResource("4_gfb2d")
+
+[node name="Equipment" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -704.0
+offset_bottom = 1080.0
+grow_horizontal = 0
+texture = ExtResource("2_ednt7")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="Equipment"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -323.0
+offset_top = 63.0
+offset_right = 537.0
+offset_bottom = 479.0
+grow_horizontal = 2
+scale = Vector2(0.8, 0.8)
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="inv_ui_slot" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+is_equipment_slot = true
+
+[node name="inv_ui_slot2" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+is_equipment_slot = true
+
+[node name="inv_ui_slot3" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+is_equipment_slot = true
+
+[node name="inv_ui_slot4" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+is_equipment_slot = true
+
+[node name="inv_ui_slot5" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+is_equipment_slot = true
+
+[node name="inv_ui_slot6" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+is_equipment_slot = true
+
+[node name="inv_ui_slot7" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+is_equipment_slot = true
+
+[node name="inv_ui_slot8" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+layout_mode = 2
+is_equipment_slot = true
+
+[node name="ColorRect" type="ColorRect" parent="Equipment"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -325.0
+offset_top = -672.0
+offset_right = 327.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.241156, 0.241156, 0.241156, 0.835294)
+
+[node name="Slash" type="Label" parent="Equipment/ColorRect"]
+layout_mode = 1
+offset_left = 4.0
+offset_right = 99.0
+offset_bottom = 55.0
+text = "Filler"
+label_settings = ExtResource("4_gfb2d")
+
+[node name="Crush" type="Label" parent="Equipment/ColorRect"]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 50.0
+offset_right = 99.0
+offset_bottom = 105.0
+text = "Filler"
+label_settings = ExtResource("4_gfb2d")
+
+[node name="Stab" type="Label" parent="Equipment/ColorRect"]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 100.0
+offset_right = 99.0
+offset_bottom = 155.0
+text = "Filler"
+label_settings = ExtResource("4_gfb2d")
+
+[node name="Damage" type="Label" parent="Equipment/ColorRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -48.0
+offset_right = 112.0
+offset_bottom = -5.0
+grow_vertical = 0
+text = "Filler"
+label_settings = ExtResource("4_gfb2d")
+
+[node name="Label" type="Label" parent="Equipment"]
+layout_mode = 1
+offset_left = 26.0
+offset_top = 5.0
+offset_right = 225.0
+offset_bottom = 60.0
+text = "Equipment"
+label_settings = ExtResource("4_gfb2d")
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_18ayc")
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qdomn")
+
+[node name="EquipSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_lifi3")
+
+[node name="UnequipSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_idytv")

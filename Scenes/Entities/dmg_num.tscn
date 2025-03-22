@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://pn0tvqgiqkci"]
+
+[ext_resource type="Script" path="res://Scripts/Misc/dmgnum.gd" id="1_kegff"]
+
+[node name="DMGNum" type="Node3D"]
+top_level = true
+script = ExtResource("1_kegff")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0867155, 0, 0)
+sorting_offset = 1.0
+pixel_size = 0.025
+billboard = 1
+text = "1"
+outline_size = 6
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.8
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

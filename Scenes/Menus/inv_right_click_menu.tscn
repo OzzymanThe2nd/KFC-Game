@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbxug4t7q5go5"]
+
+[ext_resource type="Script" path="res://Scripts/menus/inv_right_click_menu.gd" id="1_p3j8w"]
+[ext_resource type="LabelSettings" uid="uid://4q4ec65ooiba" path="res://menu_font.tres" id="2_f1wkd"]
+[ext_resource type="FontFile" uid="uid://cmtxgcvukvcbw" path="res://Assets/Fonts/pixeldroidMenuRegular.otf" id="3_7oomn"]
+
+[node name="Inv_right_click_menu" type="Panel"]
+top_level = true
+custom_minimum_size = Vector2(160, 80)
+offset_right = 160.0
+offset_bottom = 80.0
+script = ExtResource("1_p3j8w")
+
+[node name="Label" type="Label" parent="." groups=["Control"]]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Test"
+label_settings = ExtResource("2_f1wkd")
+
+[node name="Use" type="Button" parent="." groups=["Control"]]
+visible = false
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("3_7oomn")
+theme_override_font_sizes/font_size = 46
+disabled = true
+text = "Use"
+alignment = 0
+
+[node name="Equip" type="Button" parent="." groups=["Control"]]
+visible = false
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("3_7oomn")
+theme_override_font_sizes/font_size = 46
+disabled = true
+text = "Equip"
+alignment = 0
+
+[node name="Unequip" type="Button" parent="." groups=["Control"]]
+visible = false
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("3_7oomn")
+theme_override_font_sizes/font_size = 46
+disabled = true
+text = "Unequip"
+alignment = 0
+
+[node name="Inspect" type="Button" parent="." groups=["Control"]]
+visible = false
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_right = 160.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_7oomn")
+theme_override_font_sizes/font_size = 46
+disabled = true
+text = "Inspect"
+alignment = 0
+
+[connection signal="pressed" from="Use" to="." method="_on_use_pressed"]
+[connection signal="pressed" from="Equip" to="." method="_on_equip_pressed"]
+[connection signal="pressed" from="Unequip" to="." method="_on_unequip_pressed"]
+[connection signal="pressed" from="Inspect" to="." method="_on_inspect_pressed"]

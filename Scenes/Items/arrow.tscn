@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://chi4urhuuo0jt"]
+
+[ext_resource type="Script" path="res://Scripts/Items/arrow.gd" id="1_3jq11"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v3bw0"]
+size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkggb"]
+size = Vector3(0.1, 0.1, 1)
+
+[node name="Arrow" type="Node3D"]
+script = ExtResource("1_3jq11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_v3bw0")
+
+[node name="TargetDet" type="Area3D" parent="MeshInstance3D"]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/TargetDet"]
+shape = SubResource("BoxShape3D_pkggb")
+
+[connection signal="body_entered" from="MeshInstance3D/TargetDet" to="." method="_on_target_det_body_entered"]

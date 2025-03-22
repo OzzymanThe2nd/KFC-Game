@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://xdbyq0s1oh0n"]
+
+[ext_resource type="Texture2D" uid="uid://bvjpm4xvtsfeg" path="res://textures/debug gloves.png" id="1_7u4va"]
+[ext_resource type="Script" path="res://Scripts/inv_items.gd" id="2_kphpn"]
+
+[resource]
+script = ExtResource("2_kphpn")
+name = "debug gloves"
+img = ExtResource("1_7u4va")
+type = "gloves"
