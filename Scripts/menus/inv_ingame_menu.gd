@@ -9,6 +9,7 @@ var is_open = false
 var stored_item
 var stored_slot
 var swap_slot
+var inspect_windows = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -72,6 +73,11 @@ func update_slots():
 
 func open(sound_enable = true):
 	if not get_tree().paused == true:
+		for i in inspect_windows:
+			if not is_instance_valid(i):
+				inspect_windows.erase(i)
+			if is_instance_valid(i):
+				i.queue_free()
 		visible = true
 		is_open = true
 		update_slots()
@@ -81,6 +87,11 @@ func open(sound_enable = true):
 			$OpenSound.play()
 
 func close(sound_enable = true):
+	for i in inspect_windows:
+		if not is_instance_valid(i):
+			inspect_windows.erase(i)
+		if is_instance_valid(i):
+			i.queue_free()
 	visible = false
 	is_open = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

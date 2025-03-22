@@ -7,6 +7,7 @@ var equipment
 var get_player_equipment : bool = false
 var get_player : bool = false
 var get_inv : bool = false
+var inspect_menu_path = "res://Scenes/Menus/inspect_menu.tscn"
 
 func _ready() -> void:
 	inventory_slot = get_parent()
@@ -282,4 +283,7 @@ func _on_unequip_pressed() -> void:
 
 
 func _on_inspect_pressed() -> void:
+	var inspect = load(inspect_menu_path).instantiate()
+	inventory.add_child(inspect)
+	inventory.inspect_windows.append(inspect)
 	queue_free()
