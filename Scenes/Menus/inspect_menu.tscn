@@ -1,8 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcpb8m3wggtuh"]
+[gd_scene load_steps=8 format=3 uid="uid://dcpb8m3wggtuh"]
 
 [ext_resource type="Script" path="res://Scripts/menus/inspect_menu.gd" id="1_j0eqt"]
+[ext_resource type="Texture2D" uid="uid://cpgapsu55fnj1" path="res://textures/border.png" id="2_tl1gi"]
+[ext_resource type="FontFile" uid="uid://cmtxgcvukvcbw" path="res://Assets/Fonts/pixeldroidMenuRegular.otf" id="3_8m2c3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bgu5u"]
+
+[sub_resource type="Shader" id="Shader_3hto2"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, repeat_disable, filter_nearest;
+uniform float pixel_size : hint_range(1.0, 16.0, 1.0) = 1.0;
+
+void fragment() {
+	float x = FRAGCOORD.x - mod(FRAGCOORD.x, pixel_size);
+	float y = FRAGCOORD.y - mod(FRAGCOORD.y, pixel_size);
+	float shift = floor(pixel_size / 2.0);
+	COLOR = texture(SCREEN_TEXTURE, vec2(x + shift, y + shift) * SCREEN_PIXEL_SIZE);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lkgcy"]
+shader = SubResource("Shader_3hto2")
+shader_parameter/pixel_size = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_jllvy"]
+font = ExtResource("3_8m2c3")
+font_size = 38
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.67451)
 
 [node name="Inspect" type="Panel"]
 anchors_preset = 8
@@ -18,7 +47,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j0eqt")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -369.0
+offset_right = 400.0
+offset_bottom = 231.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tl1gi")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_vertical = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="NinePatchRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,18 +81,61 @@ offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="NinePatchRect/SubViewportContainer"]
 own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 4
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NinePatchRect/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.998085, -0.0618499, 0, 0.0618499, 0.998085, 0, 0, 0)
+top_level = true
 mesh = SubResource("BoxMesh_bgu5u")
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="NinePatchRect/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="NinePatchRect/SubViewportContainer/SubViewport/Camera3D"]
 transform = Transform3D(0.965926, -0.12941, 0.224144, 0, 0.866025, 0.5, -0.258819, -0.482963, 0.836516, -1, 2, 0)
+
+[node name="ColorRect" type="ColorRect" parent="NinePatchRect/SubViewportContainer/SubViewport"]
+visible = false
+material = SubResource("ShaderMaterial_lkgcy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = 231.0
+offset_right = 400.0
+offset_bottom = 431.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tl1gi")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_vertical = 1
+
+[node name="ItemDescription" type="Label" parent="NinePatchRect2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 125.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("3_8m2c3")
+theme_override_font_sizes/font_size = 18
+text = "Filler"
+label_settings = SubResource("LabelSettings_jllvy")

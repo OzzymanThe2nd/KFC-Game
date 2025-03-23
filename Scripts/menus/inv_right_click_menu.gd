@@ -283,7 +283,9 @@ func _on_unequip_pressed() -> void:
 
 
 func _on_inspect_pressed() -> void:
-	var inspect = load(inspect_menu_path).instantiate()
+	var inspect = load(inspect_menu_path)
+	inspect = inspect.instantiate()
+	inspect.item = item
 	inventory.add_child(inspect)
 	inventory.inspect_windows.append(inspect)
 	queue_free()
