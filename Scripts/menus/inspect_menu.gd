@@ -9,4 +9,4 @@ func _ready() -> void:
 			%ItemDescription.text = item.name
 
 func _process(delta: float) -> void:
-	$NinePatchRect/SubViewportContainer/SubViewport/MeshInstance3D.rotate_y(0.001)
+	%ModelSpot.rotate_y(0.001)
