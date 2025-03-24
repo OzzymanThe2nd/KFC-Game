@@ -8,3 +8,5 @@ script = ExtResource("2_jjo4e")
 name = "debug"
 img = ExtResource("1_g1tw3")
 type = "usable"
+desc = "Filler text for inspect descriptions"
+mesh = "res://Assets/Models/rusted_knight/scene.gltf"

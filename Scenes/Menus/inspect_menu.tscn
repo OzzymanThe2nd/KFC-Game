@@ -49,6 +49,7 @@ patch_margin_bottom = 8
 axis_stretch_vertical = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="NinePatchRect"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -65,14 +66,17 @@ scale = Vector2(2, 2)
 own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
+msaa_3d = 1
 size = Vector2i(256, 256)
 render_target_update_mode = 4
 
 [node name="ModelSpot" type="Node3D" parent="NinePatchRect/SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NinePatchRect/SubViewportContainer/SubViewport/ModelSpot"]
 transform = Transform3D(1, 0, 0, 0, 0.998085, -0.0618499, 0, 0.0618499, 0.998085, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_bgu5u")
 skeleton = NodePath("../..")
 

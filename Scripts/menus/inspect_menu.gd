@@ -5,8 +5,9 @@ var item : InvItem
 
 func _ready() -> void:
 	if item:
-		if item.name == "debug":
-			%ItemDescription.text = item.name
+		%ItemDescription.text = item.desc
+		%ModelSpot.add_child(load(item.mesh).instantiate())
+		
 
 func _process(delta: float) -> void:
 	%ModelSpot.rotate_y(0.001)
