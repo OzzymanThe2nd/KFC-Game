@@ -72,7 +72,6 @@ render_target_update_mode = 4
 
 [node name="ModelSpot" type="Node3D" parent="NinePatchRect/SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NinePatchRect/SubViewportContainer/SubViewport/ModelSpot"]
 transform = Transform3D(1, 0, 0, 0, 0.998085, -0.0618499, 0, 0.0618499, 0.998085, 0, 0, 0)

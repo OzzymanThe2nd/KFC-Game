@@ -14,3 +14,7 @@ func _on_button_2_pressed() -> void:
 func _on_button_3_pressed() -> void:
 	Playerstatus.load_game()
 	queue_free()
+
+
+func _on_button_4_pressed() -> void:
+	get_tree().quit()

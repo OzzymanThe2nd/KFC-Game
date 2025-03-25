@@ -8,3 +8,7 @@ script = ExtResource("2_foydp")
 name = "debug sword"
 img = ExtResource("1_8ufey")
 type = "weapon"
+desc = ""
+mesh = "res://Assets/Models/low_poly_sword_handpainted/scene.gltf"
+y_off = -1.0
+scale = 1.0
