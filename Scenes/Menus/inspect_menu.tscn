@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcpb8m3wggtuh"]
+[gd_scene load_steps=7 format=3 uid="uid://dcpb8m3wggtuh"]
 
 [ext_resource type="Script" path="res://Scripts/menus/inspect_menu.gd" id="1_j0eqt"]
 [ext_resource type="Texture2D" uid="uid://cpgapsu55fnj1" path="res://textures/border.png" id="2_tl1gi"]
 [ext_resource type="FontFile" uid="uid://cmtxgcvukvcbw" path="res://Assets/Fonts/pixeldroidMenuRegular.otf" id="3_8m2c3"]
+[ext_resource type="LabelSettings" uid="uid://4q4ec65ooiba" path="res://menu_font.tres" id="4_4mwue"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bgu5u"]
 
@@ -116,3 +117,57 @@ theme_override_fonts/font = ExtResource("3_8m2c3")
 theme_override_font_sizes/font_size = 18
 text = "Filler"
 label_settings = SubResource("LabelSettings_jllvy")
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="."]
+process_mode = 3
+process_priority = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -469.0
+offset_right = 400.0
+offset_bottom = -369.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tl1gi")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_vertical = 1
+
+[node name="ItemName" type="Label" parent="NinePatchRect3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 125.0
+offset_bottom = 51.0
+text = "Filler"
+label_settings = ExtResource("4_4mwue")
+
+[node name="DragDet" type="Panel" parent="NinePatchRect3"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 100.0
+
+[node name="CloseMenu" type="Button" parent="NinePatchRect3"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -57.0
+offset_top = 18.0
+offset_right = -17.0
+offset_bottom = 58.0
+grow_horizontal = 0
+text = "X"
+
+[connection signal="mouse_entered" from="NinePatchRect3/DragDet" to="." method="_on_drag_det_mouse_entered"]
+[connection signal="mouse_exited" from="NinePatchRect3/DragDet" to="." method="_on_drag_det_mouse_exited"]
+[connection signal="pressed" from="NinePatchRect3/CloseMenu" to="." method="_on_close_menu_pressed"]
