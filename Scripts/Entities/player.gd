@@ -214,7 +214,7 @@ func _input(event):
 		elif Input.is_action_just_pressed("3"):
 			equipbow()
 		elif Input.is_action_just_pressed("4"):
-			collect(debug_item_spawn)
+			print(get_tree().root.get_child(1).get_children())
 		elif Input.is_action_just_pressed("f5"):
 			Playerstatus.save_all(self)
 		elif Input.is_action_just_pressed("f9"):
@@ -454,3 +454,4 @@ func _on_bow_unequipped():
 func _on_hud_anim_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "FadeToBlack":
 		Playerstatus.level_change(stored_level, stored_coord)
+		get_parent().queue_free()

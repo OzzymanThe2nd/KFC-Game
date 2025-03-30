@@ -63,7 +63,8 @@ func update_stats(player, helmet, chest, gloves, legs, weapon, shield, bow):
 	protslash = updated_protslash
 	protcrush = updated_protcrush
 	protstab = updated_protstab
-	display_damage = roundi(item_damage + (strength / 2))
+	var strengthmod = roundi(strength / 2)
+	display_damage = roundi(item_damage + strengthmod)
 
 func save():
 	var save_dictionary = {
@@ -212,3 +213,9 @@ func load_game():
 func loading_image_clear():
 	if loading_image != null:
 		loading_image.queue_free()
+
+func clear_nodes():
+	if keepplayer != null:
+		keepplayer.queue_free()
+	if level != null:
+		level.queue_free()

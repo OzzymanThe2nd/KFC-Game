@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjwxwur1bdiyl"
 path.s3tc="res://.godot/imported/Terrain_normal.png-ec7c3ab1f2ed7b69d5bb6c4f47607663.s3tc.ctex"
+path.etc2="res://.godot/imported/Terrain_normal.png-ec7c3ab1f2ed7b69d5bb6c4f47607663.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Models/low_poly_knight/textures/Terrain_normal.png"
-dest_files=["res://.godot/imported/Terrain_normal.png-ec7c3ab1f2ed7b69d5bb6c4f47607663.s3tc.ctex"]
+dest_files=["res://.godot/imported/Terrain_normal.png-ec7c3ab1f2ed7b69d5bb6c4f47607663.s3tc.ctex", "res://.godot/imported/Terrain_normal.png-ec7c3ab1f2ed7b69d5bb6c4f47607663.etc2.ctex"]
 
 [params]
 

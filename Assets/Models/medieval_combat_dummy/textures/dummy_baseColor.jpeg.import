@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2n8qkkejg83j"
 path.s3tc="res://.godot/imported/dummy_baseColor.jpeg-f6147f27ad65035b0332391098caa368.s3tc.ctex"
+path.etc2="res://.godot/imported/dummy_baseColor.jpeg-f6147f27ad65035b0332391098caa368.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Models/medieval_combat_dummy/textures/dummy_baseColor.jpeg"
-dest_files=["res://.godot/imported/dummy_baseColor.jpeg-f6147f27ad65035b0332391098caa368.s3tc.ctex"]
+dest_files=["res://.godot/imported/dummy_baseColor.jpeg-f6147f27ad65035b0332391098caa368.s3tc.ctex", "res://.godot/imported/dummy_baseColor.jpeg-f6147f27ad65035b0332391098caa368.etc2.ctex"]
 
 [params]
 
