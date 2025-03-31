@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1424xjggudye"
 path.s3tc="res://.godot/imported/Material_normal.png-fc5475c1123e51acc0f0cddb06eea4a1.s3tc.ctex"
-path.etc2="res://.godot/imported/Material_normal.png-fc5475c1123e51acc0f0cddb06eea4a1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Models/rusted_knight/textures/Material_normal.png"
-dest_files=["res://.godot/imported/Material_normal.png-fc5475c1123e51acc0f0cddb06eea4a1.s3tc.ctex", "res://.godot/imported/Material_normal.png-fc5475c1123e51acc0f0cddb06eea4a1.etc2.ctex"]
+dest_files=["res://.godot/imported/Material_normal.png-fc5475c1123e51acc0f0cddb06eea4a1.s3tc.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcpb8m3wggtuh"]
+[gd_scene load_steps=6 format=3 uid="uid://dcpb8m3wggtuh"]
 
 [ext_resource type="Script" path="res://Scripts/menus/inspect_menu.gd" id="1_j0eqt"]
 [ext_resource type="Texture2D" uid="uid://cpgapsu55fnj1" path="res://textures/border.png" id="2_tl1gi"]
@@ -6,14 +6,6 @@
 [ext_resource type="LabelSettings" uid="uid://4q4ec65ooiba" path="res://menu_font.tres" id="4_4mwue"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bgu5u"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_jllvy"]
-font = ExtResource("3_8m2c3")
-font_size = 38
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 0.67451)
 
 [node name="Inspect" type="Panel"]
 anchors_preset = 8
@@ -121,17 +113,40 @@ patch_margin_right = 8
 patch_margin_bottom = 8
 axis_stretch_vertical = 1
 
-[node name="ItemDescription" type="Label" parent="NinePatchRect2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -90.0
+offset_right = 390.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ItemDescription" type="RichTextLabel" parent="NinePatchRect2/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 17.0
-offset_top = 8.0
-offset_right = 125.0
-offset_bottom = 51.0
-theme_override_fonts/font = ExtResource("3_8m2c3")
-theme_override_font_sizes/font_size = 18
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/normal_font = ExtResource("3_8m2c3")
+theme_override_fonts/mono_font = ExtResource("3_8m2c3")
+theme_override_fonts/italics_font = ExtResource("3_8m2c3")
+theme_override_font_sizes/normal_font_size = 38
 text = "Filler"
-label_settings = SubResource("LabelSettings_jllvy")
+fit_content = true
+scroll_active = false
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="."]
 process_mode = 3

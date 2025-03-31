@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c728o70y6224n"
 path.s3tc="res://.godot/imported/dungeonwall.png-6a18e71278a4e7294fa84cf24f386462.s3tc.ctex"
-path.etc2="res://.godot/imported/dungeonwall.png-6a18e71278a4e7294fa84cf24f386462.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/dungeonwall.png"
-dest_files=["res://.godot/imported/dungeonwall.png-6a18e71278a4e7294fa84cf24f386462.s3tc.ctex", "res://.godot/imported/dungeonwall.png-6a18e71278a4e7294fa84cf24f386462.etc2.ctex"]
+dest_files=["res://.godot/imported/dungeonwall.png-6a18e71278a4e7294fa84cf24f386462.s3tc.ctex"]
 
 [params]
 

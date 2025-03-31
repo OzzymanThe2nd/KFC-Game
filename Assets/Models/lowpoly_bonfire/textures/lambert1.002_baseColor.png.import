@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhy2qbacihqa2"
 path.s3tc="res://.godot/imported/lambert1.002_baseColor.png-1e12cf2cd17c05051db05cee94c486a0.s3tc.ctex"
-path.etc2="res://.godot/imported/lambert1.002_baseColor.png-1e12cf2cd17c05051db05cee94c486a0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Models/lowpoly_bonfire/textures/lambert1.002_baseColor.png"
-dest_files=["res://.godot/imported/lambert1.002_baseColor.png-1e12cf2cd17c05051db05cee94c486a0.s3tc.ctex", "res://.godot/imported/lambert1.002_baseColor.png-1e12cf2cd17c05051db05cee94c486a0.etc2.ctex"]
+dest_files=["res://.godot/imported/lambert1.002_baseColor.png-1e12cf2cd17c05051db05cee94c486a0.s3tc.ctex"]
 
 [params]
 

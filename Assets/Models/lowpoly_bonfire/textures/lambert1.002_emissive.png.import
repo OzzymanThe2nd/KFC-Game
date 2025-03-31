@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjywil8ea68fe"
 path.s3tc="res://.godot/imported/lambert1.002_emissive.png-afb5a580c86f7772fae37c25ee15c943.s3tc.ctex"
-path.etc2="res://.godot/imported/lambert1.002_emissive.png-afb5a580c86f7772fae37c25ee15c943.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Models/lowpoly_bonfire/textures/lambert1.002_emissive.png"
-dest_files=["res://.godot/imported/lambert1.002_emissive.png-afb5a580c86f7772fae37c25ee15c943.s3tc.ctex", "res://.godot/imported/lambert1.002_emissive.png-afb5a580c86f7772fae37c25ee15c943.etc2.ctex"]
+dest_files=["res://.godot/imported/lambert1.002_emissive.png-afb5a580c86f7772fae37c25ee15c943.s3tc.ctex"]
 
 [params]
 

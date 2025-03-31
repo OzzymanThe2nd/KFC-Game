@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://s6kcfn6m571i"
 path.s3tc="res://.godot/imported/Knight_Mat_Inst_baseColor.png-609128ef37162005ed458e98d6244495.s3tc.ctex"
-path.etc2="res://.godot/imported/Knight_Mat_Inst_baseColor.png-609128ef37162005ed458e98d6244495.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Models/ps1_psx_knight/textures/Knight_Mat_Inst_baseColor.png"
-dest_files=["res://.godot/imported/Knight_Mat_Inst_baseColor.png-609128ef37162005ed458e98d6244495.s3tc.ctex", "res://.godot/imported/Knight_Mat_Inst_baseColor.png-609128ef37162005ed458e98d6244495.etc2.ctex"]
+dest_files=["res://.godot/imported/Knight_Mat_Inst_baseColor.png-609128ef37162005ed458e98d6244495.s3tc.ctex"]
 
 [params]
 

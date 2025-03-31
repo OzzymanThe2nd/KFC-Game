@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://5gh7uogf5dg1"
 path.s3tc="res://.godot/imported/Material_normal.png-1789f8305b2c18f6f9d3af8945af8ebe.s3tc.ctex"
-path.etc2="res://.godot/imported/Material_normal.png-1789f8305b2c18f6f9d3af8945af8ebe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Models/low_poly_knight/textures/Material_normal.png"
-dest_files=["res://.godot/imported/Material_normal.png-1789f8305b2c18f6f9d3af8945af8ebe.s3tc.ctex", "res://.godot/imported/Material_normal.png-1789f8305b2c18f6f9d3af8945af8ebe.etc2.ctex"]
+dest_files=["res://.godot/imported/Material_normal.png-1789f8305b2c18f6f9d3af8945af8ebe.s3tc.ctex"]
 
 [params]
 
