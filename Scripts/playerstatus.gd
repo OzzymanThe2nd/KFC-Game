@@ -1,7 +1,7 @@
 extends Node
 var level
 var loading_image
-@export var strength = 1
+var strength = 1
 @export var healthmax = 25
 @export var healthcurrent = 25
 @export var protslash = 0
@@ -63,15 +63,17 @@ func update_stats(player, helmet, chest, gloves, legs, weapon, shield, bow):
 	protslash = updated_protslash
 	protcrush = updated_protcrush
 	protstab = updated_protstab
-	var strengthmod = roundi(strength / 2)
-	display_damage = roundi(item_damage + strengthmod)
+	var strengthmod = (strength / 2)
+	print("1/2: " +str(strengthmod))
+	print(strength)
+	display_damage = (item_damage + strengthmod)
 
 func save():
 	var save_dictionary = {
 		"filename" : "Playerstatus",
-		"healthcurrent" : healthcurrent,
-		"healthmax" : healthmax,
-		"strength" : strength,
+		"healthcurrent" : int(healthcurrent),
+		"healthmax" : int(healthmax),
+		"strength" : int(strength),
 		"warpspots_unlocked" : warpspots_unlocked
 		}
 	return save_dictionary
@@ -192,9 +194,9 @@ func load_game():
 
 		# Firstly, we need to create the object and add it to the tree and set its position.
 		if node_data["filename"] == "Playerstatus":
-			healthcurrent = node_data["healthcurrent"]
-			healthmax = node_data["healthmax"]
-			strength = node_data["strength"]
+			healthcurrent = int(node_data["healthcurrent"])
+			healthmax = int(node_data["healthmax"])
+			strength = int(node_data["strength"])
 		elif not node_data.keys().has("level"):
 			var new_object = load(node_data["filename"]).instantiate()
 			if node_data["parent"] == "level":

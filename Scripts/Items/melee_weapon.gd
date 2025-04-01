@@ -11,7 +11,7 @@ var unsheathing = true
 var busy = true
 var temppos = Vector3(0,0,0)
 var playerstrength = Playerstatus.strength
-var dmg = roundi(basedmg + (playerstrength / 2))
+var dmg = basedmg + (playerstrength / 2)
 var swingspeed = Playerstatus.swingspeed
 var swingspeed_slow = swingspeed * 0.3
 signal sword_unequipped
