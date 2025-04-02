@@ -11,6 +11,8 @@ var stored_coord
 var loadSWORD
 var loadSHIELD
 var loadBOW
+var footstep_val : float = 30
+var footstep_sounds = ["res://Assets/Sounds/FootstepMetal1.wav","res://Assets/Sounds/FootstepMetal2.wav","res://Assets/Sounds/FootstepMetal3.wav","res://Assets/Sounds/FootstepMetal4.wav"]
 @onready var debug_item_spawn = preload("res://Scripts/Inventory/debug_item.tres")
 var weapononright = true
 var weaponbounceup = true
@@ -19,9 +21,9 @@ var SWORD = null
 var SHIELD = null
 var BOW = null
 var swordout = false
-const SPEED = 4.0
+const SPEED = 3.5
 const SPRINTSPEED = 7.0
-const CROUCHSPEED = 3.0
+const CROUCHSPEED = 2.0
 const JUMP_VELOCITY = 3.5
 const MAX_STEP_HEIGHT = 0.5
 var snapped_to_stairs = false
@@ -134,8 +136,6 @@ func _snap_up_stairs_check(delta) -> bool:
 	return false
 
 func _physics_process(delta):
-	if is_on_floor():
-		doublejump_free = true
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	#!Sprint/Dash code: only one at a time, decide what you'd prefer later
@@ -182,7 +182,15 @@ func _physics_process(delta):
 			swordswing()
 		else:
 			bowshoot()
-			
+	if is_on_floor():
+		doublejump_free = true
+		if velocity.x != 0 or velocity.z != 0:
+			footstep_val -= 1
+			if footstep_val <= 0:
+				print("step")
+				$Footstep.stream = load(footstep_sounds[randi_range(0,3)])
+				$Footstep.play()
+				footstep_val = 30
 	weaponbobble()
 	if not _snap_up_stairs_check(delta):
 		move_and_slide()

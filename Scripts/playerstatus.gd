@@ -64,8 +64,6 @@ func update_stats(player, helmet, chest, gloves, legs, weapon, shield, bow):
 	protcrush = updated_protcrush
 	protstab = updated_protstab
 	var strengthmod = (strength / 2)
-	print("1/2: " +str(strengthmod))
-	print(strength)
 	display_damage = (item_damage + strengthmod)
 
 func save():
