@@ -187,7 +187,6 @@ func _physics_process(delta):
 		if velocity.x != 0 or velocity.z != 0:
 			footstep_val -= 1
 			if footstep_val <= 0:
-				print("step")
 				$Footstep.stream = load(footstep_sounds[randi_range(0,3)])
 				$Footstep.play()
 				footstep_val = 30

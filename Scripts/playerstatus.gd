@@ -1,7 +1,12 @@
 extends Node
 var level
+var player_level = 1
+var player_experience = 0
+var maxlevel : bool = false
 var loading_image
 var strength = 1
+var archery = 1
+var magic = 1
 @export var healthmax = 25
 @export var healthcurrent = 25
 @export var protslash = 0
@@ -69,9 +74,14 @@ func update_stats(player, helmet, chest, gloves, legs, weapon, shield, bow):
 func save():
 	var save_dictionary = {
 		"filename" : "Playerstatus",
+		"player_level" : int(player_level),
+		"player_experience" : int(player_experience),
+		"maxlevel" : bool(maxlevel),
 		"healthcurrent" : int(healthcurrent),
 		"healthmax" : int(healthmax),
 		"strength" : int(strength),
+		"archery" : int(archery),
+		"magic" : int(magic),
 		"warpspots_unlocked" : warpspots_unlocked
 		}
 	return save_dictionary
@@ -126,6 +136,21 @@ func save_all(player):
 func loading_image_appear():
 	loading_image = loading_image_path.instantiate()
 	get_tree().get_root().add_child(loading_image)
+
+func exp_gain(x):
+	var level_up_threshold = int(100 * (1.25 ^ player_level))
+	player_experience += x
+	if player_experience >= level_up_threshold:
+		player_level_up()
+
+func player_level_up():
+	player_level += 1
+	strength += 1
+	archery += 1
+	magic += 1
+	healthmax *= 1.1
+	if player_level >= 25:
+		maxlevel = true
 
 func load_game():
 	loading_image_appear()
@@ -192,9 +217,14 @@ func load_game():
 
 		# Firstly, we need to create the object and add it to the tree and set its position.
 		if node_data["filename"] == "Playerstatus":
+			player_level = int(node_data["player_level"])
+			player_experience = int(node_data["player_experience"])
+			maxlevel = bool(node_data["maxlevel"])
 			healthcurrent = int(node_data["healthcurrent"])
 			healthmax = int(node_data["healthmax"])
 			strength = int(node_data["strength"])
+			archery = int(node_data["archery"])
+			magic = int(node_data["magic"])
 		elif not node_data.keys().has("level"):
 			var new_object = load(node_data["filename"]).instantiate()
 			if node_data["parent"] == "level":

@@ -711,6 +711,8 @@ libraries = {
 [node name="Footstep" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 stream = SubResource("AudioStream_7mvji")
+unit_size = 1.0
+pitch_scale = 0.8
 
 [connection signal="child_exiting_tree" from="CamNode3D/CamSmooth/PCamera/SwordSpawn" to="." method="_on_sword_spawn_child_exiting_tree"]
 [connection signal="animation_finished" from="PlayerAnim" to="." method="_on_player_anim_animation_finished"]
