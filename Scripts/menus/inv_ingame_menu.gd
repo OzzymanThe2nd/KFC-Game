@@ -70,6 +70,9 @@ func update_slots():
 	$Equipment/ColorRect/Crush.text = "Crush Protection: %s" % str(Playerstatus.protcrush)
 	$Equipment/ColorRect/Stab.text = "Stab Protection: %s" % str(Playerstatus.protstab)
 	$Equipment/ColorRect/Damage.text = "Melee Damage: %s" % str(Playerstatus.display_damage)
+	var level_up_threshold = int(100 * (1.25 ** Playerstatus.player_level))
+	%XP.max_value = level_up_threshold
+	%XP.value = Playerstatus.player_experience
 
 func open(sound_enable = true):
 	if not get_tree().paused == true:

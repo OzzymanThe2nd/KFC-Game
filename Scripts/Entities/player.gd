@@ -222,7 +222,7 @@ func _input(event):
 		elif Input.is_action_just_pressed("3"):
 			equipbow()
 		elif Input.is_action_just_pressed("4"):
-			print(get_tree().root.get_child(1).get_children())
+			Playerstatus.exp_gain(10)
 		elif Input.is_action_just_pressed("f5"):
 			Playerstatus.save_all(self)
 		elif Input.is_action_just_pressed("f9"):

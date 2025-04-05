@@ -1,17 +1,17 @@
 extends Node
 var level
-var player_level = 1
-var player_experience = 0
+var player_level : int = 1
+var player_experience : int = 0
 var maxlevel : bool = false
 var loading_image
-var strength = 1
-var archery = 1
-var magic = 1
-@export var healthmax = 25
-@export var healthcurrent = 25
-@export var protslash = 0
-@export var protcrush = 0
-@export var protstab = 0
+var strength : int = 1
+var archery : int = 1
+var magic : int = 1
+@export var healthmax : int = 40
+@export var healthcurrent : int = 40
+@export var protslash : int = 0
+@export var protcrush : int = 0
+@export var protstab : int = 0
 @export var equiped = []
 @export var swingspeed = 1
 var loading_image_path = preload("res://Scenes/Menus/save_loading.tscn")
@@ -138,19 +138,21 @@ func loading_image_appear():
 	get_tree().get_root().add_child(loading_image)
 
 func exp_gain(x):
-	var level_up_threshold = int(100 * (1.25 ^ player_level))
+	var level_up_threshold = int(100 * (1.25 ** player_level))
 	player_experience += x
 	if player_experience >= level_up_threshold:
-		player_level_up()
+		player_level_up(player_experience - level_up_threshold)
 
-func player_level_up():
+func player_level_up(x):
+	player_experience = x
 	player_level += 1
 	strength += 1
 	archery += 1
 	magic += 1
-	healthmax *= 1.1
+	healthmax = int(healthmax * 1.1)
 	if player_level >= 25:
 		maxlevel = true
+	keepplayer.update_status()
 
 func load_game():
 	loading_image_appear()

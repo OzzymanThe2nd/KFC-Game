@@ -1,6 +1,7 @@
 extends Node3D
 class_name bow_base
-@export var dmg : int
+@export var basedmg : int
+var dmg : int
 var busy = true
 @onready var loadARROW = preload("res://Scenes/Items/arrow.tscn")
 signal bow_unequipped
@@ -8,6 +9,7 @@ signal bow_unequipped
 func _ready() -> void:
 	busy = true
 	$AnimationPlayer.play("equip")
+	dmg = basedmg + Playerstatus.archery / 2
 
 
 

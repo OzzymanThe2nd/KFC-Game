@@ -202,7 +202,6 @@ _data = {
 
 [node name="Bow" type="Node3D"]
 script = ExtResource("1_kk17p")
-dmg = 2
 
 [node name="ArrowSpawn" type="Marker3D" parent="."]
 unique_name_in_owner = true

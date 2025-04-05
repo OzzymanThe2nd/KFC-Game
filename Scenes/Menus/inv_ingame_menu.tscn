@@ -1,13 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbj563ox2wh47"]
+[gd_scene load_steps=12 format=3 uid="uid://dbj563ox2wh47"]
 
 [ext_resource type="Script" path="res://Scripts/menus/inv_ingame_menu.gd" id="1_r7ogb"]
 [ext_resource type="Texture2D" uid="uid://cpgapsu55fnj1" path="res://textures/border.png" id="2_ednt7"]
 [ext_resource type="PackedScene" uid="uid://dksakehgk051q" path="res://Scenes/Menus/inv_ui_slot.tscn" id="3_41o4a"]
 [ext_resource type="LabelSettings" uid="uid://4q4ec65ooiba" path="res://menu_font.tres" id="4_gfb2d"]
 [ext_resource type="AudioStream" uid="uid://6jnl6xuvplgt" path="res://Assets/Sounds/MenuCloseBleepBloop2.wav" id="5_18ayc"]
+[ext_resource type="FontFile" uid="uid://cmtxgcvukvcbw" path="res://Assets/Fonts/pixeldroidMenuRegular.otf" id="5_yldq6"]
 [ext_resource type="AudioStream" uid="uid://bdfq7p2yepp1w" path="res://Assets/Sounds/OpenBleep1.wav" id="6_qdomn"]
 [ext_resource type="AudioStream" uid="uid://b7khdhik7w6m5" path="res://Assets/Sounds/Select4.wav" id="7_lifi3"]
 [ext_resource type="AudioStream" uid="uid://cluba1lcpr67q" path="res://Assets/Sounds/CloseBloop2.wav" id="8_idytv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44n8l"]
+texture = ExtResource("2_ednt7")
+texture_margin_top = 20.0
+texture_margin_bottom = 28.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0l3t"]
+bg_color = Color(0.329412, 0.678431, 0.815686, 1)
+border_width_left = 10
+border_width_top = 13
+border_width_right = 10
+border_width_bottom = 11
+border_color = Color(0.8, 0.8, 0.8, 0)
 
 [node name="Menu Box" type="Control"]
 process_mode = 3
@@ -206,26 +222,27 @@ color = Color(0.241156, 0.241156, 0.241156, 0.835294)
 [node name="Slash" type="Label" parent="Equipment/ColorRect"]
 layout_mode = 1
 offset_left = 4.0
-offset_right = 99.0
-offset_bottom = 55.0
+offset_top = 53.0
+offset_right = 112.0
+offset_bottom = 108.0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
 [node name="Crush" type="Label" parent="Equipment/ColorRect"]
 layout_mode = 1
 offset_left = 4.0
-offset_top = 50.0
-offset_right = 99.0
-offset_bottom = 105.0
+offset_top = 103.0
+offset_right = 112.0
+offset_bottom = 158.0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
 [node name="Stab" type="Label" parent="Equipment/ColorRect"]
 layout_mode = 1
 offset_left = 4.0
-offset_top = 100.0
-offset_right = 99.0
-offset_bottom = 155.0
+offset_top = 153.0
+offset_right = 112.0
+offset_bottom = 208.0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
@@ -241,6 +258,27 @@ offset_bottom = -5.0
 grow_vertical = 0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
+
+[node name="XP" type="ProgressBar" parent="Equipment/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 6.0
+offset_right = 320.0
+offset_bottom = 33.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_yldq6")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/background = SubResource("StyleBoxTexture_44n8l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f0l3t")
+value = 20.0
+rounded = true
+show_percentage = false
 
 [node name="Label" type="Label" parent="Equipment"]
 layout_mode = 1
