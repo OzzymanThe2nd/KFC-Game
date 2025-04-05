@@ -154,6 +154,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED-2.5)
 		velocity.z = move_toward(velocity.z, 0, SPEED-2.5)
+		footstep_val = 4
 	#if Input.is_action_just_pressed("flashlight"): #Flashlight stuff
 		#if smgready==true:
 			#SMG.flashlight()

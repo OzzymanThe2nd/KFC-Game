@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 			%"Player Det".enabled = true
 			%"Shield Det".enabled = true
 	if %"Shield Det".is_colliding():
+		%"Shield Det".get_collider().get_parent().shield_damage(7)
 		bounceback()
 	elif %"Player Det".is_colliding():
 		%"Player Det".enabled = false
