@@ -12,7 +12,7 @@ var loadSWORD
 var loadSHIELD
 var loadBOW
 var footstep_val : float = 30
-var footstep_sounds = ["res://Assets/Sounds/FootstepMetal1.wav","res://Assets/Sounds/FootstepMetal2.wav","res://Assets/Sounds/FootstepMetal3.wav","res://Assets/Sounds/FootstepMetal4.wav"]
+var footstep_sounds_metal = ["res://Assets/Sounds/FootstepMetal1.wav","res://Assets/Sounds/FootstepMetal2.wav","res://Assets/Sounds/FootstepMetal3.wav","res://Assets/Sounds/FootstepMetal4.wav"]
 @onready var debug_item_spawn = preload("res://Scripts/Inventory/debug_item.tres")
 var weapononright = true
 var weaponbounceup = true
@@ -21,6 +21,8 @@ var SWORD = null
 var SHIELD = null
 var BOW = null
 var swordout = false
+var steptype : String = "metal"
+var stepqueued : bool = false
 const SPEED = 3.5
 const SPRINTSPEED = 7.0
 const CROUCHSPEED = 2.0
@@ -138,6 +140,7 @@ func _snap_up_stairs_check(delta) -> bool:
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+		stepqueued = true
 	#!Sprint/Dash code: only one at a time, decide what you'd prefer later
 	#var sprint = Input.is_action_pressed("move_sprint")
 	# Get the input direction and handle the movement/deceleration.
@@ -154,7 +157,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED-2.5)
 		velocity.z = move_toward(velocity.z, 0, SPEED-2.5)
-		footstep_val = 4
+		footstep_val = 6
 	#if Input.is_action_just_pressed("flashlight"): #Flashlight stuff
 		#if smgready==true:
 			#SMG.flashlight()
@@ -184,17 +187,24 @@ func _physics_process(delta):
 		else:
 			bowshoot()
 	if is_on_floor():
+		if stepqueued:
+			footstep()
+			stepqueued = false
 		doublejump_free = true
 		if velocity.x != 0 or velocity.z != 0:
 			footstep_val -= 1
 			if footstep_val <= 0:
-				$Footstep.stream = load(footstep_sounds[randi_range(0,3)])
-				$Footstep.play()
-				footstep_val = 30
+				footstep()
 	weaponbobble()
 	if not _snap_up_stairs_check(delta):
 		move_and_slide()
 	slide_cam_back(delta)
+
+func footstep():
+	if steptype == "metal":
+		$Footstep.stream = load(footstep_sounds_metal[randi_range(0,3)])
+	$Footstep.play()
+	footstep_val = 30
 
 func _input(event):
 	if event is InputEventMouseMotion:

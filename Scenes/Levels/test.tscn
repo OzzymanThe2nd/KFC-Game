@@ -190,6 +190,7 @@ shape = SubResource("ConvexPolygonShape3D_d0vqa")
 
 [node name="Player" parent="." instance=ExtResource("5_wtro5")]
 process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 process_mode = 1

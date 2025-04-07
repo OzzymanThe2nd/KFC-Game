@@ -298,6 +298,7 @@ text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
 [node name="Level" type="Label" parent="Equipment/ColorRect"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = -1.0
 offset_right = 112.0
