@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://rpl5amivov5f"]
+[gd_scene load_steps=33 format=3 uid="uid://rpl5amivov5f"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/player.gd" id="1_7gcer"]
 [ext_resource type="Texture2D" uid="uid://dng2ohdubklb0" path="res://Assets/Textures/crosshair.png" id="2_suhvn"]
@@ -380,11 +380,57 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CamNode3D/CanvasLayer/PopUpText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u4gn5"]
+resource_name = "TextFadeAway"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CamNode3D/CanvasLayer/PopUpText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w8uab"]
+resource_name = "TextPopUp"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CamNode3D/CanvasLayer/PopUpText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a3dey"]
 _data = {
 "FadeToBlack": SubResource("Animation_csk3t"),
-"RESET": SubResource("Animation_shaff")
+"RESET": SubResource("Animation_shaff"),
+"TextFadeAway": SubResource("Animation_u4gn5"),
+"TextPopUp": SubResource("Animation_w8uab")
 }
 
 [sub_resource type="AudioStream" id="AudioStream_7mvji"]
@@ -660,6 +706,26 @@ text = "Press shift to dash"
 unique_name_in_owner = true
 visible = false
 
+[node name="PopUpText" type="Label" parent="CamNode3D/CanvasLayer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -51.0
+offset_right = 54.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Filler"
+label_settings = ExtResource("7_yux4u")
+
+[node name="PopUpTimer" type="Timer" parent="CamNode3D/CanvasLayer/PopUpText"]
+one_shot = true
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_wx2fv")
 
@@ -715,6 +781,7 @@ unit_size = 1.0
 pitch_scale = 0.8
 
 [connection signal="child_exiting_tree" from="CamNode3D/CamSmooth/PCamera/SwordSpawn" to="." method="_on_sword_spawn_child_exiting_tree"]
+[connection signal="timeout" from="CamNode3D/CanvasLayer/PopUpText/PopUpTimer" to="." method="_on_pop_up_timer_timeout"]
 [connection signal="animation_finished" from="PlayerAnim" to="." method="_on_player_anim_animation_finished"]
 [connection signal="timeout" from="DashLength" to="." method="_on_dash_length_timeout"]
 [connection signal="animation_finished" from="HudAnim" to="." method="_on_hud_anim_animation_finished"]

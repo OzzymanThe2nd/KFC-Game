@@ -206,6 +206,13 @@ func footstep():
 	$Footstep.play()
 	footstep_val = 30
 
+func show_text(text: String, show_time : float):
+	if not $HudAnim.is_playing():
+		%PopUpText.text = text
+		$CamNode3D/CanvasLayer/PopUpText/PopUpTimer.wait_time = show_time + 0.3
+		$CamNode3D/CanvasLayer/PopUpText/PopUpTimer.start()
+		$HudAnim.play("TextPopUp")
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		rot_x -= event.relative.x * mouse_sens
@@ -232,7 +239,7 @@ func _input(event):
 		elif Input.is_action_just_pressed("3"):
 			equipbow()
 		elif Input.is_action_just_pressed("4"):
-			Playerstatus.exp_gain(10)
+			show_text("Bleeeeehhh :3", 5)
 		elif Input.is_action_just_pressed("f5"):
 			Playerstatus.save_all(self)
 		elif Input.is_action_just_pressed("f9"):
@@ -473,3 +480,8 @@ func _on_hud_anim_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "FadeToBlack":
 		Playerstatus.level_change(stored_level, stored_coord)
 		get_parent().queue_free()
+
+
+func _on_pop_up_timer_timeout() -> void:
+	if $HudAnim.is_playing() == false:
+		$HudAnim.play("TextFadeAway")
