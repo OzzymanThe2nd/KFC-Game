@@ -1,8 +1,9 @@
 extends Node3D
-const SPEED=0.19
-var DOWN_VELOCITY = 0.01
-var ROT_LEVEL = -0.01
-var dmg=0
+class_name proj_arrow
+@export var SPEED = 0.19
+@export var DOWN_VELOCITY = 0.01
+@export var ROT_LEVEL = -0.01
+@export var dmg = 0
 var player = null
 
 func _ready() -> void:
@@ -28,5 +29,6 @@ func _physics_process(_delta: float) -> void:
 func _on_target_det_body_entered(body: Node3D) -> void:
 	if body.has_method("damage"):
 		body.damage(dmg)
+		Playerstatus.skill_exp_gain("archery", dmg)
 		body.player = player
 	queue_free()

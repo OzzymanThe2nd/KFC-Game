@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func second_swing():
 	alreadyhit.clear()
-	dmg = roundi(basedmg+(playerstrength / 2))
+	dmg = basedmg + (playerstrength / 2)
 	second_swing_possible = false
 	%WallDet2.enabled = false
 	%EnemyDet.enabled = false
@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 			if body.has_method("damage"):
 				if not alreadyhit.has(body):
 					body.damage(dmg)
+					Playerstatus.skill_exp_gain("strength", dmg)
 					dmg /= 2
 					alreadyhit.append(body)
 					$HitTimer.start()

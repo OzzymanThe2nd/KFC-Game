@@ -5,8 +5,11 @@ var player_experience : int = 0
 var maxlevel : bool = false
 var loading_image
 var strength : int = 1
+var strength_exp : int = 0
 var archery : int = 1
+var archery_exp : int = 0
 var magic : int = 1
+var magic_exp : int = 0
 @export var healthmax : int = 40
 @export var healthcurrent : int = 40
 @export var protslash : int = 0
@@ -80,8 +83,11 @@ func save():
 		"healthcurrent" : int(healthcurrent),
 		"healthmax" : int(healthmax),
 		"strength" : int(strength),
+		"strength_exp" : int(strength_exp),
 		"archery" : int(archery),
+		"archery_exp" : int(archery_exp),
 		"magic" : int(magic),
+		"magic_exp" : int(magic_exp),
 		"warpspots_unlocked" : warpspots_unlocked
 		}
 	return save_dictionary
@@ -143,15 +149,46 @@ func exp_gain(x):
 	if player_experience >= level_up_threshold:
 		player_level_up(player_experience - level_up_threshold)
 
+func skill_exp_gain(skill : String, value : int):
+	var level_up_threshold
+	if skill == "strength":
+		level_up_threshold = int(100 * (1.25 ** strength))
+		strength_exp += value
+		if strength_exp >= level_up_threshold:
+			skill_level_up("strength", strength_exp - level_up_threshold)
+	elif skill == "archery":
+		level_up_threshold = int(100 * (1.25 ** archery))
+		archery_exp += value
+		if archery_exp >= level_up_threshold:
+			skill_level_up("archery", archery_exp - level_up_threshold)
+	elif skill == "magic":
+		level_up_threshold = int(100 * (1.25 ** magic))
+		magic_exp += value
+		if magic_exp >= level_up_threshold:
+			skill_level_up("magic", magic_exp - level_up_threshold)
+
 func player_level_up(x):
+	keepplayer.show_text("Level Up", 4.5)
 	player_experience = x
 	player_level += 1
-	strength += 1
-	archery += 1
-	magic += 1
 	healthmax = int(healthmax * 1.1)
 	if player_level >= 25:
 		maxlevel = true
+	keepplayer.update_status()
+
+func skill_level_up(skill : String, value : int):
+	if skill == "strength":
+		strength += 1
+		strength_exp = value
+		keepplayer.show_text("Strength Level Up", 4.5)
+	if skill == "archery":
+		archery += 1
+		archery_exp = value
+		keepplayer.show_text("Archery Level Up", 4.5)
+	if skill == "magic":
+		magic += 1
+		magic_exp = value
+		keepplayer.show_text("Magic Level Up", 4.5)
 	keepplayer.update_status()
 
 func load_game():
@@ -225,8 +262,9 @@ func load_game():
 			healthcurrent = int(node_data["healthcurrent"])
 			healthmax = int(node_data["healthmax"])
 			strength = int(node_data["strength"])
-			archery = int(node_data["archery"])
-			magic = int(node_data["magic"])
+			strength_exp = int(node_data["strength_exp"])
+			archery_exp = int(node_data["archery_exp"])
+			magic_exp = int(node_data["magic_exp"])
 		elif not node_data.keys().has("level"):
 			var new_object = load(node_data["filename"]).instantiate()
 			if node_data["parent"] == "level":
