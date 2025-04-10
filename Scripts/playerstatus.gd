@@ -3,6 +3,7 @@ var level
 var player_level : int = 1
 var player_experience : int = 0
 var maxlevel : bool = false
+var loading_new_game : bool = false
 var loading_image
 var strength : int = 1
 var strength_exp : int = 0

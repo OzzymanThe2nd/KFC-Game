@@ -82,6 +82,10 @@ func _ready():
 	%heltext.text = "%s" % str(Playerstatus.healthcurrent)
 	%Bobbloid.play("wobble")
 	%Bobbloid.pause()
+	if Playerstatus.loading_new_game == true:
+		equipment = load("res://Scripts/Inventory/player_new_game_equipment.tres")
+		inventory = load("res://Scripts/Inventory/player_new_game_inven.tres")
+		Playerstatus.loading_new_game = false
 	update_status()
 	check_warp()
 	await get_tree().process_frame

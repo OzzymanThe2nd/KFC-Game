@@ -9,6 +9,7 @@ func _on_button_pressed() -> void:
 	for i in children_nodes:
 		if i is Node3D:
 			i.queue_free()
+	Playerstatus.loading_new_game = true
 	get_tree().change_scene_to_file(loading_path)
 
 func _on_button_2_pressed() -> void:

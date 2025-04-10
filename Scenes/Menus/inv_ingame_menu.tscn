@@ -219,30 +219,78 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.241156, 0.241156, 0.241156, 0.835294)
 
+[node name="Level" type="Label" parent="Equipment/ColorRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 112.0
+offset_bottom = 54.0
+text = "Filler"
+label_settings = ExtResource("4_gfb2d")
+
+[node name="Strength" type="Label" parent="Equipment/ColorRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 90.0
+offset_right = 112.0
+offset_bottom = 133.0
+text = "Filler"
+label_settings = ExtResource("4_gfb2d")
+
+[node name="Archery" type="Label" parent="Equipment/ColorRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 133.0
+offset_right = 112.0
+offset_bottom = 176.0
+text = "Filler"
+label_settings = ExtResource("4_gfb2d")
+
+[node name="Magic" type="Label" parent="Equipment/ColorRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 176.0
+offset_right = 112.0
+offset_bottom = 219.0
+text = "Filler"
+label_settings = ExtResource("4_gfb2d")
+
 [node name="Slash" type="Label" parent="Equipment/ColorRect"]
 layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 4.0
-offset_top = 96.0
+offset_top = -150.0
 offset_right = 112.0
-offset_bottom = 151.0
+offset_bottom = -95.0
+grow_vertical = 0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
 [node name="Crush" type="Label" parent="Equipment/ColorRect"]
 layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 4.0
-offset_top = 146.0
+offset_top = -116.0
 offset_right = 112.0
-offset_bottom = 201.0
+offset_bottom = -61.0
+grow_vertical = 0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
 [node name="Stab" type="Label" parent="Equipment/ColorRect"]
 layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 4.0
-offset_top = 196.0
+offset_top = -82.0
 offset_right = 112.0
-offset_bottom = 251.0
+offset_bottom = -27.0
+grow_vertical = 0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
@@ -294,15 +342,6 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Filler"
-label_settings = ExtResource("4_gfb2d")
-
-[node name="Level" type="Label" parent="Equipment/ColorRect"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = -1.0
-offset_right = 112.0
-offset_bottom = 54.0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
