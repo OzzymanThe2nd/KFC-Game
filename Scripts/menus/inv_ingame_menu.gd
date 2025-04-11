@@ -2,9 +2,9 @@ extends Control
 
 var player
 var inventory: inv
-@onready var slots : Array = $"Full Inventory/GridContainer".get_children()
+@onready var slots : Array = $ColorRect/"Full Inventory/GridContainer".get_children()
 var equipment: inv
-@onready var equipment_slots : Array = $Equipment/GridContainer.get_children()
+@onready var equipment_slots : Array = $ColorRect/Equipment/GridContainer.get_children()
 var is_open = false
 var stored_item
 var stored_slot
@@ -38,8 +38,9 @@ func _input(event):
 			var run = 0
 			for i in slots:
 				if i.mouse_inside:
-					stored_item = i.slot_keep
+					#stored_item = i.slot_keep
 					stored_slot = run
+					stored_item = inventory.slots[run].duplicate()
 				run += 1
 		if Input.is_action_just_released("left_click"):
 			var run = 0
@@ -66,14 +67,14 @@ func update_slots():
 		slots[i].update(inventory.slots[i])
 	for i in range(min(equipment.slots.size(),equipment_slots.size())):
 		equipment_slots[i].update(equipment.slots[i])
-	$Equipment/ColorRect/Slash.text = "Slash Protection: %s" % str(Playerstatus.protslash)
-	$Equipment/ColorRect/Crush.text = "Crush Protection: %s" % str(Playerstatus.protcrush)
-	$Equipment/ColorRect/Stab.text = "Stab Protection: %s" % str(Playerstatus.protstab)
-	$Equipment/ColorRect/Damage.text = "Melee Damage: %s" % str(Playerstatus.display_damage)
-	$Equipment/ColorRect/Level.text = "Level: %s" % str(Playerstatus.player_level)
-	$Equipment/ColorRect/Strength.text = "Strength: %s" % str(Playerstatus.strength)
-	$Equipment/ColorRect/Archery.text = "Archery: %s" % str(Playerstatus.archery)
-	$Equipment/ColorRect/Magic.text = "Magic: %s" % str(Playerstatus.magic)
+	$ColorRect/Equipment/ColorRect/Slash.text = "Slash Protection: %s" % str(Playerstatus.protslash)
+	$ColorRect/Equipment/ColorRect/Crush.text = "Crush Protection: %s" % str(Playerstatus.protcrush)
+	$ColorRect/Equipment/ColorRect/Stab.text = "Stab Protection: %s" % str(Playerstatus.protstab)
+	$ColorRect/Equipment/ColorRect/Damage.text = "Melee Damage: %s" % str(Playerstatus.display_damage)
+	$ColorRect/Equipment/ColorRect/Level.text = "Level: %s" % str(Playerstatus.player_level)
+	$ColorRect/Equipment/ColorRect/Strength.text = "Strength: %s" % str(Playerstatus.strength)
+	$ColorRect/Equipment/ColorRect/Archery.text = "Archery: %s" % str(Playerstatus.archery)
+	$ColorRect/Equipment/ColorRect/Magic.text = "Magic: %s" % str(Playerstatus.magic)
 	var level_up_threshold = int(100 * (1.25 ** Playerstatus.player_level))
 	%XPnum.text = "%s/%s" %[str(Playerstatus.player_experience), str(level_up_threshold)]
 	%XP.max_value = level_up_threshold

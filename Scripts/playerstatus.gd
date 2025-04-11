@@ -11,6 +11,7 @@ var archery : int = 1
 var archery_exp : int = 0
 var magic : int = 1
 var magic_exp : int = 0
+var chest_inven = load("res://Scripts/Inventory/chest_inventory.tres")
 @export var healthmax : int = 40
 @export var healthcurrent : int = 40
 @export var protslash : int = 0
@@ -72,8 +73,8 @@ func update_stats(player, helmet, chest, gloves, legs, weapon, shield, bow):
 	protslash = updated_protslash
 	protcrush = updated_protcrush
 	protstab = updated_protstab
-	var strengthmod = (strength / 2)
-	display_damage = (item_damage + strengthmod)
+	var strengthmod = 1 + (strength / 18)
+	display_damage = item_damage * strengthmod
 
 func save():
 	var save_dictionary = {
@@ -110,6 +111,7 @@ func level_change(level, warp_position : Vector3):
 func save_all(player):
 	var current_inven = player.inventory
 	var current_equiped = player.equipment
+	var current_chest = chest_inven
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	save_nodes.append_array(get_tree().get_nodes_in_group("Level"))
@@ -120,6 +122,8 @@ func save_all(player):
 		print("le fu")
 	if ResourceSaver.save(current_equiped,"res://Scripts/Inventory/player_equipped.tres") != OK:
 		print("le fuck...")
+	if ResourceSaver.save(current_chest,"res://Scripts/Inventory/chest_inventory.tres") != OK:
+		print("le shite")
 	for node in save_nodes:
 		# Check the node is an instanced scene so it can be instanced again during load.
 		if node.scene_file_path.is_empty():

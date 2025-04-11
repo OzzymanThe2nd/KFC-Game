@@ -29,9 +29,11 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 process_mode = 3
 custom_minimum_size = Vector2(172, 132)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_r7ogb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -43,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.294118, 0.294118, 0.294118, 0.796078)
 
-[node name="Full Inventory" type="NinePatchRect" parent="."]
+[node name="Full Inventory" type="NinePatchRect" parent="ColorRect"]
 layout_mode = 1
 offset_right = 667.0
 offset_bottom = 1080.0
@@ -53,7 +55,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="GridContainer" type="GridContainer" parent="Full Inventory"]
+[node name="GridContainer" type="GridContainer" parent="ColorRect/Full Inventory"]
 layout_mode = 1
 offset_left = 8.0
 offset_top = 63.0
@@ -63,79 +65,79 @@ scale = Vector2(0.8, 0.8)
 theme_override_constants/v_separation = 10
 columns = 4
 
-[node name="inv_ui_slot" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot2" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot2" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot3" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot3" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot4" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot4" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot5" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot5" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot6" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot6" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot7" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot7" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot8" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot8" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot9" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot9" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot10" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot10" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot11" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot11" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot12" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot12" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot13" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot13" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot14" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot14" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot15" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot15" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot16" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot16" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot17" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot17" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot18" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot18" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot19" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot19" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot20" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot20" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot21" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot21" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot22" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot22" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot23" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot23" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="inv_ui_slot24" parent="Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot24" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Full Inventory"]
+[node name="Label" type="Label" parent="ColorRect/Full Inventory"]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 5.0
@@ -144,7 +146,7 @@ offset_bottom = 60.0
 text = "Inventory"
 label_settings = ExtResource("4_gfb2d")
 
-[node name="Equipment" type="NinePatchRect" parent="."]
+[node name="Equipment" type="NinePatchRect" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -158,7 +160,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="GridContainer" type="GridContainer" parent="Equipment"]
+[node name="GridContainer" type="GridContainer" parent="ColorRect/Equipment"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -172,39 +174,39 @@ scale = Vector2(0.8, 0.8)
 theme_override_constants/v_separation = 10
 columns = 4
 
-[node name="inv_ui_slot" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot" parent="ColorRect/Equipment/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 is_equipment_slot = true
 
-[node name="inv_ui_slot2" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot2" parent="ColorRect/Equipment/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 is_equipment_slot = true
 
-[node name="inv_ui_slot3" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot3" parent="ColorRect/Equipment/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 is_equipment_slot = true
 
-[node name="inv_ui_slot4" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot4" parent="ColorRect/Equipment/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 is_equipment_slot = true
 
-[node name="inv_ui_slot5" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot5" parent="ColorRect/Equipment/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 is_equipment_slot = true
 
-[node name="inv_ui_slot6" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot6" parent="ColorRect/Equipment/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 is_equipment_slot = true
 
-[node name="inv_ui_slot7" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot7" parent="ColorRect/Equipment/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 is_equipment_slot = true
 
-[node name="inv_ui_slot8" parent="Equipment/GridContainer" instance=ExtResource("3_41o4a")]
+[node name="inv_ui_slot8" parent="ColorRect/Equipment/GridContainer" instance=ExtResource("3_41o4a")]
 layout_mode = 2
 is_equipment_slot = true
 
-[node name="ColorRect" type="ColorRect" parent="Equipment"]
+[node name="ColorRect" type="ColorRect" parent="ColorRect/Equipment"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -219,7 +221,7 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.241156, 0.241156, 0.241156, 0.835294)
 
-[node name="Level" type="Label" parent="Equipment/ColorRect"]
+[node name="Level" type="Label" parent="ColorRect/Equipment/ColorRect"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = -1.0
@@ -228,7 +230,7 @@ offset_bottom = 54.0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
-[node name="Strength" type="Label" parent="Equipment/ColorRect"]
+[node name="Strength" type="Label" parent="ColorRect/Equipment/ColorRect"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 90.0
@@ -237,7 +239,7 @@ offset_bottom = 133.0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
-[node name="Archery" type="Label" parent="Equipment/ColorRect"]
+[node name="Archery" type="Label" parent="ColorRect/Equipment/ColorRect"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 133.0
@@ -246,7 +248,7 @@ offset_bottom = 176.0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
-[node name="Magic" type="Label" parent="Equipment/ColorRect"]
+[node name="Magic" type="Label" parent="ColorRect/Equipment/ColorRect"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 176.0
@@ -255,7 +257,7 @@ offset_bottom = 219.0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
-[node name="Slash" type="Label" parent="Equipment/ColorRect"]
+[node name="Slash" type="Label" parent="ColorRect/Equipment/ColorRect"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -268,7 +270,7 @@ grow_vertical = 0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
-[node name="Crush" type="Label" parent="Equipment/ColorRect"]
+[node name="Crush" type="Label" parent="ColorRect/Equipment/ColorRect"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -281,7 +283,7 @@ grow_vertical = 0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
-[node name="Stab" type="Label" parent="Equipment/ColorRect"]
+[node name="Stab" type="Label" parent="ColorRect/Equipment/ColorRect"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -294,7 +296,7 @@ grow_vertical = 0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
-[node name="Damage" type="Label" parent="Equipment/ColorRect"]
+[node name="Damage" type="Label" parent="ColorRect/Equipment/ColorRect"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -307,7 +309,7 @@ grow_vertical = 0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
-[node name="XP" type="ProgressBar" parent="Equipment/ColorRect"]
+[node name="XP" type="ProgressBar" parent="ColorRect/Equipment/ColorRect"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -328,7 +330,7 @@ value = 20.0
 rounded = true
 show_percentage = false
 
-[node name="XPnum" type="Label" parent="Equipment/ColorRect/XP"]
+[node name="XPnum" type="Label" parent="ColorRect/Equipment/ColorRect/XP"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -345,7 +347,7 @@ grow_vertical = 2
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
 
-[node name="Label" type="Label" parent="Equipment"]
+[node name="Label" type="Label" parent="ColorRect/Equipment"]
 layout_mode = 1
 offset_left = 26.0
 offset_top = 5.0

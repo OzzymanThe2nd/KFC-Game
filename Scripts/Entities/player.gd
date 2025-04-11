@@ -351,8 +351,24 @@ func pitfall():
 	take_damage(10, "")
 	global_position = checkpoint
 
+func hud_pixelate(on : bool = false):
+	if on == true:
+		$"CamNode3D/CanvasLayer/Pixelate Hud".visible = true
+	else:
+		$"CamNode3D/CanvasLayer/Pixelate Hud".visible = false
+
 func pixelate_off():
 	%Pixelate.visible = false
+
+func show_hud(on : bool = false):
+	var hud_elements = [$CamNode3D/CanvasLayer/Health]
+	if on == true:
+		for i in hud_elements:
+			i.visible = true
+	else:
+		for i in hud_elements:
+			i.visible = false
+	
 
 func travel_with_fade(level, coord):
 	stored_level = level
