@@ -85,7 +85,9 @@ func _ready():
 	if Playerstatus.loading_new_game == true:
 		equipment = load("res://Scripts/Inventory/player_new_game_equipment.tres")
 		inventory = load("res://Scripts/Inventory/player_new_game_inven.tres")
-		Playerstatus.loading_new_game = false
+		Playerstatus.chest_inven = load("res://Scripts/Inventory/chest_new_game_inventory.tres")
+		Playerstatus.temp_equip = equipment
+		Playerstatus.temp_inven = inventory
 	update_status()
 	check_warp()
 	await get_tree().process_frame

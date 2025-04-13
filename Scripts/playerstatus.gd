@@ -12,6 +12,8 @@ var archery_exp : int = 0
 var magic : int = 1
 var magic_exp : int = 0
 var chest_inven = load("res://Scripts/Inventory/chest_inventory.tres")
+var temp_inven 
+var temp_equip
 @export var healthmax : int = 40
 @export var healthcurrent : int = 40
 @export var protslash : int = 0
@@ -27,6 +29,38 @@ var store_inven
 var store_equip 
 var warp_to 
 var warpspots_unlocked = [true,true,false,false,false,false,false,false]
+
+func reset_to_default():
+	level = null
+	player_level = 1
+	player_experience = 0
+	maxlevel = false
+	loading_new_game = false
+	loading_image = null
+	strength = 1
+	strength_exp = 0
+	archery = 1
+	archery_exp = 0
+	magic = 1
+	magic_exp = 0
+	chest_inven = load("res://Scripts/Inventory/chest_inventory.tres")
+	temp_inven = null
+	temp_equip = null
+	healthmax = 40
+	healthcurrent = 40
+	protslash = 0
+	protcrush = 0
+	protstab = 0
+	equiped = []
+	swingspeed = 1
+	loading_image_path = preload("res://Scenes/Menus/save_loading.tscn")
+	swapping_item = null
+	display_damage = 0
+	keepplayer = null
+	store_inven = null
+	store_equip = null
+	warp_to = null
+	warpspots_unlocked = [true,true,false,false,false,false,false,false]
 
 func update_stats(player, helmet, chest, gloves, legs, weapon, shield, bow):
 	keepplayer = player
@@ -197,6 +231,7 @@ func skill_level_up(skill : String, value : int):
 	keepplayer.update_status()
 
 func load_game():
+	loading_new_game = false
 	loading_image_appear()
 	if not FileAccess.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.
