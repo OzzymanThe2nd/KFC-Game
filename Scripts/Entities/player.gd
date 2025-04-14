@@ -274,7 +274,11 @@ func equipsword():
 func bowshoot():
 	if BOW != null:
 		if BOW.busy != true:
-			BOW.shoot()
+			if equipment.slots[7].amount != 0:
+				equipment.slots[7].amount -= 1
+				if equipment.slots[7].amount >= 0:
+					equipment.slots[7].item = null
+				BOW.shoot()
 
 func equipshield():
 	if BOW != null:
@@ -459,9 +463,10 @@ func update_status():
 	var weapon = equipment.slots[4].item
 	var shield = equipment.slots[5].item
 	var bow = equipment.slots[6].item
+	var arrow = equipment.slots[7].item
 	%Hbar.max_value = Playerstatus.healthmax
 	%Hbar.value = Playerstatus.healthcurrent
-	Playerstatus.update_stats(self, helmet, chest, gloves, legs, weapon, shield, bow)
+	Playerstatus.update_stats(self, helmet, chest, gloves, legs, weapon, shield, bow, arrow)
 
 func check_warp():
 	if Playerstatus.warp_to != null:

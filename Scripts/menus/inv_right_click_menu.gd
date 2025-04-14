@@ -13,11 +13,11 @@ func _ready() -> void:
 	inventory_slot = get_parent()
 	if get_player == true:
 		player = get_parent()
-		for i in 6:
+		for i in 7:
 			player = player.get_parent()
 	if get_inv == true:
 		inventory = get_parent()
-		for i in 3:
+		for i in 4:
 			inventory = inventory.get_parent()
 	if get_player_equipment == true:
 		equipment = player.equipment
@@ -36,8 +36,9 @@ func text_update():
 					if not check_if_weapon():
 						if not check_if_shield():
 							if not check_if_bow():
-								$Label.text = str(item.name)
-								$Label.visible = true
+								if not check_if_arrow():
+									$Label.text = str(item.name)
+									$Label.visible = true
 
 func check_if_helmet():
 	if item.type == "helmet" and player and inventory and not inventory_slot.is_equipment_slot:
@@ -108,6 +109,15 @@ func check_if_bow():
 		$Unequip.disabled = false
 		$Unequip.visible = true
 		return true
+func check_if_arrow():
+	if item.type == "arrow" and player and inventory and not inventory_slot.is_equipment_slot:
+		$Equip.disabled = false
+		$Equip.visible = true
+		return true
+	elif item.type == "arrow" and player and inventory and inventory_slot.is_equipment_slot:
+		$Unequip.disabled = false
+		$Unequip.visible = true
+		return true
 
 func try_equip_helmet():
 	if item.type == "helmet":
@@ -174,6 +184,15 @@ func try_equip_bow():
 		equipment.slots[6].amount = 1
 		return true
 
+func try_equip_arrow():
+	if item.type == "arrow":
+		if equipment.slots[7].item != null:
+			for i in equipment.slots[7].amount:
+				player.collect(equipment.slots[7].item)
+		equipment.slots[7].item = item
+		equipment.slots[7].amount = inventory_slot.slot_keep.amount
+		return true
+
 func try_unequip_helmet():
 	if item.type == "helmet":
 		player.collect(equipment.slots[0].item)
@@ -232,6 +251,14 @@ func try_unequip_bow():
 		equipment.slots[6].amount = 0
 		return true
 
+func try_unequip_arrow():
+	if item.type == "arrow":
+		for i in equipment.slots[7].amount:
+			player.collect(equipment.slots[7].item)
+		equipment.slots[7].item = null
+		equipment.slots[7].amount = 0
+		return true
+
 func clear_all():
 	var hud_elements = []
 	for i in get_children():
@@ -259,9 +286,13 @@ func _on_equip_pressed() -> void:
 					if not try_equip_weapon():
 						if not try_equip_shield():
 							try_equip_bow()
-	inventory_slot.slot_keep.amount -= 1
-	if inventory_slot.slot_keep.amount == 0:
+	if try_equip_arrow():
+		inventory_slot.slot_keep.amount -= inventory_slot.slot_keep.amount
 		inventory_slot.slot_keep.item = null
+	else:
+		inventory_slot.slot_keep.amount -= 1
+		if inventory_slot.slot_keep.amount == 0:
+			inventory_slot.slot_keep.item = null
 	player.update_status()
 	inventory.update_slots()
 	inventory.play_equip_sound()
@@ -275,7 +306,8 @@ func _on_unequip_pressed() -> void:
 				if not try_unequip_legs():
 					if not try_unequip_weapon():
 						if not try_unequip_shield():
-							try_unequip_bow()
+							if not try_unequip_bow():
+								try_unequip_arrow()
 	player.update_status()
 	inventory.update_slots()
 	inventory.play_unequip_sound()

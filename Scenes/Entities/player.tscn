@@ -441,7 +441,10 @@ collision_mask = 7
 floor_constant_speed = true
 floor_max_angle = 0.872665
 script = ExtResource("1_7gcer")
+resetinven = null
 passive_glow = true
+doublejump_able = null
+godmode = null
 
 [node name="CamNode3D" type="Node3D" parent="."]
 script = ExtResource("2_to3yv")

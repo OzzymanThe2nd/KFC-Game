@@ -3,13 +3,14 @@ class_name bow_base
 @export var basedmg : int
 var dmg : int
 var busy = true
+var arrowtype : String
 @onready var loadARROW = preload("res://Scenes/Items/arrow.tscn")
 signal bow_unequipped
 
 func _ready() -> void:
 	busy = true
 	$AnimationPlayer.play("equip")
-	dmg = basedmg + Playerstatus.archery / 2
+	dmg = basedmg
 
 
 
@@ -22,7 +23,7 @@ func shoot2():
 	$AnimationPlayer.play("shoot2")
 	var ARROW = loadARROW.instantiate()
 	%ArrowSpawn.add_child(ARROW)
-	ARROW.dmg = dmg
+	ARROW.dmg = (dmg + Playerstatus.arrow_damage) * (1 + Playerstatus.archery / 18)
 
 func putaway():
 	busy = true

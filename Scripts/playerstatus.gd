@@ -11,6 +11,7 @@ var archery : int = 1
 var archery_exp : int = 0
 var magic : int = 1
 var magic_exp : int = 0
+var arrow_damage : int
 var chest_inven = load("res://Scripts/Inventory/chest_inventory.tres")
 var temp_inven 
 var temp_equip
@@ -62,7 +63,7 @@ func reset_to_default():
 	warp_to = null
 	warpspots_unlocked = [true,true,false,false,false,false,false,false]
 
-func update_stats(player, helmet, chest, gloves, legs, weapon, shield, bow):
+func update_stats(player, helmet, chest, gloves, legs, weapon, shield, bow, arrow):
 	keepplayer = player
 	var updated_protslash = 0
 	var updated_protcrush = 0
@@ -103,6 +104,9 @@ func update_stats(player, helmet, chest, gloves, legs, weapon, shield, bow):
 	if bow:
 		if bow.name == "debug bow":
 			player.loadBOW = preload("res://Scenes/Items/bow.tscn")
+	if arrow:
+		if arrow.name == "basic arrow":
+			arrow_damage = 1
 	else: player.loadBOW = null
 	protslash = updated_protslash
 	protcrush = updated_protcrush

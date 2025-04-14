@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://uqfst25msopo"]
+
+[ext_resource type="Texture2D" uid="uid://csfl1mef5nfgx" path="res://icon.svg" id="1_k5b71"]
+[ext_resource type="Script" path="res://Scripts/inv_items.gd" id="2_w3yj8"]
+
+[resource]
+script = ExtResource("2_w3yj8")
+name = "basic arrow"
+img = ExtResource("1_k5b71")
+type = "arrow"
+desc = "Placeholder"
+mesh = ""
+x_off = 0.0
+y_off = 0.0
+z_off = 0.0
+scale = 1.0
