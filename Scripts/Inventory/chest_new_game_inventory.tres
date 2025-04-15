@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="inv" load_steps=39 format=3 uid="uid://c8vwh3aylqsxk"]
+[gd_resource type="Resource" script_class="inv" load_steps=40 format=3 uid="uid://c8vwh3aylqsxk"]
 
 [ext_resource type="Script" path="res://Scripts/inventory.gd" id="1_huxy8"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inven_slot.gd" id="2_enm8b"]
+[ext_resource type="Resource" uid="uid://kt884j1pj16d" path="res://Scripts/Inventory/debug chest.tres" id="3_70kox"]
 
 [sub_resource type="Resource" id="Resource_ui8yk"]
 script = ExtResource("2_enm8b")
@@ -9,7 +10,8 @@ amount = 0
 
 [sub_resource type="Resource" id="Resource_8w332"]
 script = ExtResource("2_enm8b")
-amount = 0
+item = ExtResource("3_70kox")
+amount = 1
 
 [sub_resource type="Resource" id="Resource_coxcb"]
 script = ExtResource("2_enm8b")

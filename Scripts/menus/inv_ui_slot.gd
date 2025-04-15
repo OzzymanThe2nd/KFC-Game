@@ -1,5 +1,6 @@
 extends Panel
 @export var is_equipment_slot : bool = false
+@export var is_chest_slot : bool = false
 @onready var right_click_menu_load = preload("res://Scenes/Menus/inv_right_click_menu.tscn")
 @onready var tooltip_setting = preload("res://menu_font.tres")
 @onready var item_icon : Sprite2D = $"CenterContainer/Panel/Item Sprite"
@@ -54,6 +55,7 @@ func _input(event: InputEvent) -> void:
 				right_click_menu.queue_free()
 			if mouse_inside == true and right_click_menu == null and inside != null:
 				right_click_menu = right_click_menu_load.instantiate()
+				if is_chest_slot: right_click_menu.chest = true
 				right_click_menu.get_player = true
 				right_click_menu.get_inv = true
 				right_click_menu.get_player_equipment = true

@@ -5,73 +5,65 @@
 [ext_resource type="FontFile" uid="uid://cmtxgcvukvcbw" path="res://Assets/Fonts/pixeldroidMenuRegular.otf" id="3_7oomn"]
 
 [node name="Inv_right_click_menu" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
 top_level = true
 custom_minimum_size = Vector2(160, 80)
 offset_right = 160.0
 offset_bottom = 80.0
 script = ExtResource("1_p3j8w")
 
-[node name="Label" type="Label" parent="." groups=["Control"]]
-visible = false
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 160.0
+offset_bottom = 80.0
+
+[node name="Label" type="Label" parent="VBoxContainer" groups=["Control"]]
+visible = false
+layout_mode = 2
 text = "Test"
 label_settings = ExtResource("2_f1wkd")
 
-[node name="Use" type="Button" parent="." groups=["Control"]]
+[node name="Use" type="Button" parent="VBoxContainer" groups=["Control"]]
 visible = false
 custom_minimum_size = Vector2(160, 40)
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_7oomn")
 theme_override_font_sizes/font_size = 46
 disabled = true
 text = "Use"
 alignment = 0
 
-[node name="Equip" type="Button" parent="." groups=["Control"]]
+[node name="Equip" type="Button" parent="VBoxContainer" groups=["Control"]]
 visible = false
 custom_minimum_size = Vector2(160, 40)
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_7oomn")
 theme_override_font_sizes/font_size = 46
 disabled = true
 text = "Equip"
 alignment = 0
 
-[node name="Unequip" type="Button" parent="." groups=["Control"]]
+[node name="Unequip" type="Button" parent="VBoxContainer" groups=["Control"]]
 visible = false
 custom_minimum_size = Vector2(160, 40)
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_7oomn")
 theme_override_font_sizes/font_size = 46
 disabled = true
 text = "Unequip"
 alignment = 0
 
-[node name="Inspect" type="Button" parent="." groups=["Control"]]
+[node name="Inspect" type="Button" parent="VBoxContainer" groups=["Control"]]
 visible = false
 custom_minimum_size = Vector2(160, 40)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -45.0
-offset_right = 160.0
-grow_vertical = 0
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_7oomn")
 theme_override_font_sizes/font_size = 46
 disabled = true
 text = "Inspect"
 alignment = 0
 
-[connection signal="pressed" from="Use" to="." method="_on_use_pressed"]
-[connection signal="pressed" from="Equip" to="." method="_on_equip_pressed"]
-[connection signal="pressed" from="Unequip" to="." method="_on_unequip_pressed"]
-[connection signal="pressed" from="Inspect" to="." method="_on_inspect_pressed"]
+[connection signal="pressed" from="VBoxContainer/Use" to="." method="_on_use_pressed"]
+[connection signal="pressed" from="VBoxContainer/Equip" to="." method="_on_equip_pressed"]
+[connection signal="pressed" from="VBoxContainer/Unequip" to="." method="_on_unequip_pressed"]
+[connection signal="pressed" from="VBoxContainer/Inspect" to="." method="_on_inspect_pressed"]

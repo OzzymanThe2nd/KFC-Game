@@ -8,27 +8,44 @@ var get_player_equipment : bool = false
 var get_player : bool = false
 var get_inv : bool = false
 var inspect_menu_path = "res://Scenes/Menus/inspect_menu.tscn"
+var chest : bool = false
+@onready var inspect = $VBoxContainer/Inspect
+@onready var equip = $VBoxContainer/Equip
+@onready var unequip = $VBoxContainer/Unequip
+@onready var use = $VBoxContainer/Use
+@onready var label = $VBoxContainer/Label
+
 
 func _ready() -> void:
 	inventory_slot = get_parent()
-	if get_player == true:
-		player = get_parent()
-		for i in 7:
-			player = player.get_parent()
-	if get_inv == true:
-		inventory = get_parent()
-		for i in 4:
-			inventory = inventory.get_parent()
-	if get_player_equipment == true:
-		equipment = player.equipment
+	if chest == false:
+		if get_player == true:
+			player = get_parent()
+			for i in 7:
+				player = player.get_parent()
+		if get_inv == true:
+			inventory = get_parent()
+			for i in 4:
+				inventory = inventory.get_parent()
+		if get_player_equipment == true:
+			equipment = player.equipment
+	else:
+		if get_player == true:
+			player = Playerstatus.keepplayer
+		if get_inv == true:
+			inventory = get_parent()
+			for i in 4:
+				inventory = inventory.get_parent()
+		if get_player_equipment == true:
+			equipment = player.equipment
 
 func text_update():
 	clear_all()
-	$Inspect.visible = true
-	$Inspect.disabled = false
+	inspect.visible = true
+	inspect.disabled = false
 	if item.type == "usable" and player and inventory and not inventory_slot.is_equipment_slot:
-		$Use.disabled = false
-		$Use.visible = true
+		use.disabled = false
+		use.visible = true
 	elif not check_if_helmet():
 		if not check_if_chest():
 			if not check_if_gloves():
@@ -37,86 +54,92 @@ func text_update():
 						if not check_if_shield():
 							if not check_if_bow():
 								if not check_if_arrow():
-									$Label.text = str(item.name)
-									$Label.visible = true
+									label.text = str(item.name)
+									label.visible = true
+	if chest == true:
+		equip.disabled = true
+		equip.visible = false
+		unequip.disabled = true
+		unequip.visible = false
+		size = $VBoxContainer.size
 
 func check_if_helmet():
 	if item.type == "helmet" and player and inventory and not inventory_slot.is_equipment_slot:
-		$Equip.disabled = false
-		$Equip.visible = true
+		equip.disabled = false
+		equip.visible = true
 		return true
 	elif item.type == "helmet" and player and inventory and inventory_slot.is_equipment_slot:
-		$Unequip.disabled = false
-		$Unequip.visible = true
+		unequip.disabled = false
+		unequip.visible = true
 		return true
 
 func check_if_chest():
 	if item.type == "chest" and player and inventory and not inventory_slot.is_equipment_slot:
-		$Equip.disabled = false
-		$Equip.visible = true
+		equip.disabled = false
+		equip.visible = true
 		return true
 	elif item.type == "chest" and player and inventory and inventory_slot.is_equipment_slot:
-		$Unequip.disabled = false
-		$Unequip.visible = true
+		unequip.disabled = false
+		unequip.visible = true
 		return true
 
 func check_if_gloves():
 	if item.type == "gloves" and player and inventory and not inventory_slot.is_equipment_slot:
-		$Equip.disabled = false
-		$Equip.visible = true
+		equip.disabled = false
+		equip.visible = true
 		return true
 	elif item.type == "gloves" and player and inventory and inventory_slot.is_equipment_slot:
-		$Unequip.disabled = false
-		$Unequip.visible = true
+		unequip.disabled = false
+		unequip.visible = true
 		return true
 
 func check_if_legs():
 	if item.type == "legs" and player and inventory and not inventory_slot.is_equipment_slot:
-		$Equip.disabled = false
-		$Equip.visible = true
+		equip.disabled = false
+		equip.visible = true
 		return true
 	elif item.type == "legs" and player and inventory and inventory_slot.is_equipment_slot:
-		$Unequip.disabled = false
-		$Unequip.visible = true
+		unequip.disabled = false
+		unequip.visible = true
 		return true
 
 func check_if_weapon():
 	if item.type == "weapon" and player and inventory and not inventory_slot.is_equipment_slot:
-		$Equip.disabled = false
-		$Equip.visible = true
+		equip.disabled = false
+		equip.visible = true
 		return true
 	elif item.type == "weapon" and player and inventory and inventory_slot.is_equipment_slot:
-		$Unequip.disabled = false
-		$Unequip.visible = true
+		unequip.disabled = false
+		unequip.visible = true
 		return true
 
 func check_if_shield():
 	if item.type == "shield" and player and inventory and not inventory_slot.is_equipment_slot:
-		$Equip.disabled = false
-		$Equip.visible = true
+		equip.disabled = false
+		equip.visible = true
 		return true
 	elif item.type == "shield" and player and inventory and inventory_slot.is_equipment_slot:
-		$Unequip.disabled = false
-		$Unequip.visible = true
+		unequip.disabled = false
+		unequip.visible = true
 		return true
 
 func check_if_bow():
 	if item.type == "bow" and player and inventory and not inventory_slot.is_equipment_slot:
-		$Equip.disabled = false
-		$Equip.visible = true
+		equip.disabled = false
+		equip.visible = true
 		return true
 	elif item.type == "bow" and player and inventory and inventory_slot.is_equipment_slot:
-		$Unequip.disabled = false
-		$Unequip.visible = true
+		unequip.disabled = false
+		unequip.visible = true
 		return true
 func check_if_arrow():
 	if item.type == "arrow" and player and inventory and not inventory_slot.is_equipment_slot:
-		$Equip.disabled = false
-		$Equip.visible = true
+		equip.disabled = false
+		equip.visible = true
 		return true
 	elif item.type == "arrow" and player and inventory and inventory_slot.is_equipment_slot:
-		$Unequip.disabled = false
-		$Unequip.visible = true
+		unequip.disabled = false
+		unequip.visible = true
 		return true
 
 func try_equip_helmet():
