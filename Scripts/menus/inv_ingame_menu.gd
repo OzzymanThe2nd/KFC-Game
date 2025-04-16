@@ -49,8 +49,13 @@ func _input(event):
 					swap_slot = run
 				run += 1
 			if stored_slot and swap_slot and stored_slot != swap_slot:
-				inventory.slots[stored_slot] = inventory.slots[swap_slot].duplicate()
-				inventory.slots[swap_slot] = stored_item
+				if inventory.slots[stored_slot].item == inventory.slots[swap_slot].item:
+					inventory.slots[stored_slot].amount += inventory.slots[swap_slot].amount
+					inventory.slots[swap_slot].amount = 0
+					inventory.slots[swap_slot].item = null
+				else:
+					inventory.slots[stored_slot] = inventory.slots[swap_slot].duplicate()
+					inventory.slots[swap_slot] = stored_item
 			swap_slot = null
 			stored_item = null
 			stored_slot = null

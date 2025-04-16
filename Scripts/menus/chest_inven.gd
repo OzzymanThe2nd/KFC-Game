@@ -58,17 +58,37 @@ func _input(event):
 							swap_chest = true
 						run += 1
 				if stored_slot and swap_slot and stored_slot != swap_slot and swap_chest == false and stored_slot_in_chest == false:
-					inventory.slots[stored_slot] = inventory.slots[swap_slot].duplicate()
-					inventory.slots[swap_slot] = stored_item
+					if inventory.slots[stored_slot].item == inventory.slots[swap_slot].item:
+						inventory.slots[stored_slot].amount += inventory.slots[swap_slot].amount
+						inventory.slots[swap_slot].amount = 0
+						inventory.slots[swap_slot].item = null
+					else:
+						inventory.slots[stored_slot] = inventory.slots[swap_slot].duplicate()
+						inventory.slots[swap_slot] = stored_item
 				elif swap_chest == true and stored_slot and swap_slot and stored_slot != swap_slot and stored_slot_in_chest == false:
-					inventory.slots[stored_slot] = chest.slots[swap_slot].duplicate()
-					chest.slots[swap_slot] = stored_item
+					if inventory.slots[stored_slot].item == inventory.slots[swap_slot].item:
+						inventory.slots[stored_slot].amount += chest.slots[swap_slot].amount
+						chest.slots[swap_slot].amount = 0
+						chest.slots[swap_slot].item = null
+					else:
+						inventory.slots[stored_slot] = chest.slots[swap_slot].duplicate()
+						chest.slots[swap_slot] = stored_item
 				elif stored_slot_in_chest == true and swap_chest == true and stored_slot and swap_slot and stored_slot != swap_slot:
-					chest.slots[stored_slot] = chest.slots[swap_slot].duplicate()
-					chest.slots[swap_slot] = stored_item
+					if chest.slots[stored_slot].item == chest.slots[swap_slot].item:
+						chest.slots[stored_slot].amount += chest.slots[swap_slot].amount
+						chest.slots[swap_slot].amount = 0
+						chest.slots[swap_slot].item = null
+					else:
+						chest.slots[stored_slot] = chest.slots[swap_slot].duplicate()
+						chest.slots[swap_slot] = stored_item
 				elif swap_chest == false and stored_slot and swap_slot and stored_slot != swap_slot and stored_slot_in_chest == true:
-					chest.slots[stored_slot] = inventory.slots[swap_slot].duplicate()
-					inventory.slots[swap_slot] = stored_item
+					if chest.slots[stored_slot].item == inventory.slots[swap_slot].item:
+						chest.slots[stored_slot].amount += inventory.slots[swap_slot].amount
+						inventory.slots[swap_slot].amount = 0
+						inventory.slots[swap_slot].item = null
+					else:
+						chest.slots[stored_slot] = inventory.slots[swap_slot].duplicate()
+						inventory.slots[swap_slot] = stored_item
 				swap_slot = null
 				stored_item = null
 				stored_slot = null
