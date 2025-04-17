@@ -48,7 +48,8 @@ func _input(event):
 				if i.mouse_inside:
 					swap_slot = run
 				run += 1
-			if stored_slot and swap_slot and stored_slot != swap_slot:
+			if stored_slot != null and swap_slot != null and stored_slot != swap_slot:
+				#This isn't getting ran when trying to move to first slot. Examine.
 				if inventory.slots[stored_slot].item == inventory.slots[swap_slot].item:
 					inventory.slots[stored_slot].amount += inventory.slots[swap_slot].amount
 					inventory.slots[swap_slot].amount = 0
