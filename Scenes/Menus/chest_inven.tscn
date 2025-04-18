@@ -46,75 +46,99 @@ columns = 4
 
 [node name="inv_ui_slot" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot2" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot3" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot4" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot5" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot6" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot7" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot8" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot9" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot10" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot11" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot12" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot13" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot14" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot15" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot16" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot17" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot18" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot19" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot20" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot21" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot22" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot23" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="inv_ui_slot24" parent="ColorRect/Full Inventory/GridContainer" instance=ExtResource("3_mi4ni")]
 layout_mode = 2
+is_chest_slot = true
 
 [node name="Label" type="Label" parent="ColorRect/Full Inventory"]
 layout_mode = 0
