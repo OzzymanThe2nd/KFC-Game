@@ -11,6 +11,7 @@ var slot_keep = null
 var right_click_menu = null
 var rmb_menu_has_mouse = false
 var sprite_follow : bool = false
+var item_run : int
 
 func update(slot: invslot):
 	if !slot:
@@ -59,6 +60,7 @@ func _input(event: InputEvent) -> void:
 				right_click_menu.get_player = true
 				right_click_menu.get_inv = true
 				right_click_menu.get_player_equipment = true
+				right_click_menu.item_run = item_run
 				add_child(right_click_menu)
 				right_click_menu.item = inside
 				right_click_menu.mouse_entered.connect(context_mouse_entered)

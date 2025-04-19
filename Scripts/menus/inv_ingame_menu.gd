@@ -71,6 +71,7 @@ func play_unequip_sound():
 func update_slots():
 	for i in range(min(inventory.slots.size(),slots.size())):
 		slots[i].update(inventory.slots[i])
+		slots[i].item_run = i
 	for i in range(min(equipment.slots.size(),equipment_slots.size())):
 		equipment_slots[i].update(equipment.slots[i])
 	$ColorRect/Equipment/ColorRect/Slash.text = "Slash Protection: %s" % str(Playerstatus.protslash)

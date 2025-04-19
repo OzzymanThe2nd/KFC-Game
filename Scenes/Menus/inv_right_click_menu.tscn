@@ -64,7 +64,18 @@ disabled = true
 text = "Inspect"
 alignment = 0
 
+[node name="Discard" type="Button" parent="VBoxContainer" groups=["Control"]]
+visible = false
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_7oomn")
+theme_override_font_sizes/font_size = 46
+disabled = true
+text = "Discard"
+alignment = 0
+
 [connection signal="pressed" from="VBoxContainer/Use" to="." method="_on_use_pressed"]
 [connection signal="pressed" from="VBoxContainer/Equip" to="." method="_on_equip_pressed"]
 [connection signal="pressed" from="VBoxContainer/Unequip" to="." method="_on_unequip_pressed"]
 [connection signal="pressed" from="VBoxContainer/Inspect" to="." method="_on_inspect_pressed"]
+[connection signal="pressed" from="VBoxContainer/Discard" to="." method="_on_discard_pressed"]

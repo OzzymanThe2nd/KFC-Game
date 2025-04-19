@@ -9,11 +9,13 @@ var get_player : bool = false
 var get_inv : bool = false
 var inspect_menu_path = "res://Scenes/Menus/inspect_menu.tscn"
 var chest : bool = false
+var item_run : int
 @onready var inspect = $VBoxContainer/Inspect
 @onready var equip = $VBoxContainer/Equip
 @onready var unequip = $VBoxContainer/Unequip
 @onready var use = $VBoxContainer/Use
 @onready var label = $VBoxContainer/Label
+@onready var discard = $VBoxContainer/Discard
 
 
 func _ready() -> void:
@@ -43,6 +45,9 @@ func text_update():
 	clear_all()
 	inspect.visible = true
 	inspect.disabled = false
+	if not inventory_slot.is_equipment_slot:
+		discard.visible = true
+		discard.disabled = false
 	if item.type == "usable" and player and inventory and not inventory_slot.is_equipment_slot:
 		use.disabled = false
 		use.visible = true
@@ -61,6 +66,8 @@ func text_update():
 		equip.visible = false
 		unequip.disabled = true
 		unequip.visible = false
+		discard.disabled = true
+		discard.visible = false
 		size = $VBoxContainer.size
 
 func check_if_helmet():
@@ -344,3 +351,11 @@ func _on_inspect_pressed() -> void:
 	inventory.add_child(inspect)
 	inventory.inspect_windows.append(inspect)
 	queue_free()
+
+
+func _on_discard_pressed() -> void:
+	player.inventory.slots[item_run].item = null
+	player.inventory.slots[item_run].amount = 0
+	inventory.update_slots()
+	queue_free()
+	
