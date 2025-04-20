@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="inv" load_steps=11 format=3 uid="uid://bw53jsfxocq8a"]
+[gd_resource type="Resource" script_class="inv" load_steps=12 format=3 uid="uid://bw53jsfxocq8a"]
 
 [ext_resource type="Script" path="res://Scripts/inventory.gd" id="1_4gnpr"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inven_slot.gd" id="2_7xxf6"]
+[ext_resource type="Resource" uid="uid://c0c6enevu3nq3" path="res://Scripts/Inventory/debug sword.tres" id="3_xwn0e"]
 
 [sub_resource type="Resource" id="Resource_oigmk"]
 script = ExtResource("2_7xxf6")
@@ -21,7 +22,8 @@ amount = 0
 
 [sub_resource type="Resource" id="Resource_eg881"]
 script = ExtResource("2_7xxf6")
-amount = 0
+item = ExtResource("3_xwn0e")
+amount = 1
 
 [sub_resource type="Resource" id="Resource_5x5a2"]
 script = ExtResource("2_7xxf6")

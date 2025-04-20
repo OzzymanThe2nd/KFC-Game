@@ -15,6 +15,7 @@ var item_run : int
 @onready var unequip = $VBoxContainer/Unequip
 @onready var use = $VBoxContainer/Use
 @onready var label = $VBoxContainer/Label
+@onready var drop = $VBoxContainer/Drop
 @onready var discard = $VBoxContainer/Discard
 
 
@@ -48,6 +49,8 @@ func text_update():
 	if not inventory_slot.is_equipment_slot:
 		discard.visible = true
 		discard.disabled = false
+		drop.visible = true
+		drop.disabled = false
 	if item.type == "usable" and player and inventory and not inventory_slot.is_equipment_slot:
 		use.disabled = false
 		use.visible = true
@@ -68,6 +71,8 @@ func text_update():
 		unequip.visible = false
 		discard.disabled = true
 		discard.visible = false
+		drop.visible = false
+		drop.disabled = true
 		size = $VBoxContainer.size
 
 func check_if_helmet():
@@ -358,4 +363,19 @@ func _on_discard_pressed() -> void:
 	player.inventory.slots[item_run].amount = 0
 	inventory.update_slots()
 	queue_free()
-	
+
+
+func _on_drop_pressed() -> void:
+	var item_drop = load("res://Scenes/Items/item_pickup.tscn")
+	item_drop = item_drop.instantiate()
+	item_drop.global_position = player.global_position
+	item_drop.item_id = load(item.resource_path)
+	var item_visual = load(item_drop.item_id.mesh)
+	item_visual = item_visual.instantiate()
+	item_drop.add_child(item_visual)
+	item_drop.item_visual = item_visual
+	player.inventory.slots[item_run].amount -= 1
+	if player.inventory.slots[item_run].amount == 0: player.inventory.slots[item_run].item = null
+	inventory.update_slots()
+	get_tree().get_root().get_child(1).add_child(item_drop)
+	queue_free()

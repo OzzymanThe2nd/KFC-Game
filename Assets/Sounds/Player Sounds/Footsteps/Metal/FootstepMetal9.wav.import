@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhmw4r4d3frpn"
+path="res://.godot/imported/FootstepMetal9.wav-1d4aedf3bffb61514d9f386c6e9c613f.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Player Sounds/Footsteps/Metal/FootstepMetal9.wav"
+dest_files=["res://.godot/imported/FootstepMetal9.wav-1d4aedf3bffb61514d9f386c6e9c613f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
