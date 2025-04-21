@@ -512,3 +512,22 @@ func _on_hud_anim_animation_finished(anim_name: StringName) -> void:
 func _on_pop_up_timer_timeout() -> void:
 	if $HudAnim.is_playing() == false:
 		$HudAnim.play("TextFadeAway")
+
+
+func _on_interact_window_detect_body_entered(body: Node3D) -> void:
+	body = body.get_parent()
+	if body.has_method("interact") or body.has_method("interact_with_player"):
+		%InteractPrompt.visible = true
+		if "interact_text" in body:
+			var new_text = body.interact_text
+			$CamNode3D/CanvasLayer/InteractPrompt/InteractText.text = new_text
+		else:
+			var button
+			button = str(InputMap.action_get_events("interact")[0].as_text()).split(" ")[0]
+			$CamNode3D/CanvasLayer/InteractPrompt/InteractText.text = "%s: Interact" %[str(button)]
+
+
+func _on_interact_window_detect_body_exited(body: Node3D) -> void:
+	body = body.get_parent()
+	if body.has_method("interact") or body.has_method("interact_with_player"):
+		%InteractPrompt.visible = false

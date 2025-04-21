@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://rpl5amivov5f"]
+[gd_scene load_steps=35 format=3 uid="uid://rpl5amivov5f"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/player.gd" id="1_7gcer"]
 [ext_resource type="Texture2D" uid="uid://dng2ohdubklb0" path="res://Assets/Textures/crosshair.png" id="2_suhvn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://Shaders/pixelate.gdshader" id="4_1o6bh"]
 [ext_resource type="Script" path="res://Scripts/Misc/meshinterpolation.gd" id="4_xd1iw"]
 [ext_resource type="PackedScene" uid="uid://dbj563ox2wh47" path="res://Scenes/Menus/inv_ingame_menu.tscn" id="6_inds5"]
+[ext_resource type="Texture2D" uid="uid://cpgapsu55fnj1" path="res://textures/border.png" id="7_hbyo1"]
 [ext_resource type="LabelSettings" uid="uid://4q4ec65ooiba" path="res://menu_font.tres" id="7_yux4u"]
 
 [sub_resource type="Animation" id="Animation_md8la"]
@@ -69,6 +70,9 @@ size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_je7ht"]
 size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q3558"]
+size = Vector3(0.1, 0.1, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8cyek"]
 shader = ExtResource("4_1o6bh")
@@ -441,10 +445,7 @@ collision_mask = 7
 floor_constant_speed = true
 floor_max_angle = 0.872665
 script = ExtResource("1_7gcer")
-resetinven = null
 passive_glow = true
-doublejump_able = null
-godmode = null
 
 [node name="CamNode3D" type="Node3D" parent="."]
 script = ExtResource("2_to3yv")
@@ -500,6 +501,13 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.184654, -0.219634)
 visible = false
 mesh = SubResource("BoxMesh_je7ht")
+
+[node name="InteractWindowDetect" type="Area3D" parent="CamNode3D/CamSmooth/PCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-15, 0, -7.10543e-15, 1, 0, 0, -0.604)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CamNode3D/CamSmooth/PCamera/InteractWindowDetect"]
+shape = SubResource("BoxShape3D_q3558")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="CamNode3D"]
 
@@ -729,6 +737,45 @@ label_settings = ExtResource("7_yux4u")
 [node name="PopUpTimer" type="Timer" parent="CamNode3D/CanvasLayer/PopUpText"]
 one_shot = true
 
+[node name="InteractPrompt" type="NinePatchRect" parent="CamNode3D/CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -208.0
+offset_right = 400.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("7_hbyo1")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="InteractText" type="Label" parent="CamNode3D/CanvasLayer/InteractPrompt"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Interact"
+label_settings = ExtResource("7_yux4u")
+horizontal_alignment = 1
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_wx2fv")
 
@@ -784,6 +831,8 @@ unit_size = 1.0
 pitch_scale = 0.8
 
 [connection signal="child_exiting_tree" from="CamNode3D/CamSmooth/PCamera/SwordSpawn" to="." method="_on_sword_spawn_child_exiting_tree"]
+[connection signal="body_entered" from="CamNode3D/CamSmooth/PCamera/InteractWindowDetect" to="." method="_on_interact_window_detect_body_entered"]
+[connection signal="body_exited" from="CamNode3D/CamSmooth/PCamera/InteractWindowDetect" to="." method="_on_interact_window_detect_body_exited"]
 [connection signal="timeout" from="CamNode3D/CanvasLayer/PopUpText/PopUpTimer" to="." method="_on_pop_up_timer_timeout"]
 [connection signal="animation_finished" from="PlayerAnim" to="." method="_on_player_anim_animation_finished"]
 [connection signal="timeout" from="DashLength" to="." method="_on_dash_length_timeout"]
