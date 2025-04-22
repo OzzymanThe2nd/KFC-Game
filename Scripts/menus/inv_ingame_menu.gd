@@ -65,6 +65,13 @@ func _input(event):
 func play_equip_sound():
 	$EquipSound.play()
 
+func play_drop_sound(type = null):
+	if type == "armor": $DropSound.stream = load("res://Assets/Sounds/Inventory/LightArmour/LightArmourDrop.wav")
+	elif type == "sword": $DropSound.stream = load("res://Assets/Sounds/Inventory/WeaponSharp/WeaponSharpDrop.wav")
+	elif type == "blunt": $DropSound.stream = load("res://Assets/Sounds/Inventory/WeaponBlunt/WeaponBluntDrop.wav")
+	else: $DropSound.stream = load("res://Assets/Sounds/Inventory/Generic/GenericDropItem.wav")
+	$DropSound.play()
+
 func play_unequip_sound():
 	$UnequipSound.play()
 

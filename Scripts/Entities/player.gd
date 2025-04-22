@@ -82,6 +82,8 @@ func _ready():
 	%heltext.text = "%s" % str(Playerstatus.healthcurrent)
 	%Bobbloid.play("wobble")
 	%Bobbloid.pause()
+	$CamNode3D/CamSmooth/PCamera/InteractWindowDetect.area_entered.connect(_on_interact_window_detect_body_entered)
+	$CamNode3D/CamSmooth/PCamera/InteractWindowDetect.area_exited.connect(_on_interact_window_detect_body_exited)
 	if Playerstatus.loading_new_game == true:
 		equipment = load("res://Scripts/Inventory/player_new_game_equipment.tres")
 		inventory = load("res://Scripts/Inventory/player_new_game_inven.tres")
