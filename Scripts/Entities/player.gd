@@ -253,7 +253,7 @@ func _input(event):
 		elif Input.is_action_just_pressed("f9"):
 			Playerstatus.load_game()
 		if Input.is_action_just_pressed("interact"):
-			if %Interact.is_colliding():
+			if %Interact.is_colliding(): 
 				var body = (%Interact.get_collider()).get_parent()
 				if body.has_method("interact"):
 					body.interact()

@@ -8,9 +8,21 @@ func interact_with_player(player):
 	if collected == false:
 		collected = true
 		player.collect(item_id)
-		$Area3D.monitorable = false
 		await get_tree().process_frame
-		queue_free()
+		$Area3D.set_collision_layer_value(1, false)
+		visible = false
+		play_pick_sound(item_id.soundtype)
+
+func play_pick_sound(type = null):
+	if type == "light_armour": $PickSound.stream = load("res://Assets/Sounds/Inventory/LightArmour/LightArmourPick.wav")
+	elif type == "sharp": $PickSound.stream = load("res://Assets/Sounds/Inventory/WeaponSharp/WeaponSharpPick.wav")
+	elif type == "blunt": $PickSound.stream = load("res://Assets/Sounds/Inventory/WeaponBlunt/WeaponBluntPick.wav")
+	else: $PickSound.stream = load("res://Assets/Sounds/Inventory/Generic/GenericPickItem.wav")
+	$PickSound.play()
 
 func _physics_process(delta: float) -> void:
 	item_visual.rotation.y += deg_to_rad(1)
+
+
+func _on_pick_sound_finished() -> void:
+	queue_free()

@@ -377,12 +377,12 @@ func _on_drop_pressed() -> void:
 	player.inventory.slots[item_run].amount -= 1
 	if player.inventory.slots[item_run].amount == 0: player.inventory.slots[item_run].item = null
 	inventory.update_slots()
-	if item.type == "shield":
+	if item.soundtype == "blunt":
 		inventory.play_drop_sound("blunt")
-	elif item.type == "weapon":
-		inventory.play_drop_sound("sword")
-	elif item.type == "chest" or  item.type == "gloves" or item.type == "legs" or item.type == "helmet":
-		inventory.play_drop_sound("armor")
+	elif item.soundtype == "sharp":
+		inventory.play_drop_sound("sharp")
+	elif item.soundtype == "light_armour":
+		inventory.play_drop_sound("light_armorr")
 	else:
 		inventory.play_drop_sound()
 	get_tree().get_root().get_child(1).add_child(item_drop)
