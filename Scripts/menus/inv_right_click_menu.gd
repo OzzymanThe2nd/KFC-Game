@@ -377,13 +377,6 @@ func _on_drop_pressed() -> void:
 	player.inventory.slots[item_run].amount -= 1
 	if player.inventory.slots[item_run].amount == 0: player.inventory.slots[item_run].item = null
 	inventory.update_slots()
-	if item.soundtype == "blunt":
-		inventory.play_drop_sound("blunt")
-	elif item.soundtype == "sharp":
-		inventory.play_drop_sound("sharp")
-	elif item.soundtype == "light_armour":
-		inventory.play_drop_sound("light_armorr")
-	else:
-		inventory.play_drop_sound()
+	inventory.play_drop_sound()
 	get_tree().get_root().get_child(1).add_child(item_drop)
 	queue_free()

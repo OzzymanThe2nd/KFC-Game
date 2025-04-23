@@ -9,6 +9,7 @@ var is_open = false
 var stored_item
 var stored_slot
 var swap_slot
+var current_sound
 var inspect_windows = []
 
 # Called when the node enters the scene tree for the first time.
@@ -41,6 +42,9 @@ func _input(event):
 					#stored_item = i.slot_keep
 					stored_slot = run
 					stored_item = inventory.slots[run].duplicate()
+					if i.slot_keep.item != null:
+						current_sound = i.slot_keep.item.soundtype
+						play_pick_sound(current_sound)
 				run += 1
 		if Input.is_action_just_released("left_click"):
 			var run = 0
@@ -49,7 +53,6 @@ func _input(event):
 					swap_slot = run
 				run += 1
 			if stored_slot != null and swap_slot != null and stored_slot != swap_slot:
-				#This isn't getting ran when trying to move to first slot. Examine.
 				if inventory.slots[stored_slot].item == inventory.slots[swap_slot].item:
 					inventory.slots[stored_slot].amount += inventory.slots[swap_slot].amount
 					inventory.slots[swap_slot].amount = 0
@@ -57,9 +60,11 @@ func _input(event):
 				else:
 					inventory.slots[stored_slot] = inventory.slots[swap_slot].duplicate()
 					inventory.slots[swap_slot] = stored_item
+				play_drop_sound(current_sound)
 			swap_slot = null
 			stored_item = null
 			stored_slot = null
+			current_sound = null
 			update_slots()
 
 func play_equip_sound():
@@ -71,6 +76,13 @@ func play_drop_sound(type = null):
 	elif type == "blunt": $DropSound.stream = load("res://Assets/Sounds/Inventory/WeaponBlunt/WeaponBluntDrop.wav")
 	else: $DropSound.stream = load("res://Assets/Sounds/Inventory/Generic/GenericDropItem.wav")
 	$DropSound.play()
+
+func play_pick_sound(type = null):
+	if type == "light_armour": $PickSound.stream = load("res://Assets/Sounds/Inventory/LightArmour/LightArmourPick.wav")
+	elif type == "sharp": $PickSound.stream = load("res://Assets/Sounds/Inventory/WeaponSharp/WeaponSharpPick.wav")
+	elif type == "blunt": $PickSound.stream = load("res://Assets/Sounds/Inventory/WeaponBlunt/WeaponBluntPick.wav")
+	else: $PickSound.stream = load("res://Assets/Sounds/Inventory/Generic/GenericPickItem.wav")
+	$PickSound.play()
 
 func play_unequip_sound():
 	$UnequipSound.play()

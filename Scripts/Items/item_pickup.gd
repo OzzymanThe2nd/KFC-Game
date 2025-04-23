@@ -14,10 +14,7 @@ func interact_with_player(player):
 		play_pick_sound(item_id.soundtype)
 
 func play_pick_sound(type = null):
-	if type == "light_armour": $PickSound.stream = load("res://Assets/Sounds/Inventory/LightArmour/LightArmourPick.wav")
-	elif type == "sharp": $PickSound.stream = load("res://Assets/Sounds/Inventory/WeaponSharp/WeaponSharpPick.wav")
-	elif type == "blunt": $PickSound.stream = load("res://Assets/Sounds/Inventory/WeaponBlunt/WeaponBluntPick.wav")
-	else: $PickSound.stream = load("res://Assets/Sounds/Inventory/Generic/GenericPickItem.wav")
+	$PickSound.stream = load("res://Assets/Sounds/Inventory/Generic/GenericPickItem.wav")
 	$PickSound.play()
 
 func _physics_process(delta: float) -> void:

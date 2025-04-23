@@ -369,3 +369,5 @@ stream = ExtResource("7_lifi3")
 stream = ExtResource("8_idytv")
 
 [node name="DropSound" type="AudioStreamPlayer" parent="."]
+
+[node name="PickSound" type="AudioStreamPlayer" parent="."]
