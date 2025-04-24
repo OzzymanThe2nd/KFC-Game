@@ -76,7 +76,6 @@ mesh = SubResource("ArrayMesh_cx03q")
 skeleton = NodePath("")
 
 [node name="Menu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,66 +98,54 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.294118, 0.294118, 0.294118, 0.796078)
 
-[node name="CenterContainer" type="CenterContainer" parent="Menu/ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/ColorRect"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -110.5
-offset_top = -228.0
-offset_right = 110.5
-offset_bottom = -177.0
+offset_left = -117.0
+offset_right = 117.0
+offset_bottom = 161.0
 grow_horizontal = 2
-grow_vertical = 2
+theme_override_constants/separation = 110
 
-[node name="Save Button" type="Button" parent="Menu/ColorRect/CenterContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Menu/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Save Button" type="Button" parent="Menu/ColorRect/VBoxContainer/CenterContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_txcbl")
 theme_override_font_sizes/font_size = 54
 text = "Save Game"
 
-[node name="CenterContainer2" type="CenterContainer" parent="Menu/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -112.0
-offset_top = -28.0
-offset_right = 112.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CenterContainer2" type="CenterContainer" parent="Menu/ColorRect/VBoxContainer"]
+layout_mode = 2
 
-[node name="Load Button" type="Button" parent="Menu/ColorRect/CenterContainer2"]
+[node name="Load Button" type="Button" parent="Menu/ColorRect/VBoxContainer/CenterContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_txcbl")
 theme_override_font_sizes/font_size = 54
 text = "Load Game"
 
-[node name="CenterContainer3" type="CenterContainer" parent="Menu/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -110.5
-offset_top = 172.5
-offset_right = 110.5
-offset_bottom = 223.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CenterContainer3" type="CenterContainer" parent="Menu/ColorRect/VBoxContainer"]
+layout_mode = 2
 
-[node name="Close Button" type="Button" parent="Menu/ColorRect/CenterContainer3"]
+[node name="Close Button" type="Button" parent="Menu/ColorRect/VBoxContainer/CenterContainer3"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_txcbl")
 theme_override_font_sizes/font_size = 54
 text = "Close Menu"
 
-[connection signal="pressed" from="Menu/ColorRect/CenterContainer/Save Button" to="." method="_on_save_button_pressed"]
-[connection signal="pressed" from="Menu/ColorRect/CenterContainer2/Load Button" to="." method="_on_load_button_pressed"]
-[connection signal="pressed" from="Menu/ColorRect/CenterContainer3/Close Button" to="." method="_on_close_button_pressed"]
+[node name="CenterContainer4" type="CenterContainer" parent="Menu/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Spell Button" type="Button" parent="Menu/ColorRect/VBoxContainer/CenterContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_txcbl")
+theme_override_font_sizes/font_size = 54
+text = "Bind Spells"
+
+[connection signal="pressed" from="Menu/ColorRect/VBoxContainer/CenterContainer/Save Button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/VBoxContainer/CenterContainer2/Load Button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/VBoxContainer/CenterContainer3/Close Button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Menu/ColorRect/VBoxContainer/CenterContainer4/Spell Button" to="." method="_on_spell_button_pressed"]

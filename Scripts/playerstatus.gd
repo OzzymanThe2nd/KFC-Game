@@ -22,6 +22,8 @@ var temp_equip
 @export var protstab : int = 0
 @export var equiped = []
 @export var swingspeed = 1
+@export var base_magic_points : int = 100
+@export var magic_points : int = 100
 var loading_image_path = preload("res://Scenes/Menus/save_loading.tscn")
 var swapping_item = null
 var display_damage = 0
@@ -30,6 +32,8 @@ var store_inven
 var store_equip 
 var warp_to 
 var warpspots_unlocked = [true,true,false,false,false,false,false,false]
+var unlocked_spells = [true, true]
+var equipped_spells = ["fireball","heal"]
 
 func reset_to_default():
 	level = null
@@ -62,6 +66,10 @@ func reset_to_default():
 	store_equip = null
 	warp_to = null
 	warpspots_unlocked = [true,true,false,false,false,false,false,false]
+	unlocked_spells = [true, true]
+	magic_points = 100
+	equipped_spells = ["fireball","heal"]
+	base_magic_points = 100
 
 func update_stats(player, helmet, chest, gloves, legs, weapon, shield, bow, arrow):
 	keepplayer = player
@@ -128,7 +136,8 @@ func save():
 		"archery_exp" : int(archery_exp),
 		"magic" : int(magic),
 		"magic_exp" : int(magic_exp),
-		"warpspots_unlocked" : warpspots_unlocked
+		"warpspots_unlocked" : warpspots_unlocked,
+		"base_magic_points" : int(base_magic_points)
 		}
 	return save_dictionary
 
@@ -309,6 +318,11 @@ func load_game():
 			strength_exp = int(node_data["strength_exp"])
 			archery_exp = int(node_data["archery_exp"])
 			magic_exp = int(node_data["magic_exp"])
+			unlocked_spells = node_data["unlocked_spells"]
+			equipped_spells = node_data["equipped_spells"]
+			base_magic_points = node_data["base_magic_points"]
+			magic_points = node_data["magic_points"]
+			warpspots_unlocked = node_data["warpspots_unlocked"]
 		elif not node_data.keys().has("level"):
 			var new_object = load(node_data["filename"]).instantiate()
 			if node_data["parent"] == "level":

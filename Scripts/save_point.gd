@@ -8,6 +8,7 @@ func interact_with_player(player_grab):
 	player.pixelate_off()
 	if Playerstatus.healthcurrent < Playerstatus.healthmax:
 		player.heal(INF)
+	player.gain_magic_points(INF)
 	Playerstatus.save_all(player)
 	get_tree().paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -38,3 +39,7 @@ func _on_load_button_pressed() -> void:
 func _on_close_button_pressed() -> void:
 	if active == true:
 		close()
+
+
+func _on_spell_button_pressed() -> void:
+	pass # Replace with function body.

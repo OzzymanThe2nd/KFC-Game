@@ -333,6 +333,19 @@ func weaponbobble():
 		%Bobbloid.play()
 	else:
 		%Bobbloid.pause()
+
+func take_magic_points(x):
+	if Playerstatus.magic_points - x <= 0:
+		Playerstatus.magic_points = 0
+	else:
+		Playerstatus.magic_points -= x
+
+func gain_magic_points(x):
+	if Playerstatus.magic_points + x >= Playerstatus.base_magic_points:
+		Playerstatus.magic_points = Playerstatus.base_magic_points
+	else:
+		Playerstatus.magic_points += x
+
 func take_damage(x,type):
 	if type == "slash":
 		if roundi(x*(0.9**Playerstatus.protslash)) >= 0:
