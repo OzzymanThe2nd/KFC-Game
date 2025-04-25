@@ -47,6 +47,7 @@ var bow_equip_queued = false
 var sword_equip_queued = false
 var shield_equip_queued = false
 var spells_equip_queued = false
+var spells_busy : bool = false
 @onready var checkpoint = self.global_position
 var doublejump_free = true
 @onready var magtext = %magtext
@@ -253,7 +254,8 @@ func _input(event):
 		elif Input.is_action_just_pressed("3"):
 			equipbow()
 		elif Input.is_action_just_pressed("4"):
-			Playerstatus.exp_gain(15)
+			equip_spells()
+				
 		elif Input.is_action_just_pressed("f5"):
 			Playerstatus.save_all(self)
 		elif Input.is_action_just_pressed("f9"):
@@ -360,7 +362,16 @@ func gain_magic_points(x):
 		Playerstatus.magic_points += x
 
 func equip_spells():
-	print()
+	if SWORD != null or BOW != null or SHIELD != null:
+		unequip_all()
+		spells_equip_queued = true
+	if SWORD == null and BOW == null and SHIELD == null:
+		if SPELL1 == null:
+			#load spell 1
+			print()
+		elif SPELL1 != null:
+			#load spell 2
+			print()
 
 func spells_unequip():
 	print()
@@ -490,6 +501,7 @@ func equip_queued():
 		bow_equip_queued = false
 	if spells_equip_queued: 
 		equip_spells()
+		spells_equip_queued = false
 
 func update_status():
 	var helmet = equipment.slots[0].item
