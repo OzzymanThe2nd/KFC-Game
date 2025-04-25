@@ -112,10 +112,10 @@ func update_stats(player, helmet, chest, gloves, legs, weapon, shield, bow, arro
 	if bow:
 		if bow.name == "debug bow":
 			player.loadBOW = preload("res://Scenes/Items/bow.tscn")
+		else: player.loadBOW = null
 	if arrow:
 		if arrow.name == "basic arrow":
 			arrow_damage = 1
-	else: player.loadBOW = null
 	protslash = updated_protslash
 	protcrush = updated_protcrush
 	protstab = updated_protstab

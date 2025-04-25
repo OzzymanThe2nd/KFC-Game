@@ -11,6 +11,8 @@ var stored_coord
 var loadSWORD
 var loadSHIELD
 var loadBOW
+var loadSPELL1
+var loadSPELL2
 var footstep_val : float = 30
 var footstep_sounds_metal = ["res://Assets/Sounds/FootstepMetal1.wav","res://Assets/Sounds/FootstepMetal2.wav","res://Assets/Sounds/FootstepMetal3.wav","res://Assets/Sounds/FootstepMetal4.wav"]
 @onready var debug_item_spawn = preload("res://Scripts/Inventory/debug_item.tres")
@@ -20,6 +22,9 @@ var swordswingable = false
 var SWORD = null
 var SHIELD = null
 var BOW = null
+var SPELL1 = null
+var SPELL2 = null
+var spells_equipped : bool = false
 var swordout = false
 var steptype : String = "metal"
 var stepqueued : bool = false
@@ -41,6 +46,7 @@ var shieldblocking = false
 var bow_equip_queued = false
 var sword_equip_queued = false
 var shield_equip_queued = false
+var spells_equip_queued = false
 @onready var checkpoint = self.global_position
 var doublejump_free = true
 @onready var magtext = %magtext
@@ -264,6 +270,9 @@ func equipsword():
 	if BOW != null:
 		bow_unequip()
 		sword_equip_queued = true
+	if SPELL1 != null or SPELL2 != null:
+		spells_unequip()
+		sword_equip_queued = true
 	if SWORD == null and BOW == null and loadSWORD != null:
 		SWORD = loadSWORD.instantiate()
 		SWORD.sword_unequipped.connect(_on_sword_unequipped)
@@ -278,7 +287,7 @@ func bowshoot():
 		if BOW.busy != true:
 			if equipment.slots[7].amount != 0:
 				equipment.slots[7].amount -= 1
-				if equipment.slots[7].amount >= 0:
+				if equipment.slots[7].amount <= 0:
 					equipment.slots[7].item = null
 				BOW.shoot()
 
@@ -295,7 +304,7 @@ func equipshield():
 			shield_unequip()
 
 func equipbow():
-	if SHIELD != null or SWORD != null:
+	if SHIELD != null or SWORD != null or SPELL1 != null or SPELL2 != null:
 		unequip_all()
 		bow_equip_queued = true
 	if BOW == null and SHIELD == null and SWORD == null and loadBOW != null:
@@ -311,6 +320,10 @@ func unequip_all():
 		sword_unequip()
 	if SHIELD != null:
 		shield_unequip()
+	if BOW != null:
+		bow_unequip()
+	if SPELL1 != null or SPELL2 != null:
+		spells_unequip()
 
 func save():
 	var save_dictionary = {
@@ -345,6 +358,12 @@ func gain_magic_points(x):
 		Playerstatus.magic_points = Playerstatus.base_magic_points
 	else:
 		Playerstatus.magic_points += x
+
+func equip_spells():
+	print()
+
+func spells_unequip():
+	print()
 
 func take_damage(x,type):
 	if type == "slash":
@@ -469,6 +488,8 @@ func equip_queued():
 	if bow_equip_queued == true:
 		equipbow()
 		bow_equip_queued = false
+	if spells_equip_queued: 
+		equip_spells()
 
 func update_status():
 	var helmet = equipment.slots[0].item
