@@ -666,6 +666,44 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 34
 label_settings = ExtResource("7_yux4u")
 
+[node name="Magic" type="Control" parent="CamNode3D/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="MBar" type="ProgressBar" parent="CamNode3D/CanvasLayer/Magic"]
+unique_name_in_owner = true
+self_modulate = Color(0.365965, 0.975507, 0.918939, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -122.0
+offset_right = 250.0
+offset_bottom = -72.0
+grow_vertical = 0
+value = 100.0
+show_percentage = false
+
+[node name="MagText" type="Label" parent="CamNode3D/CanvasLayer/Magic/MBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.5
+offset_right = 74.5
+offset_bottom = 43.0
+grow_horizontal = 2
+text = "FILLER"
+label_settings = ExtResource("7_yux4u")
+horizontal_alignment = 1
+
 [node name="LevelEnd" type="Control" parent="CamNode3D/CanvasLayer"]
 unique_name_in_owner = true
 layout_mode = 3

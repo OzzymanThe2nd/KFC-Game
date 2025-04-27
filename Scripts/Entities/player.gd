@@ -87,6 +87,7 @@ func _ready():
 	AudioServer.set_bus_volume_db(busid,linear_to_db(volpercent/100))
 	%PCamera.fov = basefov
 	%heltext.text = "%s" % str(Playerstatus.healthcurrent)
+	%MagText.text = "%s" % str(Playerstatus.magic_points)
 	%Bobbloid.play("wobble")
 	%Bobbloid.pause()
 	$CamNode3D/CamSmooth/PCamera/InteractWindowDetect.area_entered.connect(_on_interact_window_detect_body_entered)
@@ -354,12 +355,18 @@ func take_magic_points(x):
 		Playerstatus.magic_points = 0
 	else:
 		Playerstatus.magic_points -= x
+	%MBar.max_value = Playerstatus.base_magic_points
+	%MBar.value = Playerstatus.magic_points
+	%MagText.text = "%s" % str(Playerstatus.magic_points)
 
 func gain_magic_points(x):
 	if Playerstatus.magic_points + x >= Playerstatus.base_magic_points:
 		Playerstatus.magic_points = Playerstatus.base_magic_points
 	else:
 		Playerstatus.magic_points += x
+	%MBar.max_value = Playerstatus.base_magic_points
+	%MBar.value = Playerstatus.magic_points
+	%MagText.text = "%s" % str(Playerstatus.magic_points)
 
 func equip_spells():
 	if SWORD != null or BOW != null or SHIELD != null:
@@ -514,6 +521,8 @@ func update_status():
 	var arrow = equipment.slots[7].item
 	%Hbar.max_value = Playerstatus.healthmax
 	%Hbar.value = Playerstatus.healthcurrent
+	%MBar.max_value = Playerstatus.base_magic_points
+	%MBar.value = Playerstatus.magic_points
 	Playerstatus.update_stats(self, helmet, chest, gloves, legs, weapon, shield, bow, arrow)
 
 func check_warp():
