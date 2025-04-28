@@ -11,6 +11,7 @@ var stored_coord
 var loadSWORD
 var loadSHIELD
 var loadBOW
+var loadSPELLCASTER = preload("res://Scenes/Items/spellcasting.tscn")
 var loadSPELL1
 var loadSPELL2
 var footstep_val : float = 30
@@ -22,8 +23,7 @@ var swordswingable = false
 var SWORD = null
 var SHIELD = null
 var BOW = null
-var SPELL1 = null
-var SPELL2 = null
+var SPELLCASTER = null
 var spells_equipped : bool = false
 var swordout = false
 var steptype : String = "metal"
@@ -47,7 +47,6 @@ var bow_equip_queued = false
 var sword_equip_queued = false
 var shield_equip_queued = false
 var spells_equip_queued = false
-var spells_busy : bool = false
 @onready var checkpoint = self.global_position
 var doublejump_free = true
 @onready var magtext = %magtext
@@ -200,6 +199,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed("shoot"):
 		if swordswingable == true:
 			swordswing()
+		if SPELLCASTER != null:
+			SPELLCASTER.cast()
 		else:
 			bowshoot()
 	if is_on_floor():
@@ -273,10 +274,10 @@ func equipsword():
 	if BOW != null:
 		bow_unequip()
 		sword_equip_queued = true
-	if SPELL1 != null or SPELL2 != null:
+	if SPELLCASTER != null:
 		spells_unequip()
 		sword_equip_queued = true
-	if SWORD == null and BOW == null and loadSWORD != null:
+	if SWORD == null and BOW == null and SPELLCASTER == null and loadSWORD != null:
 		SWORD = loadSWORD.instantiate()
 		SWORD.sword_unequipped.connect(_on_sword_unequipped)
 		%SwordBobbleLoc.add_child(SWORD)
@@ -298,7 +299,7 @@ func equipshield():
 	if BOW != null:
 		bow_unequip()
 		shield_equip_queued = true
-	if SHIELD == null and BOW == null and loadSHIELD != null:
+	if SHIELD == null and BOW == null and SPELLCASTER == null and loadSHIELD != null:
 		SHIELD = loadSHIELD.instantiate()
 		SHIELD.shield_unequipped.connect(_on_shield_unequipped)
 		%ShieldBobbleLoc.add_child(SHIELD)
@@ -307,10 +308,10 @@ func equipshield():
 			shield_unequip()
 
 func equipbow():
-	if SHIELD != null or SWORD != null or SPELL1 != null or SPELL2 != null:
+	if SHIELD != null or SWORD != null or SPELLCASTER != null:
 		unequip_all()
 		bow_equip_queued = true
-	if BOW == null and SHIELD == null and SWORD == null and loadBOW != null:
+	if BOW == null and SHIELD == null and SWORD == null and SPELLCASTER == null and loadBOW != null:
 		BOW = loadBOW.instantiate()
 		BOW.bow_unequipped.connect(_on_bow_unequipped)
 		%BowBobble.add_child(BOW)
@@ -325,7 +326,7 @@ func unequip_all():
 		shield_unequip()
 	if BOW != null:
 		bow_unequip()
-	if SPELL1 != null or SPELL2 != null:
+	if SPELLCASTER != null:
 		spells_unequip()
 
 func save():
@@ -373,15 +374,18 @@ func equip_spells():
 		unequip_all()
 		spells_equip_queued = true
 	if SWORD == null and BOW == null and SHIELD == null:
-		if SPELL1 == null:
-			#load spell 1
+		if SPELLCASTER == null:
+			SPELLCASTER = loadSPELLCASTER.instantiate()
+			%SwordBobbleLoc.add_child(SPELLCASTER)
+			SPELLCASTER.spells_unequipped.connect(_on_spells_unequipped)
 			print()
-		elif SPELL1 != null:
-			#load spell 2
-			print()
+		elif SPELLCASTER != null:
+			spells_unequip()
 
 func spells_unequip():
-	print()
+	if SPELLCASTER:
+		if SPELLCASTER.busy == false:
+			SPELLCASTER.put_away()
 
 func take_damage(x,type):
 	if type == "slash":
@@ -559,6 +563,10 @@ func _on_bow_unequipped():
 	await get_tree().process_frame
 	equip_queued()
 
+func _on_spells_unequipped():
+	SPELLCASTER.queue_free()
+	await get_tree().process_frame
+	equip_queued()
 
 func _on_hud_anim_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "FadeToBlack":

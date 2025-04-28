@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtmvriljxig7p"]
+
+[ext_resource type="Script" path="res://Scripts/Items/spellcasting.gd" id="1_phxvt"]
+
+[sub_resource type="Animation" id="Animation_4r0e3"]
+resource_name = "pullout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.633893, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vu0tm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6ia00"]
+resource_name = "unequip"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.633893, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u7jsr"]
+_data = {
+"RESET": SubResource("Animation_vu0tm"),
+"pullout": SubResource("Animation_4r0e3"),
+"unequip": SubResource("Animation_6ia00")
+}
+
+[sub_resource type="SphereMesh" id="SphereMesh_xx8y0"]
+radius = 0.1
+height = 0.2
+
+[node name="Spellcasting" type="Node3D"]
+script = ExtResource("1_phxvt")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u7jsr")
+}
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_xx8y0")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
