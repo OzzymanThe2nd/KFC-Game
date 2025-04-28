@@ -192,6 +192,9 @@ func _physics_process(delta):
 			if SHIELD.busy == false and swordout == false and shieldblocking == false:
 				SHIELD.block()
 				shieldblocking = true
+		elif SPELLCASTER != null:
+			if SPELLCASTER.busy == false:
+				SPELLCASTER.cast_rmb()
 	if Input.is_action_just_released("zoom"):
 		if SHIELD != null:
 			if SHIELD.busy == false:
@@ -200,7 +203,8 @@ func _physics_process(delta):
 		if swordswingable == true:
 			swordswing()
 		if SPELLCASTER != null:
-			SPELLCASTER.cast()
+			if SPELLCASTER.busy == false:
+				SPELLCASTER.cast_main()
 		else:
 			bowshoot()
 	if is_on_floor():

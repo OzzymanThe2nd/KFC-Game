@@ -1,6 +1,6 @@
 extends Node3D
 var busy : bool = true
-var currently_casting
+var currently_casting 
 signal spells_unequipped
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,7 +11,18 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func cast():
+func cast_main():
+	busy = true
+	currently_casting = Playerstatus.equipped_spells[0]
+	print(currently_casting)
+	$AnimationPlayer.play("cast")
+	pass
+
+func cast_rmb():
+	busy = true
+	currently_casting = Playerstatus.equipped_spells[1]
+	print(currently_casting)
+	$AnimationPlayer.play("cast")
 	pass
 
 func put_away():
@@ -23,5 +34,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "unequip":
 		spells_unequipped.emit()
 		queue_free()
-	if anim_name == "pullout":
+	if anim_name == "cast":
+		print("Casting a spell!")
+		$AnimationPlayer.play("return_cast")
+	if anim_name == "pullout" or "return_cast":
 		busy = false
