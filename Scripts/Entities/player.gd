@@ -434,7 +434,12 @@ func show_hud(on : bool = false):
 	else:
 		for i in hud_elements:
 			i.visible = false
-	
+
+func show_interact_prompt(on : bool = false):
+	if on == false:
+		%InteractPrompt.visible = false
+	else:
+		%InteractPrompt.visible = true
 
 func travel_with_fade(level, coord):
 	stored_level = level

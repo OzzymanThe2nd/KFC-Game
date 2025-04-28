@@ -112,6 +112,7 @@ func open(sound_enable = true):
 	player = Playerstatus.keepplayer
 	player.hud_pixelate(false)
 	player.show_hud(false)
+	player.show_interact_prompt(false)
 	inventory = player.inventory
 	chest = Playerstatus.chest_inven
 	inventory.update.connect(update_slots)
@@ -129,6 +130,7 @@ func close(sound_enable = true):
 	is_open = false
 	player.hud_pixelate(true)
 	player.show_hud(true)
+	player.show_interact_prompt(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
 	#if sound_enable == true:

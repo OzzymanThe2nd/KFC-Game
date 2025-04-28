@@ -34,7 +34,25 @@ var warp_to
 var warpspots_unlocked = [true,true,false,false,false,false,false,false]
 var unlocked_spells = [true, true]
 var equipped_spells = ["fireball","heal"]
+#Formatting: Slash protection, crush protection, stab protection
+var armorstats_dict = {
+	"debug helmet": [3,3,3],
+	"debug chest": [3,3,3],
+	"debug gloves": [3,3,3],
+	"debug legs": [3,3,3],
+}
 
+var swords_dict = {
+	"debug sword": ["res://Scenes/Items/sword.tscn", 4]
+}
+
+var shield_dict = {
+	"debug shield": "res://Scenes/Items/shield.tscn"
+}
+
+var bow_dict = {
+	"debug bow": "res://Scenes/Items/bow.tscn"
+}
 func reset_to_default():
 	level = null
 	player_level = 1
@@ -78,44 +96,42 @@ func update_stats(player, helmet, chest, gloves, legs, weapon, shield, bow, arro
 	var updated_protstab = 0
 	var item_damage = 0
 	if helmet:
-		if helmet.name == "debug helmet":
-			updated_protslash += 3
-			updated_protcrush += 3
-			updated_protstab += 3
+		updated_protslash += (armorstats_dict[helmet.name])[0]
+		updated_protcrush += (armorstats_dict[helmet.name])[1]
+		updated_protstab += (armorstats_dict[helmet.name])[2]
 		
 	if chest:
-		if chest.name == "debug chest":
-			updated_protslash += 3
-			updated_protcrush += 3
-			updated_protstab += 3
+		updated_protslash += (armorstats_dict[chest.name])[0]
+		updated_protcrush += (armorstats_dict[chest.name])[1]
+		updated_protstab += (armorstats_dict[chest.name])[2]
 		
 	if gloves:
-		if gloves.name == "debug gloves":
-			updated_protslash += 3
-			updated_protcrush += 3
-			updated_protstab += 3
+		updated_protslash += (armorstats_dict[gloves.name])[0]
+		updated_protcrush += (armorstats_dict[gloves.name])[1]
+		updated_protstab += (armorstats_dict[gloves.name])[2]
 		
 	if legs:
-		if legs.name == "debug legs":
-			updated_protslash += 3
-			updated_protcrush += 3
-			updated_protstab += 3
+		updated_protslash += (armorstats_dict[legs.name])[0]
+		updated_protcrush += (armorstats_dict[legs.name])[1]
+		updated_protstab += (armorstats_dict[legs.name])[2]
+		
 	if weapon:
-		if weapon.name == "debug sword":
-			player.loadSWORD = preload("res://Scenes/Items/sword.tscn")
-			item_damage = 4
+		player.loadSWORD = load((swords_dict[weapon.name])[0])
+		item_damage = (swords_dict[weapon.name])[1]
 	else: player.loadSWORD = null
+	
 	if shield:
-		if shield.name == "debug shield":
-			player.loadSHIELD = preload("res://Scenes/Items/shield.tscn")
+		player.loadSHIELD = load(shield_dict[shield.name])
 	else: player.loadSHIELD = null
+	
 	if bow:
-		if bow.name == "debug bow":
-			player.loadBOW = preload("res://Scenes/Items/bow.tscn")
-		else: player.loadBOW = null
+		player.loadBOW = load(bow_dict[bow.name])
+	else: player.loadBOW = null
+	
 	if arrow:
 		if arrow.name == "basic arrow":
 			arrow_damage = 1
+			
 	protslash = updated_protslash
 	protcrush = updated_protcrush
 	protstab = updated_protstab

@@ -1,15 +1,15 @@
-[gd_resource type="Resource" script_class="inv" load_steps=14 format=3 uid="uid://b7edor6ef7ig"]
+[gd_resource type="Resource" script_class="inv" load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://Scripts/inventory.gd" id="1_753cn"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inven_slot.gd" id="2_u7pui"]
-[ext_resource type="Resource" uid="uid://c0eaatka4xlko" path="res://Scripts/Inventory/debug helmet.tres" id="3_kmc32"]
-[ext_resource type="Resource" uid="uid://eqconbjer20d" path="res://Scripts/Inventory/debug bow.tres" id="4_rc1s7"]
-[ext_resource type="Resource" uid="uid://uqfst25msopo" path="res://Scripts/Inventory/basic_arrow.tres" id="5_p4h46"]
+[ext_resource type="Resource" path="res://Scripts/Inventory/debug sword.tres" id="3_vjknl"]
+[ext_resource type="Resource" path="res://Scripts/Inventory/debug shield.tres" id="4_26tj1"]
+[ext_resource type="Resource" path="res://Scripts/Inventory/debug bow.tres" id="4_rc1s7"]
+[ext_resource type="Resource" path="res://Scripts/Inventory/basic_arrow.tres" id="5_p4h46"]
 
 [sub_resource type="Resource" id="Resource_oigmk"]
 script = ExtResource("2_u7pui")
-item = ExtResource("3_kmc32")
-amount = 1
+amount = 0
 
 [sub_resource type="Resource" id="Resource_btkg0"]
 script = ExtResource("2_u7pui")
@@ -25,11 +25,13 @@ amount = 0
 
 [sub_resource type="Resource" id="Resource_eg881"]
 script = ExtResource("2_u7pui")
-amount = 0
+item = ExtResource("3_vjknl")
+amount = 1
 
 [sub_resource type="Resource" id="Resource_5x5a2"]
 script = ExtResource("2_u7pui")
-amount = 0
+item = ExtResource("4_26tj1")
+amount = 1
 
 [sub_resource type="Resource" id="Resource_q4vxp"]
 script = ExtResource("2_u7pui")
@@ -39,7 +41,7 @@ amount = 1
 [sub_resource type="Resource" id="Resource_2obw8"]
 script = ExtResource("2_u7pui")
 item = ExtResource("5_p4h46")
-amount = 30
+amount = 20
 
 [resource]
 script = ExtResource("1_753cn")

@@ -17,36 +17,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_4r0e3"]
-resource_name = "pullout"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.633893, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_6ia00"]
-resource_name = "unequip"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -0.633893, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_j3p4g"]
 resource_name = "cast"
 length = 0.325
@@ -61,6 +31,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -0.187058)]
+}
+
+[sub_resource type="Animation" id="Animation_4r0e3"]
+resource_name = "pullout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.633893, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_sgp5n"]
@@ -79,6 +64,21 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, -0.187058), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_6ia00"]
+resource_name = "unequip"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.633893, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u7jsr"]
 _data = {
 "RESET": SubResource("Animation_vu0tm"),
@@ -95,7 +95,8 @@ height = 0.2
 [node name="Spellcasting" type="Node3D"]
 script = ExtResource("1_phxvt")
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="SpellSpawn" type="Marker3D" parent="."]
+unique_name_in_owner = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
