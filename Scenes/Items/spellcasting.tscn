@@ -97,6 +97,7 @@ script = ExtResource("1_phxvt")
 
 [node name="SpellSpawn" type="Marker3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(0.993623, 0, 0.112752, 0, 1, 0, -0.112752, 0, 0.993623, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

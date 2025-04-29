@@ -3,7 +3,7 @@ var busy : bool = true
 var currently_casting 
 @onready var player = Playerstatus.keepplayer
 var dict_spellloader = {
-	"fireball": ["res://Scenes/Items/arrow.tscn", 5],
+	"fireball": ["res://Scenes/Projectiles/fireball.tscn", 5],
 	"heal": ["res://Scenes/Items/arrow.tscn", 5]
 }
 signal spells_unequipped

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://1j5b54nbm2a4"]
+
+[ext_resource type="Script" path="res://Scripts/Projectiles/fireball.gd" id="1_f7glr"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lnfwq"]
+radius = 0.25
+height = 0.125
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3rhs3"]
+height = 0.125
+radius = 0.25
+
+[node name="Fireball" type="Node3D"]
+script = ExtResource("1_f7glr")
+dmg = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("SphereMesh_lnfwq")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+shape = SubResource("CylinderShape3D_3rhs3")
