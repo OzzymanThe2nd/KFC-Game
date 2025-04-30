@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bje6onabyjcfm"]
+
+[ext_resource type="Script" path="res://Scripts/Projectiles/heal.gd" id="1_ej7bq"]
+[ext_resource type="Texture2D" uid="uid://csfl1mef5nfgx" path="res://icon.svg" id="2_8svp2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g75b8"]
+flatness = 0.88
+initial_velocity_max = 3.24
+gravity = Vector3(0, 9.8, 0)
+scale_max = 1.2
+turbulence_enabled = true
+turbulence_influence_min = 0.01
+turbulence_influence_max = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydhjk"]
+albedo_color = Color(0.031711, 0.553591, 2.5028e-06, 1)
+albedo_texture = ExtResource("2_8svp2")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_1dgpb"]
+material = SubResource("StandardMaterial3D_ydhjk")
+size = Vector2(0.1, 0.3)
+
+[node name="Heal" type="Node3D"]
+script = ExtResource("1_ej7bq")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.05
+randomness = 0.1
+process_material = SubResource("ParticleProcessMaterial_g75b8")
+draw_pass_1 = SubResource("QuadMesh_1dgpb")
+
+[connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]

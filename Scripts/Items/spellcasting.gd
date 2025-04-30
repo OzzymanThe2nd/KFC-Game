@@ -2,9 +2,10 @@ extends Node3D
 var busy : bool = true
 var currently_casting 
 @onready var player = Playerstatus.keepplayer
+#Scene path, mpcost, cast speed modifier
 var dict_spellloader = {
-	"fireball": ["res://Scenes/Projectiles/fireball.tscn", 5],
-	"heal": ["res://Scenes/Items/arrow.tscn", 5]
+	"fireball": ["res://Scenes/Projectiles/fireball.tscn", 8, 0.7],
+	"heal": ["res://Scenes/Projectiles/heal.tscn", 12, 0.4]
 }
 signal spells_unequipped
 # Called when the node enters the scene tree for the first time.
@@ -23,6 +24,7 @@ func cast_main():
 		busy = true
 		print(currently_casting)
 		$AnimationPlayer.play("cast")
+		$AnimationPlayer.speed_scale = (dict_spellloader[currently_casting])[2]
 
 func cast_rmb():
 	currently_casting = Playerstatus.equipped_spells[1]
@@ -31,6 +33,7 @@ func cast_rmb():
 		busy = true
 		print(currently_casting)
 		$AnimationPlayer.play("cast")
+		$AnimationPlayer.speed_scale = (dict_spellloader[currently_casting])[2]
 
 func casting():
 	$AnimationPlayer.play("return_cast")
@@ -43,6 +46,7 @@ func put_away():
 	if busy == false:
 		busy = true
 		$AnimationPlayer.play("unequip")
+		$AnimationPlayer.speed_scale = 1
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "unequip":
@@ -54,3 +58,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		busy = false
 	if anim_name == "return_cast" and not $AnimationPlayer.is_playing():
 		busy = false
+		$AnimationPlayer.speed_scale = 1
