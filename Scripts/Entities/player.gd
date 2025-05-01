@@ -427,7 +427,7 @@ func pixelate_off():
 	%Pixelate.visible = false
 
 func show_hud(on : bool = false):
-	var hud_elements = [$CamNode3D/CanvasLayer/Health]
+	var hud_elements = [$CamNode3D/CanvasLayer/Health, $CamNode3D/CanvasLayer/Magic]
 	if on == true:
 		for i in hud_elements:
 			i.visible = true

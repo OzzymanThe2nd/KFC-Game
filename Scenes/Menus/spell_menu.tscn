@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgeh6q7hjy16c"]
+
+[ext_resource type="Script" path="res://Scripts/menus/spell_menu.gd" id="1_svobt"]
+[ext_resource type="LabelSettings" uid="uid://4q4ec65ooiba" path="res://menu_font.tres" id="2_ql74r"]
+
+[node name="Spell Menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_svobt")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Debug"
+label_settings = ExtResource("2_ql74r")
+horizontal_alignment = 1

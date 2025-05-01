@@ -12,11 +12,8 @@ func _ready() -> void:
 	rotation.x = 0
 	rotation.y = 0
 	rotation.z = 0
-	player = get_parent_node_3d()
+	player = Playerstatus.keepplayer
 	top_level = true
-	for i in range(1, 7):
-		player = player.get_parent_node_3d()
-	player = player.get_parent()
 
 func _physics_process(_delta: float) -> void:
 	$MeshInstance3D.position += (Vector3.FORWARD * SPEED)

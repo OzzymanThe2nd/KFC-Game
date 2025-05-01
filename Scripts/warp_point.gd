@@ -9,6 +9,8 @@ var warplevel2 = "res://Scenes/Levels/dogshit.tscn"
 func interact_with_player(player_grab):
 	player = player_grab
 	player.pixelate_off()
+	player.show_hud(false)
+	player.show_interact_prompt(false)
 	$Menu.visible = true
 	active = true
 	get_tree().paused = true
@@ -22,6 +24,8 @@ func _input(event: InputEvent) -> void:
 
 func close():
 	active = false
+	player.show_hud(true)
+	player.show_interact_prompt(true)
 	$Menu.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false

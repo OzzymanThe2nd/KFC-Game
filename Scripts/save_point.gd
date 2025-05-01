@@ -1,11 +1,14 @@
 extends Node3D
 var player
 var active : bool = false
+var spell_menu_path = "res://Scenes/Menus/spell_menu.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func interact_with_player(player_grab):
 	player = player_grab
 	player.pixelate_off()
+	player.show_hud(false)
+	player.show_interact_prompt(false)
 	if Playerstatus.healthcurrent < Playerstatus.healthmax:
 		player.heal(INF)
 	player.gain_magic_points(INF)
@@ -24,6 +27,8 @@ func _input(event: InputEvent) -> void:
 func close():
 	active = false
 	$Menu.visible = false
+	player.show_hud(true)
+	player.show_interact_prompt(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
 
@@ -42,4 +47,8 @@ func _on_close_button_pressed() -> void:
 
 
 func _on_spell_button_pressed() -> void:
-	pass # Replace with function body.
+	if active == true:
+		close()
+		var parent = get_parent()
+		var spell_menu = load(spell_menu_path).instantiate()
+		parent.add_child(spell_menu)
