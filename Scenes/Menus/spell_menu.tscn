@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgeh6q7hjy16c"]
+[gd_scene load_steps=5 format=3 uid="uid://dgeh6q7hjy16c"]
 
 [ext_resource type="Script" path="res://Scripts/menus/spell_menu.gd" id="1_svobt"]
+[ext_resource type="Texture2D" uid="uid://cpgapsu55fnj1" path="res://textures/border.png" id="2_dtcmd"]
 [ext_resource type="LabelSettings" uid="uid://4q4ec65ooiba" path="res://menu_font.tres" id="2_ql74r"]
+[ext_resource type="PackedScene" uid="uid://cdrssagmsb0cu" path="res://Scenes/Menus/spell_menu_panel.tscn" id="3_5sjdh"]
 
 [node name="Spell Menu" type="Control"]
 process_mode = 3
@@ -13,19 +15,39 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_svobt")
 
-[node name="Label" type="Label" parent="."]
+[node name="Equipped" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 367.0
+offset_bottom = 244.0
+texture = ExtResource("2_dtcmd")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Equip Slots" type="GridContainer" parent="Equipped"]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Debug"
+offset_left = 16.0
+offset_top = 59.0
+offset_right = 432.0
+offset_bottom = 336.0
+scale = Vector2(0.8, 0.8)
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="EquipPanel" parent="Equipped/Equip Slots" instance=ExtResource("3_5sjdh")]
+layout_mode = 2
+
+[node name="EquipPanel2" parent="Equipped/Equip Slots" instance=ExtResource("3_5sjdh")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Equipped"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 5.0
+offset_right = 225.0
+offset_bottom = 60.0
+text = "Equipped Spells"
 label_settings = ExtResource("2_ql74r")
-horizontal_alignment = 1
