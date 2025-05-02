@@ -4,7 +4,7 @@ var player
 @onready var select_slots = $"Selection/Select Slots".get_children()
 #Formatting: sprite path, cost, cast speed, description
 var spelltable_dict = {
-	"fireball" : ["res://icon.svg", 8, 0.3, "A small fireball, dealing minimal damage for modeste amounts of spirit."],
+	"fireball" : ["res://icon.svg", 8, 0.3, "A small fireball, dealing minimal damage for modest amounts of spirit."],
 	"heal" : ["res://icon.svg", 12, 0.6, "A basic healing spell. Takes a lot of spirit for minimal results, but beats nothing."]
 }
 # Called when the node enters the scene tree for the first time.
@@ -44,7 +44,9 @@ func update_slots():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func info_update(spell):
-	pass
+	$Info/MPcost.text = "Spirit Cost: " + str(spelltable_dict[spell][1])
+	$"Info/Cast Speed".text = "Cast Speed: " + str(spelltable_dict[spell][2])
+	$Info/Description.text = str(spelltable_dict[spell][3])
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
