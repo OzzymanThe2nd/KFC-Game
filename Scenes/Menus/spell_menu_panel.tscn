@@ -32,3 +32,6 @@ layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="CenterContainer/Panel2"]
 unique_name_in_owner = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

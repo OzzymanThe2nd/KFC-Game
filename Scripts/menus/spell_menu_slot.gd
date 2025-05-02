@@ -14,3 +14,10 @@ func update(spell_in_slot):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_mouse_entered() -> void:
+	mouse_inside = true
+
+func _on_mouse_exited() -> void:
+	mouse_inside = false

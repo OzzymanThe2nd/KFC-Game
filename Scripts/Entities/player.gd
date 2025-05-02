@@ -149,7 +149,13 @@ func _snap_up_stairs_check(delta) -> bool:
 			self.global_position = step_pos_with_clearance.origin + down_check_result.get_travel()
 			apply_floor_snap()
 			snapped_to_stairs = true
+			$StairsForward.position.x = 0
+			$StairsForward.position.y = -0.45
+			$StairsForward.position.z = -0.79
 			return true
+	$StairsForward.position.x = 0
+	$StairsForward.position.y = -0.45
+	$StairsForward.position.z = -0.79
 	return false
 
 func _physics_process(delta):
