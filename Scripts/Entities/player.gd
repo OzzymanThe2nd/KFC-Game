@@ -267,7 +267,6 @@ func _input(event):
 			equipbow()
 		elif Input.is_action_just_pressed("4"):
 			equip_spells()
-				
 		elif Input.is_action_just_pressed("f5"):
 			Playerstatus.save_all(self)
 		elif Input.is_action_just_pressed("f9"):
@@ -303,6 +302,7 @@ func bowshoot():
 				equipment.slots[7].amount -= 1
 				if equipment.slots[7].amount <= 0:
 					equipment.slots[7].item = null
+				$"%Arrow Count".text = str(equipment.slots[7].amount)
 				BOW.shoot()
 
 func equipshield():
@@ -325,6 +325,8 @@ func equipbow():
 		BOW = loadBOW.instantiate()
 		BOW.bow_unequipped.connect(_on_bow_unequipped)
 		%BowBobble.add_child(BOW)
+		$CamNode3D/CanvasLayer/Arrows.visible = true
+		$"%Arrow Count".text = str(equipment.slots[7].amount)
 	elif BOW != null:
 		if BOW.busy == false:
 			bow_unequip()
@@ -440,6 +442,10 @@ func show_hud(on : bool = false):
 	else:
 		for i in hud_elements:
 			i.visible = false
+	if BOW != null and on == true:
+		$CamNode3D/CanvasLayer/Arrows.visible = true
+	elif BOW != null and on == false:
+		$CamNode3D/CanvasLayer/Arrows.visible = false
 
 func show_interact_prompt(on : bool = false):
 	if on == false:
@@ -481,6 +487,7 @@ func shield_unequip():
 
 func bow_unequip():
 	if BOW.busy == false:
+		%"Arrow Count".visible = false
 		BOW.putaway()
 
 func swordswing():
