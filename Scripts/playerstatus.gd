@@ -32,7 +32,7 @@ var store_inven
 var store_equip 
 var warp_to 
 var warpspots_unlocked = [true,true,false,false,false,false,false,false]
-var unlocked_spells = [true, true]
+var unlocked_spells = ["fireball","heal"]
 var equipped_spells = ["fireball","heal"]
 #Formatting: Slash protection, crush protection, stab protection
 var armorstats_dict = {
@@ -84,7 +84,7 @@ func reset_to_default():
 	store_equip = null
 	warp_to = null
 	warpspots_unlocked = [true,true,false,false,false,false,false,false]
-	unlocked_spells = [true, true]
+	unlocked_spells = ["fireball", "heal"]
 	magic_points = 100
 	equipped_spells = ["fireball","heal"]
 	base_magic_points = 100

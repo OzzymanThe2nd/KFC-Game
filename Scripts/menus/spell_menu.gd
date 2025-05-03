@@ -38,7 +38,7 @@ func update_slots():
 	slots[1].holding = Playerstatus.equipped_spells[1]
 	slots[1].update(spelltable_dict[Playerstatus.equipped_spells[1]][0])
 	for i in select_slots:
-		if i.holding != "":
+		if i.holding != "" and Playerstatus.unlocked_spells.has(i.holding):
 			i.update((spelltable_dict[i.holding])[0])
 		else:
 			i.locked = true

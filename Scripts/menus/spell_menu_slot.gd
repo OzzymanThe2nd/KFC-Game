@@ -12,7 +12,7 @@ var spell_menu
 
 func update(spell_in_slot):
 	%Sprite2D.texture = load(spell_in_slot)
-	if holding != "":
+	if holding != "" and Playerstatus.unlocked_spells.has(holding):
 		tooltip_text = holding.capitalize()
 		_make_custom_tooltip(tooltip_text)
 
