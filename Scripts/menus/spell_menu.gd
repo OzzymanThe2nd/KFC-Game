@@ -33,7 +33,9 @@ func close():
 
 func update_slots():
 	var slots = %"Equip Slots".get_children()
+	slots[0].holding = Playerstatus.equipped_spells[0]
 	slots[0].update(spelltable_dict[Playerstatus.equipped_spells[0]][0])
+	slots[1].holding = Playerstatus.equipped_spells[1]
 	slots[1].update(spelltable_dict[Playerstatus.equipped_spells[1]][0])
 	for i in select_slots:
 		if i.holding != "":
