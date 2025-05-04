@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh3kn7c41qa7h"
-path.s3tc="res://.godot/imported/debughelm.png-c4165c55e805d06e0f5812c4753d1110.s3tc.ctex"
+uid="uid://cjedxqseegqgw"
+path.s3tc="res://.godot/imported/Skeleton_SkeletonTex.png-4e2e19d33d9b3f2d1ab663bee8b1c27b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "c87a9339bc1df64a4d41977946738ee1"
+}
 
 [deps]
 
-source_file="res://textures/debughelm.png"
-dest_files=["res://.godot/imported/debughelm.png-c4165c55e805d06e0f5812c4753d1110.s3tc.ctex"]
+source_file="res://Assets/Models/SkeletonModel/Skeleton_SkeletonTex.png"
+dest_files=["res://.godot/imported/Skeleton_SkeletonTex.png-4e2e19d33d9b3f2d1ab663bee8b1c27b.s3tc.ctex"]
 
 [params]
 

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://w2nr3harakto"
+path="res://.godot/imported/firstarea.7.map-a4233160c134100b532a28dfbc1c9c79.tres"
+
+[deps]
+
+source_file="res://Scenes/Levels/autosave/firstarea.7.map"
+dest_files=["res://.godot/imported/firstarea.7.map-a4233160c134100b532a28dfbc1c9c79.tres"]
+
+[params]
+
