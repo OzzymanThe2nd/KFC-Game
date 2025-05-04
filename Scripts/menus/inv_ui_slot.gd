@@ -34,7 +34,17 @@ func update(slot: invslot):
 			var dmg
 			if slot.item.name == "debug sword":
 				dmg = 4
-			tooltip_text = "%s\n%s\n%s" % [str(slot.item.name).capitalize(), str(slot.item.type).capitalize(), str(dmg)]
+			tooltip_text = "%s\n%s\nBase Damage: %s" % [str(slot.item.name).capitalize(), str(slot.item.type).capitalize(), str(dmg)]
+		elif slot.item.type == "bow":
+			var dmg
+			if slot.item.name == "debug bow":
+				dmg = 2
+			tooltip_text = "%s\n%s\nBase Damage: %s" % [str(slot.item.name).capitalize(), str(slot.item.type).capitalize(), str(dmg)]
+		elif slot.item.type == "arrow":
+			var dmg
+			if slot.item.name == "basic arrow":
+				dmg = 1
+			tooltip_text = "%s\n%s\nBase Damage: %s" % [str(slot.item.name).capitalize(), str(slot.item.type).capitalize(), str(dmg)]
 		else:
 			tooltip_text = "%s \n%s" % [str(slot.item.name).capitalize(), str(slot.item.type).capitalize()]
 		_make_custom_tooltip(tooltip_text)

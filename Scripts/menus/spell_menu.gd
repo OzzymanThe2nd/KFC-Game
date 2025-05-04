@@ -55,6 +55,9 @@ func _input(event: InputEvent) -> void:
 		if Input.is_action_just_pressed("pause") and get_tree().paused == true and active == true:
 			await get_tree().process_frame
 			close()
+		if Input.is_action_just_pressed("inventory") and get_tree().paused == true and active == true:
+			await get_tree().process_frame
+			close()
 	if event is InputEventMouseButton:
 		if Input.is_action_pressed("left_click"):
 			for i in select_slots:

@@ -618,3 +618,7 @@ func _on_interact_window_detect_body_exited(body: Node3D) -> void:
 	body = body.get_parent()
 	if body.has_method("interact") or body.has_method("interact_with_player"):
 		%InteractPrompt.visible = false
+
+
+func _on_footstep_finished() -> void:
+	$Footstep.volume_db = 0
