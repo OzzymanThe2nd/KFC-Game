@@ -10,5 +10,6 @@ class_name InvItem
 @export var x_off : float = 0
 @export var y_off : float = 0
 @export var z_off : float = 0
+@export var rotate : Array = [0,0,0]
 @export var scale : float = 1
 @export var soundtype : String = ""

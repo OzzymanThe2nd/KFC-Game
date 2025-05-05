@@ -74,7 +74,7 @@ func putaway():
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "swing" or anim_name == "bounce" or "second_swing":
 		if bouncing == true:
-			$Sketchfab_Scene.visible=false
+			$sword.visible=false
 			self.position = temppos
 			bouncing = false
 		second_swing_possible = false
@@ -83,7 +83,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$AnimationPlayer.speed_scale = 1
 		busy = false
 		player.swordout = false
-		$Sketchfab_Scene.visible = true
+		$sword.visible = true
 		alreadyhit.clear()
 		dmg = roundi(basedmg+(playerstrength / 2))
 	if anim_name == "unsheath":

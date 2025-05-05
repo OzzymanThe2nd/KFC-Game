@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bk7275hc57yde"]
+[gd_scene load_steps=15 format=3 uid="uid://bk7275hc57yde"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/debug_enemy.gd" id="1_6yxyo"]
 [ext_resource type="PackedScene" uid="uid://c0g3t3vbk83gd" path="res://Assets/Models/low_poly_sword_handpainted/scene.gltf" id="2_g5qsc"]
 [ext_resource type="PackedScene" uid="uid://lee2rhywf5a8" path="res://Assets/Models/SkeletonModel/Skeleton.glb" id="3_hvuwa"]
+[ext_resource type="PackedScene" uid="uid://ck4o5rndncf67" path="res://Assets/Models/SwordModel/sword.glb" id="4_ihuvv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2i0gp"]
 
@@ -93,7 +94,7 @@ tracks/7/enabled = true
 tracks/7/path = NodePath("Skeleton/SkeletonArmature/Skeleton3D:armupper.R")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
-tracks/7/keys = PackedFloat32Array(0, 1, -0.00424899, -0.0362825, 0.992549, -0.116238)
+tracks/7/keys = PackedFloat32Array(0, 1, 0.00424899, 0.0362825, -0.992549, 0.116238)
 tracks/8/type = "rotation_3d"
 tracks/8/imported = false
 tracks/8/enabled = true
@@ -107,21 +108,21 @@ tracks/9/enabled = true
 tracks/9/path = NodePath("Skeleton/SkeletonArmature/Skeleton3D:hand.R")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
-tracks/9/keys = PackedFloat32Array(0, 1, -4.07094e-17, 0, 9.31323e-10, 1)
+tracks/9/keys = PackedFloat32Array(0, 1, -4.07094e-17, -4.10309e-34, 9.31323e-10, 1)
 tracks/10/type = "rotation_3d"
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/path = NodePath("Skeleton/SkeletonArmature/Skeleton3D:fingers.R")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
-tracks/10/keys = PackedFloat32Array(0, 1, 2.64698e-23, -3.55271e-15, 8.88179e-16, 1)
+tracks/10/keys = PackedFloat32Array(0, 1, 0.0166471, -0.171569, -0.242565, 0.954699)
 tracks/11/type = "rotation_3d"
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/path = NodePath("Skeleton/SkeletonArmature/Skeleton3D:thumb.R")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
-tracks/11/keys = PackedFloat32Array(0, 1, -0.512199, -4.77026e-10, 3.94698e-08, 0.858867)
+tracks/11/keys = PackedFloat32Array(0, 1, -0.512199, -4.77024e-10, 3.94698e-08, 0.858867)
 tracks/12/type = "rotation_3d"
 tracks/12/imported = false
 tracks/12/enabled = true
@@ -142,7 +143,7 @@ tracks/14/enabled = true
 tracks/14/path = NodePath("Skeleton/SkeletonArmature/Skeleton3D:hand.L")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
-tracks/14/keys = PackedFloat32Array(0, 1, -4.07094e-17, 0, -9.31323e-10, 1)
+tracks/14/keys = PackedFloat32Array(0, 1, -4.07094e-17, 4.10309e-34, -9.31323e-10, 1)
 tracks/15/type = "rotation_3d"
 tracks/15/imported = false
 tracks/15/enabled = true
@@ -156,7 +157,7 @@ tracks/16/enabled = true
 tracks/16/path = NodePath("Skeleton/SkeletonArmature/Skeleton3D:thumb.L")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
-tracks/16/keys = PackedFloat32Array(0, 1, -0.512199, 4.77026e-10, -3.94698e-08, 0.858867)
+tracks/16/keys = PackedFloat32Array(0, 1, -0.512199, 4.77024e-10, -3.94698e-08, 0.858867)
 tracks/17/type = "rotation_3d"
 tracks/17/imported = false
 tracks/17/enabled = true
@@ -177,7 +178,7 @@ tracks/19/enabled = true
 tracks/19/path = NodePath("Skeleton/SkeletonArmature/Skeleton3D:foot.R")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
-tracks/19/keys = PackedFloat32Array(0, 1, -0.624395, -1.16278e-09, 2.44603e-07, 0.781108)
+tracks/19/keys = PackedFloat32Array(0, 1, -0.624395, -1.16277e-09, 2.44603e-07, 0.781108)
 tracks/20/type = "rotation_3d"
 tracks/20/imported = false
 tracks/20/enabled = true
@@ -198,7 +199,31 @@ tracks/22/enabled = true
 tracks/22/path = NodePath("Skeleton/SkeletonArmature/Skeleton3D:foot.L")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
-tracks/22/keys = PackedFloat32Array(0, 1, -0.624395, 1.16278e-09, -2.44603e-07, 0.781108)
+tracks/22/keys = PackedFloat32Array(0, 1, -0.624395, 1.16277e-09, -2.44603e-07, 0.781108)
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("sword:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.182385, 0.029695, -0.391953)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("sword:rotation")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.22669, 2.63529, -1.04815)]
+}
 
 [sub_resource type="Animation" id="Animation_xalcy"]
 resource_name = "attack"
@@ -350,22 +375,6 @@ collision_mask = 4
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("2_g5qsc")]
 transform = Transform3D(0.011288, 0, 0.699909, 0, 0.7, 0, -0.699909, 0, 0.011288, 0.647, 0.15, -0.169)
 
-[node name="Shield Det" type="RayCast3D" parent="Sketchfab_Scene"]
-unique_name_in_owner = true
-transform = Transform3D(0.93913, 0.342089, -0.0317877, -0.341692, 0.920367, -0.190184, -0.0358035, 0.189469, 0.981234, -0.0034104, 0, -0.211458)
-enabled = false
-target_position = Vector3(0, 2, 0)
-collision_mask = 8
-hit_from_inside = true
-
-[node name="Player Det" type="RayCast3D" parent="Sketchfab_Scene"]
-unique_name_in_owner = true
-transform = Transform3D(0.93913, 0.342089, -0.0317877, -0.341692, 0.920367, -0.190184, -0.0358035, 0.189469, 0.981234, -0.0034104, 0, -0.211458)
-enabled = false
-target_position = Vector3(0, 2, 0)
-collision_mask = 4
-hit_from_inside = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_6pqmc")
@@ -383,19 +392,49 @@ shape = SubResource("BoxShape3D_uo88f")
 transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, 0, -1, 0)
 
 [node name="Skeleton3D" parent="Skeleton/SkeletonArmature" index="0"]
+bones/2/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 bones/3/position = Vector3(2.38457, 5.15481, -2.27495e-08)
-bones/3/rotation = Quaternion(0.00424899, 0.0362825, -0.992549, 0.116237)
-bones/3/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.00424899, 0.0362825, -0.992549, 0.116238)
 bones/4/position = Vector3(-2.26359e-06, 6.0602, -3.48195e-06)
 bones/4/rotation = Quaternion(-0.42445, 0.0354514, -0.144979, 0.893066)
 bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(-4.07094e-17, -4.10309e-34, 9.31323e-10, 1)
+bones/6/position = Vector3(-2.68077e-07, 1.22619, -2.78226e-07)
+bones/6/rotation = Quaternion(0.0166471, -0.171569, -0.242565, 0.954699)
+bones/7/rotation = Quaternion(-0.512199, -4.77022e-10, 3.94698e-08, 0.858867)
 bones/8/position = Vector3(-2.38457, 5.15481, -2.27495e-08)
-bones/8/rotation = Quaternion(-4.40484e-08, 8.04734e-09, 0.990387, 0.138326)
+bones/8/rotation = Quaternion(-4.40484e-08, 8.04735e-09, 0.990387, 0.138326)
 bones/9/position = Vector3(1.88768e-06, 6.0602, 2.17797e-14)
 bones/9/rotation = Quaternion(-0.100475, -0.0368981, 0.0916842, 0.990019)
 bones/9/scale = Vector3(1, 1, 1)
-bones/15/rotation = Quaternion(-0.624395, -1.16277e-09, 2.44603e-07, 0.781108)
-bones/18/rotation = Quaternion(-0.624395, 1.16277e-09, -2.44603e-07, 0.781108)
+bones/10/rotation = Quaternion(-4.07094e-17, 4.10309e-34, -9.31323e-10, 1)
+bones/11/rotation = Quaternion(2.64698e-23, 3.55271e-15, -8.88179e-16, 1)
+bones/12/rotation = Quaternion(-0.512199, 4.77022e-10, -3.94698e-08, 0.858867)
+bones/13/rotation = Quaternion(3.19219e-08, -4.93192e-08, 0.999649, -0.0264798)
+bones/14/rotation = Quaternion(4.41636e-08, -1.62715e-07, -0.0264797, 0.999649)
+bones/15/rotation = Quaternion(-0.624395, -1.16276e-09, 2.44603e-07, 0.781108)
+bones/16/rotation = Quaternion(-3.19219e-08, -4.93192e-08, 0.999649, 0.0264798)
+bones/17/rotation = Quaternion(4.41636e-08, 1.62715e-07, 0.0264797, 0.999649)
+bones/18/rotation = Quaternion(-0.624395, 1.16276e-09, -2.44603e-07, 0.781108)
+
+[node name="sword" parent="." instance=ExtResource("4_ihuvv")]
+transform = Transform3D(-0.00348301, -0.0837824, 0.013906, -0.0248471, 0.0143139, 0.0800171, -0.0812126, -0.00078615, -0.0250777, 0.182385, 0.029695, -0.391953)
+
+[node name="Shield Det" type="RayCast3D" parent="sword"]
+unique_name_in_owner = true
+transform = Transform3D(8.21987, 0.381857, -0.328697, -0.328046, -0.0216395, -8.22873, -0.382413, 8.22641, -0.00638731, -0.467557, 0.150988, -5.23935)
+enabled = false
+target_position = Vector3(0, 1.75, 0)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="Player Det" type="RayCast3D" parent="sword"]
+unique_name_in_owner = true
+transform = Transform3D(8.22007, 0.382038, -0.323528, -0.322103, -0.0381355, -8.22891, -0.383237, 8.22634, -0.0231217, -0.467557, 0.150988, -5.23935)
+enabled = false
+target_position = Vector3(0, 1.75, 0)
+collision_mask = 4
+hit_from_inside = true
 
 [connection signal="body_entered" from="Player Det" to="." method="_on_player_det_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
