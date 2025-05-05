@@ -262,7 +262,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.466667, 0.766667, 1, 1.3),
 "transitions": PackedFloat32Array(0.812253, 0.812253, 0.535, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-1.33732, -0.794394, -0.615717), Vector3(-1.33732, -0.794394, -0.576388), Vector3(-1.33732, -0.794394, -0.555086), Vector3(-0.629392, -0.309977, -0.90319), Vector3(-0.515568, -0.309977, -0.993026), Vector3(-0.497109, -0.672494, -0.539781)]
+"values": [Vector3(-1.33732, -0.794394, -0.615717), Vector3(-1.33732, -0.794394, -0.576388), Vector3(-1.33732, -0.794394, -0.555086), Vector3(-0.60051, -0.259173, -0.925335), Vector3(-0.411509, -0.245587, -1.10631), Vector3(-0.497109, -0.672494, -0.539781)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -271,10 +271,10 @@ tracks/3/path = NodePath("sword:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.466667, 0.766667, 1, 1.3),
+"times": PackedFloat32Array(0, 0.333333, 0.466667, 0.766667, 1, 1.3),
 "transitions": PackedFloat32Array(0.784584, 0.784584, 0.757, 1.46, 1.46, 1),
 "update": 0,
-"values": [Vector3(-1.41701, -1.92021, 3.02924), Vector3(-0.460467, -0.245514, 1.38581), Vector3(-0.302219, -0.224647, 1.17488), Vector3(-1.19509, -0.300104, 1.34656), Vector3(-1.18776, -0.354294, 1.4049), Vector3(-0.0699709, 0.00287834, 1.58705)]
+"values": [Vector3(-1.41701, -1.92021, 3.02924), Vector3(-0.460467, -0.245514, 1.38581), Vector3(-0.107184, -0.215559, 1.13039), Vector3(-1.19509, -0.300104, 1.34656), Vector3(-1.18776, -0.354294, 1.4049), Vector3(-0.0699709, 0.00287834, 1.58705)]
 }
 
 [sub_resource type="Animation" id="Animation_owhvm"]
@@ -436,7 +436,7 @@ script = ExtResource("1_1rsed")
 basedmg = 4
 
 [node name="sword" parent="." instance=ExtResource("2_sephx")]
-transform = Transform3D(-0.00197449, -0.119983, 0.000344556, 0.119691, -0.00194557, 0.00838967, -0.00838294, 0.00048171, 0.119706, -0.497109, -0.672494, -0.539781)
+transform = Transform3D(-0.00197449, -0.119983, 0.000344555, 0.119691, -0.00194557, 0.00838967, -0.00838293, 0.00048171, 0.119706, -0.497109, -0.672494, -0.539781)
 
 [node name="EnemyDet" type="RayCast3D" parent="sword"]
 unique_name_in_owner = true

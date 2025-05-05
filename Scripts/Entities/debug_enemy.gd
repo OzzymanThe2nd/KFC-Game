@@ -28,8 +28,9 @@ func _physics_process(delta: float) -> void:
 		turn()
 		if dead == false and not $AnimationPlayer.current_animation == "attack" and not $AnimationPlayer.current_animation == "bounceback" and global_position.distance_to(player.global_position) > 1.9 and global_position.distance_to(player.global_position) < 11:
 			velocity = (((self.transform.basis) * Vector3(0, 0, -1)).normalized()) * SPEED
+			$AnimationPlayer.play("walk")
 			move_and_slide()
-		if $TestArea.overlaps_body(player) and not $AnimationPlayer.is_playing():
+		if $TestArea.overlaps_body(player) and not $AnimationPlayer.current_animation == "attack" and not $AnimationPlayer.current_animation == "bounceback" and not $AnimationPlayer.current_animation == "death":
 			$AnimationPlayer.play("attack")
 			%"Player Det".enabled = true
 			%"Shield Det".enabled = true
