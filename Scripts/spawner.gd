@@ -1,15 +1,19 @@
 extends Area3D
 var spawners = []
 var spawned_enemies = 0
-var enemyLOAD = preload("res://Scenes/Entities/debug_enemy.tscn")
+#var enemyLOAD = preload("res://Scenes/Entities/debug_enemy.tscn")
 var player = null
 var enemies_list = []
+@export var spawnable_enemies : Array[String]
+var spawnlist = []
 @export var despawn_distance : int
 @export var spawned_at_once : int
 @export var spawn_cap : int
 
 func _ready() -> void:
 	var kids = get_children()
+	for i in spawnable_enemies:
+		spawnlist.append(load(i))
 	for i in kids:
 		if i.is_in_group("spawner"):
 			spawners.append(i)
@@ -30,7 +34,7 @@ func _on_body_entered(body: Node3D) -> void:
 		for i in range (0,spawned_at_once):
 			var activespawner = relevant_spawns.pick_random()
 			relevant_spawns.erase(activespawner)
-			var enemy = enemyLOAD.instantiate()
+			var enemy = spawnlist.pick_random().instantiate()
 			self.add_child(enemy)
 			enemy.add_to_group("Reset_On_Load")
 			enemy.process_mode = Node.PROCESS_MODE_PAUSABLE

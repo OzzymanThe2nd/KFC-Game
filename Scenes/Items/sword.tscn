@@ -416,7 +416,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.566667, 0.966667, 1),
 "transitions": PackedFloat32Array(0.176777, 0.176777, 1e+06, 1e+06),
 "update": 0,
-"values": [Vector3(-0.0104128, -3.13793, -1.60307), Vector3(-0.0104128, -3.13793, -1.60307), Vector3(3.14159, -3.1381, -1.60221), Vector3(-0.0699709, 0.00287834, 1.58705)]
+"values": [Vector3(-0.0104128, -3.13793, -1.60307), Vector3(-0.0104128, -3.13793, -1.60307), Vector3(-3.14159, -3.1381, -1.60221), Vector3(-0.0699709, 0.00287834, 1.58705)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l51cl"]
@@ -436,7 +436,7 @@ script = ExtResource("1_1rsed")
 basedmg = 4
 
 [node name="sword" parent="." instance=ExtResource("2_sephx")]
-transform = Transform3D(-0.00197449, -0.119983, 0.000344555, 0.119691, -0.00194557, 0.00838967, -0.00838293, 0.00048171, 0.119706, -0.497109, -0.672494, -0.539781)
+transform = Transform3D(-0.00197449, -0.119983, 0.000344556, 0.119691, -0.00194557, 0.00838967, -0.00838293, 0.00048171, 0.119706, -0.497109, -0.672494, -0.539781)
 
 [node name="EnemyDet" type="RayCast3D" parent="sword"]
 unique_name_in_owner = true

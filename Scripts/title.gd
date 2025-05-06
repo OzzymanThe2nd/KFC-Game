@@ -3,6 +3,11 @@ var level = load("res://Scenes/Levels/test.tscn")
 var settings = load("res://Scenes/Menus/settings.tscn")
 var loading_path = "res://Scenes/Menus/loading.tscn"
 
+func _ready() -> void:
+	if not FileAccess.file_exists("user://savegame.save"):
+		$Button3.disabled = true
+	else:
+		$Button3.disabled = false
 
 func _on_button_pressed() -> void:
 	var children_nodes = get_tree().root.get_children()
