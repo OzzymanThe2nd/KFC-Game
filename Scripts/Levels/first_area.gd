@@ -1,5 +1,6 @@
 extends Node3D
 var paused_by_pause_menu : bool = false
+var item_pickup = preload("res://Scenes/Items/item_pickup.tscn")
 
 func save():
 	var save_dictionary = {
@@ -12,6 +13,17 @@ func save():
 		"process_mode" : process_mode
 	}
 	return save_dictionary
+
+func _ready() -> void:
+	if AreaData.first_area_sword_grabbed == false:
+		var startsword = item_pickup.instantiate()
+		$StartSword.add_child(startsword)
+		startsword.global_position = $StartSword.global_position
+		startsword.grabbed.connect(_on_startsword_grabbed)
+		startsword.set_id("res://Scripts/Inventory/debug sword.tres")
+
+func _on_startsword_grabbed():
+	AreaData.first_area_sword_grabbed = true
 
 func _on_player_dead() -> void:
 	$Player/CamNode3D/CanvasLayer/Deathscreen.visible = true

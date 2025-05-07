@@ -436,7 +436,7 @@ script = ExtResource("1_1rsed")
 basedmg = 4
 
 [node name="sword" parent="." instance=ExtResource("2_sephx")]
-transform = Transform3D(-0.00197449, -0.119983, 0.000344556, 0.119691, -0.00194557, 0.00838967, -0.00838293, 0.00048171, 0.119706, -0.497109, -0.672494, -0.539781)
+transform = Transform3D(-0.00197449, -0.119983, 0.000344556, 0.119691, -0.00194557, 0.00838967, -0.00838293, 0.000481709, 0.119706, -0.497109, -0.672494, -0.539781)
 
 [node name="EnemyDet" type="RayCast3D" parent="sword"]
 unique_name_in_owner = true

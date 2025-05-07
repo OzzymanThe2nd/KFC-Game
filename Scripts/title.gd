@@ -15,6 +15,7 @@ func _on_button_pressed() -> void:
 		if i is Node3D:
 			i.queue_free()
 	Playerstatus.reset_to_default()
+	AreaData.reset_to_default()
 	Playerstatus.loading_new_game = true
 	get_tree().change_scene_to_file(loading_path)
 

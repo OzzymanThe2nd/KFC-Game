@@ -181,6 +181,9 @@ func save_all(player):
 	var self_save_data = save()
 	var self_json_string = JSON.stringify(self_save_data)
 	save_file.store_line(self_json_string)
+	var area_save_data = AreaData.save()
+	var area_json_string = JSON.stringify(area_save_data)
+	save_file.store_line(area_json_string)
 	if ResourceSaver.save(current_inven,"res://Scripts/Inventory/player_inven.tres") != OK:
 		print("le fu")
 	if ResourceSaver.save(current_equiped,"res://Scripts/Inventory/player_equipped.tres") != OK:
@@ -339,6 +342,8 @@ func load_game():
 			base_magic_points = node_data["base_magic_points"]
 			magic_points = node_data["magic_points"]
 			warpspots_unlocked = node_data["warpspots_unlocked"]
+		elif node_data["filename"] == "AreaData":
+			AreaData.first_area_sword_grabbed = node_data["first_area_sword_grabbed"]
 		elif not node_data.keys().has("level"):
 			var new_object = load(node_data["filename"]).instantiate()
 			if node_data["parent"] == "level":

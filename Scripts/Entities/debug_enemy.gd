@@ -80,11 +80,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "death":
 		item_drop = item_drop.instantiate()
 		item_drop.global_position = self.global_position
-		item_drop.item_id = load("res://Scripts/Inventory/debug_item.tres")
-		var item_visual = load(item_drop.item_id.mesh)
-		item_visual = item_visual.instantiate()
-		item_drop.add_child(item_visual)
-		item_drop.item_visual = item_visual
+		item_drop.set_id("res://Scripts/Inventory/debug_item.tres")
 		get_tree().get_root().get_child(1).add_child(item_drop)
 		Playerstatus.exp_gain(5)
 		death.emit()
