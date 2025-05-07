@@ -153,7 +153,10 @@ func save():
 		"magic" : int(magic),
 		"magic_exp" : int(magic_exp),
 		"warpspots_unlocked" : warpspots_unlocked,
-		"base_magic_points" : int(base_magic_points)
+		"base_magic_points" : int(base_magic_points),
+		"unlocked_spells" : unlocked_spells,
+		"equipped_spells" : equipped_spells,
+		"magic_points" : magic_points
 		}
 	return save_dictionary
 
@@ -268,9 +271,30 @@ func load_game():
 	if not FileAccess.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
+	while save_file.get_position() < save_file.get_length():
+		var area_json_string = save_file.get_line()
+
+		# Creates the helper class to interact with JSON.
+		var area_json = JSON.new()
+
+		# Check if there is any error while parsing the JSON string, skip in case of failure.
+		var area_parse_result = area_json.parse(area_json_string)
+		if not area_parse_result == OK:
+			print("JSON Parse Error: ", area_json.get_error_message(), " in ", area_json_string, " at line ", area_json.get_error_line())
+			continue
+
+		# Get the data from the JSON object.
+		var node_data = area_json.data
+		if not node_data["filename"] == "AreaData":
+			continue
+		else:
+			for i in node_data.keys():
+				AreaData.set(i, node_data[i])
 	var level_node = get_tree().get_nodes_in_group("Level")
 	for i in level_node:
 		i.queue_free()
+	for i in 5: await get_tree().process_frame
+	save_file.seek(0)
 	while save_file.get_position() < save_file.get_length():
 		var level_json_string = save_file.get_line()
 
@@ -342,9 +366,7 @@ func load_game():
 			base_magic_points = node_data["base_magic_points"]
 			magic_points = node_data["magic_points"]
 			warpspots_unlocked = node_data["warpspots_unlocked"]
-		elif node_data["filename"] == "AreaData":
-			AreaData.first_area_sword_grabbed = node_data["first_area_sword_grabbed"]
-		elif not node_data.keys().has("level"):
+		elif not node_data.keys().has("level") and not node_data["filename"] == "AreaData":
 			var new_object = load(node_data["filename"]).instantiate()
 			if node_data["parent"] == "level":
 				level.add_child(new_object)

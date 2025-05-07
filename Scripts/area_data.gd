@@ -7,7 +7,7 @@ func reset_to_default():
 
 func save():
 	var save_dictionary = {
-		"filename" : get_scene_file_path(),
-		"first_area_sword_grabbed" : false
+		"filename" : "AreaData",
+		"first_area_sword_grabbed" : first_area_sword_grabbed
 	}
 	return save_dictionary
