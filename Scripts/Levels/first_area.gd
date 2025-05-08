@@ -17,6 +17,7 @@ func save():
 func _ready() -> void:
 	if AreaData.first_area_sword_grabbed == false:
 		var startsword = item_pickup.instantiate()
+		startsword.despawn_timer = false
 		$StartSword.add_child(startsword)
 		startsword.global_position = $StartSword.global_position
 		startsword.grabbed.connect(_on_startsword_grabbed)

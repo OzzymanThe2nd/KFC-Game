@@ -1,6 +1,8 @@
 extends Node3D
 @export var item_visual : Node
 @export var item_id : InvItem
+@export var despawn_timer : bool = true
+@export var despawn_timer_time : float = 120
 var collected : bool = false
 var interact_text
 signal grabbed
@@ -8,6 +10,9 @@ signal grabbed
 func _ready() -> void:
 	var button = str(InputMap.action_get_events("interact")[0].as_text()).split(" ")[0]
 	interact_text = "%s: Grab" %[str(button)]
+	if despawn_timer:
+		$Despawn.wait_time = despawn_timer_time
+		$Despawn.start()
 
 # Called when the node enters the scene tree for the first time.
 func interact_with_player(player):
@@ -43,4 +48,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_pick_sound_finished() -> void:
+	queue_free()
+
+
+func _on_despawn_timeout() -> void:
 	queue_free()

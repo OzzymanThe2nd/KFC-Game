@@ -1,6 +1,6 @@
 extends Node
 class_name melee_weapon
-
+var hitmarker = preload("res://Scenes/Entities/sword_hitmarker.tscn")
 @export var second_swing_possible : bool = false
 var alreadyhit = []
 var bouncing = false
@@ -13,7 +13,8 @@ var temppos = Vector3(0,0,0)
 var playerstrength = Playerstatus.strength
 var dmg = basedmg + (playerstrength / 2)
 var swingspeed = Playerstatus.swingspeed
-var swingspeed_slow = swingspeed * 0.3
+var swingspeed_slow = swingspeed * 0.08
+var hit_recovery : bool = false
 signal sword_unequipped
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,6 +41,9 @@ func _process(delta: float) -> void:
 			var body = %EnemyDet.get_collider()
 			if body.has_method("damage"):
 				if not alreadyhit.has(body):
+					var marker = hitmarker.instantiate()
+					add_child(marker)
+					marker.global_position = %EnemyDet.get_collision_point()
 					body.damage(dmg)
 					Playerstatus.skill_exp_gain("strength", dmg)
 					dmg /= 2
@@ -50,8 +54,14 @@ func _process(delta: float) -> void:
 			bouncing = true
 			temppos = self.position
 			self.global_position = %WallDet2.get_collision_point()
-			$AnimationPlayer.speed_scale=swingspeed
+			$AnimationPlayer.speed_scale = swingspeed
 			$AnimationPlayer.play("bounce")
+	if hit_recovery:
+		if not $AnimationPlayer.speed_scale >= swingspeed:
+			$AnimationPlayer.speed_scale += 0.01
+		else:
+			hit_recovery = false
+			$AnimationPlayer.speed_scale = swingspeed
 	if $AnimationPlayer.current_animation == "RESET" and player.velocity.x == 0 and player.velocity.z == 0 or $AnimationPlayer.is_playing() == false and player.velocity.x == 0 and player.velocity.z == 0:
 		$AnimationPlayer.play("idle_bounce")
 
@@ -96,4 +106,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_hit_timer_timeout() -> void:
 	if $AnimationPlayer.current_animation == "swing" or $AnimationPlayer.current_animation == "second_swing" or $AnimationPlayer.current_animation == "bounce":
-		$AnimationPlayer.speed_scale = swingspeed
+		hit_recovery = true

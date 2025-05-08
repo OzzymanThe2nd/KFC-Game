@@ -16,4 +16,9 @@ shape = SubResource("BoxShape3D_j4atj")
 
 [node name="PickSound" type="AudioStreamPlayer" parent="."]
 
+[node name="Despawn" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+
 [connection signal="finished" from="PickSound" to="." method="_on_pick_sound_finished"]
+[connection signal="timeout" from="Despawn" to="." method="_on_despawn_timeout"]

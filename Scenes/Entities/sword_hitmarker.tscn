@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1o8opqg672r6"]
+
+[ext_resource type="Texture2D" uid="uid://dng2ohdubklb0" path="res://Assets/Textures/crosshair.png" id="1_8gd2h"]
+[ext_resource type="Script" path="res://Scripts/Entities/sword_hitmarker.gd" id="2_ctu32"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_55n63"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vi66h"]
+transparency = 1
+albedo_texture = ExtResource("1_8gd2h")
+texture_filter = 0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_xgoux"]
+material = SubResource("StandardMaterial3D_vi66h")
+size = Vector2(0.25, 0.3)
+
+[node name="SwordHitmarker" type="GPUParticles3D"]
+top_level = true
+emitting = false
+amount = 1
+lifetime = 0.1
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_55n63")
+draw_pass_1 = SubResource("QuadMesh_xgoux")
+script = ExtResource("2_ctu32")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
