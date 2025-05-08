@@ -435,7 +435,7 @@ func pixelate_off():
 	%Pixelate.visible = false
 
 func show_hud(on : bool = false):
-	var hud_elements = [$CamNode3D/CanvasLayer/Health, $CamNode3D/CanvasLayer/Magic]
+	var hud_elements = [$CamNode3D/CanvasLayer/Health, $CamNode3D/CanvasLayer/Magic, $"%PopUpText"]
 	if on == true:
 		for i in hud_elements:
 			i.visible = true
@@ -609,8 +609,7 @@ func _on_interact_window_detect_body_entered(body: Node3D) -> void:
 			var new_text = body.interact_text
 			$CamNode3D/CanvasLayer/InteractPrompt/InteractText.text = new_text
 		else:
-			var button
-			button = str(InputMap.action_get_events("interact")[0].as_text()).split(" ")[0]
+			var button = str(InputMap.action_get_events("interact")[0].as_text()).split(" ")[0]
 			$CamNode3D/CanvasLayer/InteractPrompt/InteractText.text = "%s: Interact" %[str(button)]
 
 

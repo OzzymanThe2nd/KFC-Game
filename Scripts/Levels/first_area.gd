@@ -24,6 +24,8 @@ func _ready() -> void:
 
 func _on_startsword_grabbed():
 	AreaData.first_area_sword_grabbed = true
+	var button = str(InputMap.action_get_events("inventory")[0].as_text()).split(" ")[0]
+	Playerstatus.keepplayer.show_text("Press %s to open the inventory" %[str(button)], 5)
 
 func _on_player_dead() -> void:
 	$Player/CamNode3D/CanvasLayer/Deathscreen.visible = true

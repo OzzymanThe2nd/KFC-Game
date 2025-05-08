@@ -118,6 +118,7 @@ func open(sound_enable = true):
 		update_slots()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 		player.show_interact_prompt(false)
+		player.show_hud(false)
 		get_tree().paused = true
 		if sound_enable == true:
 			$OpenSound.play()
@@ -133,6 +134,7 @@ func close(sound_enable = true):
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if player.get_node("CamNode3D/CamSmooth/PCamera/Interact").is_colliding():
 		player.show_interact_prompt(true)
+	player.show_hud(true)
 	get_tree().paused = false
 	if sound_enable == true:
 		$CloseSound.play()

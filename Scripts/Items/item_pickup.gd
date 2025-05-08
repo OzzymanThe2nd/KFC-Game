@@ -2,7 +2,12 @@ extends Node3D
 @export var item_visual : Node
 @export var item_id : InvItem
 var collected : bool = false
+var interact_text
 signal grabbed
+
+func _ready() -> void:
+	var button = str(InputMap.action_get_events("interact")[0].as_text()).split(" ")[0]
+	interact_text = "%s: Grab" %[str(button)]
 
 # Called when the node enters the scene tree for the first time.
 func interact_with_player(player):
