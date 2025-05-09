@@ -9,7 +9,7 @@ signal grabbed
 
 func _ready() -> void:
 	var button = str(InputMap.action_get_events("interact")[0].as_text()).split(" ")[0]
-	interact_text = "%s: Grab" %[str(button)]
+	interact_text = "%s: Take Item" %[str(button)]
 	if despawn_timer:
 		$Despawn.wait_time = despawn_timer_time
 		$Despawn.start()
