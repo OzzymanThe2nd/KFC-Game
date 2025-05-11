@@ -99,6 +99,7 @@ func _ready():
 		Playerstatus.temp_inven = inventory
 	update_status()
 	check_warp()
+	if Playerstatus.spellcasting_unlocked: $CamNode3D/CanvasLayer/Magic.visible = true
 	await get_tree().process_frame
 	self.transform.basis = Basis()
 	self.rotate_object_local(Vector3(0, 1, 0), rot_x) # first rotate in Y
@@ -266,7 +267,7 @@ func _input(event):
 		elif Input.is_action_just_pressed("3"):
 			equipbow()
 		elif Input.is_action_just_pressed("4"):
-			equip_spells()
+			if Playerstatus.spellcasting_unlocked: equip_spells()
 		elif Input.is_action_just_pressed("f5"):
 			Playerstatus.save_all(self)
 		elif Input.is_action_just_pressed("f9"):
@@ -399,6 +400,10 @@ func spells_unequip():
 		if SPELLCASTER.busy == false:
 			SPELLCASTER.put_away()
 
+func unlock_spellcasting():
+	Playerstatus.spellcasting_unlocked = true
+	$CamNode3D/CanvasLayer/Magic.visible = true
+
 func take_damage(x,type):
 	if type == "slash":
 		if roundi(x*(0.9**Playerstatus.protslash)) >= 0:
@@ -435,7 +440,7 @@ func pixelate_off():
 	%Pixelate.visible = false
 
 func show_hud(on : bool = false):
-	var hud_elements = [$CamNode3D/CanvasLayer/Health, $CamNode3D/CanvasLayer/Magic, $"%PopUpText"]
+	var hud_elements = [$CamNode3D/CanvasLayer/Health, $"%PopUpText"]
 	if on == true:
 		for i in hud_elements:
 			i.visible = true
@@ -446,6 +451,10 @@ func show_hud(on : bool = false):
 		$CamNode3D/CanvasLayer/Arrows.visible = true
 	elif BOW != null and on == false:
 		$CamNode3D/CanvasLayer/Arrows.visible = false
+	if Playerstatus.spellcasting_unlocked and on == true:
+		$CamNode3D/CanvasLayer/Magic.visible = true
+	elif Playerstatus.spellcasting_unlocked and on == false:
+		$CamNode3D/CanvasLayer/Magic.visible = false
 
 func show_interact_prompt(on : bool = false):
 	if on == false:

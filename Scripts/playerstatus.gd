@@ -15,6 +15,7 @@ var arrow_damage : int
 var chest_inven = load("res://Scripts/Inventory/chest_inventory.tres")
 var temp_inven 
 var temp_equip
+var spellcasting_unlocked : bool = true
 @export var healthmax : int = 40
 @export var healthcurrent : int = 40
 @export var protslash : int = 0
@@ -156,7 +157,8 @@ func save():
 		"base_magic_points" : int(base_magic_points),
 		"unlocked_spells" : unlocked_spells,
 		"equipped_spells" : equipped_spells,
-		"magic_points" : magic_points
+		"magic_points" : magic_points,
+		"spellcasting_unlocked" : spellcasting_unlocked
 		}
 	return save_dictionary
 
@@ -366,6 +368,7 @@ func load_game():
 			base_magic_points = node_data["base_magic_points"]
 			magic_points = node_data["magic_points"]
 			warpspots_unlocked = node_data["warpspots_unlocked"]
+			spellcasting_unlocked = node_data["spellcasting_unlocked"]
 		elif not node_data.keys().has("level") and not node_data["filename"] == "AreaData":
 			var new_object = load(node_data["filename"]).instantiate()
 			if node_data["parent"] == "level":
