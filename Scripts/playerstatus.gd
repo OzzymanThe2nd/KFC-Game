@@ -12,6 +12,7 @@ var archery_exp : int = 0
 var magic : int = 1
 var magic_exp : int = 0
 var arrow_damage : int
+var bow_damage : int
 var chest_inven = load("res://Scripts/Inventory/chest_inventory.tres")
 var temp_inven 
 var temp_equip
@@ -52,9 +53,11 @@ var shield_dict = {
 }
 
 var bow_dict = {
-	"debug bow": "res://Scenes/Items/bow.tscn"
+	"debug bow": ["res://Scenes/Items/bow.tscn", 2]
 }
 func reset_to_default():
+	bow_damage = 0
+	arrow_damage = 0
 	level = null
 	player_level = 1
 	player_experience = 0
@@ -126,7 +129,8 @@ func update_stats(player, helmet, chest, gloves, legs, weapon, shield, bow, arro
 	else: player.loadSHIELD = null
 	
 	if bow:
-		player.loadBOW = load(bow_dict[bow.name])
+		player.loadBOW = load(bow_dict[bow.name][0])
+		bow_damage = bow_dict[bow.name][1]
 	else: player.loadBOW = null
 	
 	if arrow:

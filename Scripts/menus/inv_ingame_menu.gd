@@ -101,6 +101,7 @@ func update_slots():
 	$ColorRect/Equipment/ColorRect/Strength.text = "Strength: %s" % str(Playerstatus.strength)
 	$ColorRect/Equipment/ColorRect/Archery.text = "Archery: %s" % str(Playerstatus.archery)
 	$ColorRect/Equipment/ColorRect/Magic.text = "Magic: %s" % str(Playerstatus.magic)
+	$ColorRect/Equipment/ColorRect/RangedDamage.text = "Ranged Damage: %s" % str(Playerstatus.arrow_damage + Playerstatus.bow_damage)
 	var level_up_threshold = int(100 * (1.25 ** Playerstatus.player_level))
 	%XPnum.text = "%s/%s" %[str(Playerstatus.player_experience), str(level_up_threshold)]
 	%XP.max_value = level_up_threshold
