@@ -43,6 +43,7 @@ func _process(delta: float) -> void:
 				if not alreadyhit.has(body):
 					var marker = hitmarker.instantiate()
 					add_child(marker)
+					if $AnimationPlayer.current_animation == "second_swing": marker.process_material = load("res://Resources/sword_hitmarker_second_hit.tres")
 					marker.global_position = %EnemyDet.get_collision_point()
 					body.damage(dmg)
 					Playerstatus.skill_exp_gain("strength", dmg)

@@ -1,0 +1,6 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://cn2i3lew65v01"]
+
+[resource]
+angle_min = 15.0
+angle_max = 15.0
+gravity = Vector3(0, 0, 0)
