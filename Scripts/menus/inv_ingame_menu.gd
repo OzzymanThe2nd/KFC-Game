@@ -103,9 +103,21 @@ func update_slots():
 	$ColorRect/Equipment/ColorRect/Magic.text = "Magic: %s" % str(Playerstatus.magic)
 	$ColorRect/Equipment/ColorRect/RangedDamage.text = "Ranged Damage: %s" % str(Playerstatus.arrow_damage + Playerstatus.bow_damage)
 	var level_up_threshold = int(100 * (1.25 ** Playerstatus.player_level))
+	var strength_up_threshold = int(100 * (1.25 ** Playerstatus.strength))
+	var archery_up_threshold = int(100 * (1.25 ** Playerstatus.archery))
+	var magic_up_threshold = int(100 * (1.25 ** Playerstatus.magic))
 	%XPnum.text = "%s/%s" %[str(Playerstatus.player_experience), str(level_up_threshold)]
 	%XP.max_value = level_up_threshold
 	%XP.value = Playerstatus.player_experience
+	%StrXPnum.text = "%s/%s" %[str(Playerstatus.strength_exp), str(strength_up_threshold)]
+	%StrXP.max_value = strength_up_threshold
+	%StrXP.value = Playerstatus.strength_exp
+	%RangeXPnum.text = "%s/%s" %[str(Playerstatus.archery_exp), str(archery_up_threshold)]
+	%RangeXP.max_value = archery_up_threshold
+	%RangeXP.value = Playerstatus.archery_exp
+	%MagXPnum.text = "%s/%s" %[str(Playerstatus.magic_exp), str(magic_up_threshold)]
+	%MagXP.max_value = magic_up_threshold
+	%MagXP.value = Playerstatus.magic_exp
 
 func open(sound_enable = true):
 	if not get_tree().paused == true:

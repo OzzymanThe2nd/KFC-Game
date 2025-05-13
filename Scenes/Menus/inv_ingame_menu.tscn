@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbj563ox2wh47"]
+[gd_scene load_steps=14 format=3 uid="uid://dbj563ox2wh47"]
 
 [ext_resource type="Script" path="res://Scripts/menus/inv_ingame_menu.gd" id="1_r7ogb"]
 [ext_resource type="Texture2D" uid="uid://cpgapsu55fnj1" path="res://textures/border.png" id="2_ednt7"]
@@ -6,8 +6,11 @@
 [ext_resource type="LabelSettings" uid="uid://4q4ec65ooiba" path="res://menu_font.tres" id="4_gfb2d"]
 [ext_resource type="AudioStream" uid="uid://6jnl6xuvplgt" path="res://Assets/Sounds/MenuCloseBleepBloop2.wav" id="5_18ayc"]
 [ext_resource type="FontFile" uid="uid://cmtxgcvukvcbw" path="res://Assets/Fonts/pixeldroidMenuRegular.otf" id="5_yldq6"]
+[ext_resource type="StyleBox" uid="uid://7fa7h2ajjofo" path="res://Resources/inv_skill_xp_bar.tres" id="6_mmxbp"]
 [ext_resource type="AudioStream" uid="uid://bdfq7p2yepp1w" path="res://Assets/Sounds/OpenBleep1.wav" id="6_qdomn"]
 [ext_resource type="AudioStream" uid="uid://b7khdhik7w6m5" path="res://Assets/Sounds/Select4.wav" id="7_lifi3"]
+[ext_resource type="StyleBox" uid="uid://bbi1q017w54fw" path="res://Resources/inv_xp_bar.tres" id="7_txid5"]
+[ext_resource type="LabelSettings" uid="uid://be1wkl0xkks4a" path="res://Resources/inv_skill_label.tres" id="7_xrntk"]
 [ext_resource type="AudioStream" uid="uid://cluba1lcpr67q" path="res://Assets/Sounds/CloseBloop2.wav" id="8_idytv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44n8l"]
@@ -16,14 +19,6 @@ texture_margin_top = 20.0
 texture_margin_bottom = 28.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0l3t"]
-bg_color = Color(0.329412, 0.678431, 0.815686, 1)
-border_width_left = 10
-border_width_top = 13
-border_width_right = 10
-border_width_bottom = 11
-border_color = Color(0.8, 0.8, 0.8, 0)
 
 [node name="Menu Box" type="Control"]
 process_mode = 3
@@ -233,29 +228,146 @@ label_settings = ExtResource("4_gfb2d")
 [node name="Strength" type="Label" parent="ColorRect/Equipment/ColorRect"]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 90.0
+offset_top = 104.0
 offset_right = 112.0
-offset_bottom = 133.0
+offset_bottom = 147.0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
+
+[node name="StrXP" type="ProgressBar" parent="ColorRect/Equipment/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 104.0
+offset_right = 320.0
+offset_bottom = 152.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_yldq6")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/background = SubResource("StyleBoxTexture_44n8l")
+theme_override_styles/fill = ExtResource("6_mmxbp")
+value = 20.0
+rounded = true
+show_percentage = false
+
+[node name="StrXPnum" type="Label" parent="ColorRect/Equipment/ColorRect/StrXP"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -21.5
+offset_right = 54.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Filler"
+label_settings = ExtResource("7_xrntk")
+horizontal_alignment = 1
 
 [node name="Archery" type="Label" parent="ColorRect/Equipment/ColorRect"]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 133.0
+offset_top = 159.0
 offset_right = 112.0
-offset_bottom = 176.0
+offset_bottom = 202.0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
+
+[node name="RangeXP" type="ProgressBar" parent="ColorRect/Equipment/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 159.0
+offset_right = 320.0
+offset_bottom = 207.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_yldq6")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/background = SubResource("StyleBoxTexture_44n8l")
+theme_override_styles/fill = ExtResource("6_mmxbp")
+value = 20.0
+rounded = true
+show_percentage = false
+
+[node name="RangeXPnum" type="Label" parent="ColorRect/Equipment/ColorRect/RangeXP"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -21.5
+offset_right = 54.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Filler"
+label_settings = ExtResource("7_xrntk")
+horizontal_alignment = 1
 
 [node name="Magic" type="Label" parent="ColorRect/Equipment/ColorRect"]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 176.0
+offset_top = 214.0
 offset_right = 112.0
-offset_bottom = 219.0
+offset_bottom = 257.0
 text = "Filler"
 label_settings = ExtResource("4_gfb2d")
+
+[node name="MagXP" type="ProgressBar" parent="ColorRect/Equipment/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 214.0
+offset_right = 320.0
+offset_bottom = 262.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_yldq6")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/background = SubResource("StyleBoxTexture_44n8l")
+theme_override_styles/fill = ExtResource("6_mmxbp")
+value = 20.0
+rounded = true
+show_percentage = false
+
+[node name="MagXPnum" type="Label" parent="ColorRect/Equipment/ColorRect/MagXP"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -21.5
+offset_right = 54.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Filler"
+label_settings = ExtResource("7_xrntk")
+horizontal_alignment = 1
 
 [node name="Slash" type="Label" parent="ColorRect/Equipment/ColorRect"]
 layout_mode = 1
@@ -338,7 +450,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("5_yldq6")
 theme_override_font_sizes/font_size = 54
 theme_override_styles/background = SubResource("StyleBoxTexture_44n8l")
-theme_override_styles/fill = SubResource("StyleBoxFlat_f0l3t")
+theme_override_styles/fill = ExtResource("7_txid5")
 value = 20.0
 rounded = true
 show_percentage = false
