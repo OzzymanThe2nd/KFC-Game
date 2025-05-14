@@ -115,6 +115,9 @@ func update_slots():
 	%RangeXPnum.text = "%s/%s" %[str(Playerstatus.archery_exp), str(archery_up_threshold)]
 	%RangeXP.max_value = archery_up_threshold
 	%RangeXP.value = Playerstatus.archery_exp
+	if Playerstatus.spellcasting_unlocked: 
+		$ColorRect/Equipment/ColorRect/Magic.visible = true
+		$ColorRect/Equipment/ColorRect/MagXP.visible = true
 	%MagXPnum.text = "%s/%s" %[str(Playerstatus.magic_exp), str(magic_up_threshold)]
 	%MagXP.max_value = magic_up_threshold
 	%MagXP.value = Playerstatus.magic_exp

@@ -51,6 +51,11 @@ var spells_equip_queued = false
 var doublejump_free = true
 @onready var magtext = %magtext
 
+var dict_spell_icons = {
+	"fireball": "res://icon.svg",
+	"heal": "res://icon.svg"
+}
+
 @warning_ignore("unused_signal")
 signal dead
 @warning_ignore("unused_signal")
@@ -391,7 +396,9 @@ func equip_spells():
 			SPELLCASTER = loadSPELLCASTER.instantiate()
 			%SwordBobbleLoc.add_child(SPELLCASTER)
 			SPELLCASTER.spells_unequipped.connect(_on_spells_unequipped)
-			print()
+			%EquippedSpells.visible = true
+			%SpellSprite1.texture = load(dict_spell_icons[Playerstatus.equipped_spells[0]])
+			%SpellSprite2.texture = load(dict_spell_icons[Playerstatus.equipped_spells[1]])
 		elif SPELLCASTER != null:
 			spells_unequip()
 
@@ -596,6 +603,7 @@ func _on_bow_unequipped():
 
 func _on_spells_unequipped():
 	SPELLCASTER.queue_free()
+	%EquippedSpells.visible = false
 	await get_tree().process_frame
 	equip_queued()
 
