@@ -18,6 +18,7 @@ func _ready() -> void:
 
 func shield_damage(x):
 	health -= x
+	(player.get_node("PlayerAnim")).play("shield_recoil")
 	if health <= 0:
 		busy = true
 		shield_damaged = true
