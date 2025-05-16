@@ -5,15 +5,13 @@ var warpspots = []
 var selected_warpspot
 var warplevel1 = "res://Scenes/Levels/test.tscn"
 var warplevel2 = "res://Scenes/Levels/dogshit.tscn"
-var icons
+@onready var locked_rects = [%ColorRect1, %ColorRect2, %ColorRect3, %ColorRect4, %ColorRect5, %ColorRect6, %ColorRect7, %ColorRect8]
+@onready var icons = [%TextureRect1, %TextureRect2, %TextureRect3, %TextureRect4, %TextureRect5, %TextureRect6, %TextureRect7, %TextureRect8]
 var unlocked_icons = ["res://textures/bricks256.png","res://textures/concrete256_3.png","res://textures/darkgrass.png","res://textures/dirt32.png","res://textures/bricks256.png","res://textures/concrete256_3.png","res://textures/darkgrass.png","res://textures/dirt32.png"]
-
-func _ready() -> void:
-	icons = [%TextureRect1, %TextureRect2, %TextureRect3, %TextureRect4, %TextureRect5, %TextureRect6, %TextureRect7, %TextureRect8]
 
 func interact_with_player(player_grab):
 	player = player_grab
-	player.pixelate_off()
+	player.hud_pixelate(false)
 	player.show_hud(false)
 	player.show_interact_prompt(false)
 	update_visuals()
@@ -31,6 +29,7 @@ func _input(event: InputEvent) -> void:
 func close():
 	active = false
 	player.show_hud(true)
+	player.hud_pixelate(true)
 	player.show_interact_prompt(true)
 	$Menu.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -40,7 +39,12 @@ func update_visuals():
 	var run = 0
 	for i in Playerstatus.warpspots_unlocked:
 		if i == true:
+			locked_rects[run].visible = false
+			icons[run].visible = true
 			icons[run].texture = load(unlocked_icons[run])
+		else:
+			icons[run].visible = false
+			locked_rects[run].visible = true
 		run += 1
 
 func _on_button_1_pressed() -> void:
