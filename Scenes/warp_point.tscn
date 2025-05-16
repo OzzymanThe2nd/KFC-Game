@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgmjjqgcye80v"]
+[gd_scene load_steps=6 format=3 uid="uid://cgmjjqgcye80v"]
 
 [ext_resource type="Script" path="res://Scripts/warp_point.gd" id="1_ihl81"]
+[ext_resource type="Texture2D" uid="uid://csfl1mef5nfgx" path="res://icon.svg" id="2_b8n15"]
+[ext_resource type="StyleBox" uid="uid://dcpofim50ei6e" path="res://Resources/warp_buttons.tres" id="3_57e3c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_81vcq"]
 
@@ -50,105 +52,178 @@ columns = 4
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel"]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+
+[node name="TextureRect1" type="TextureRect" parent="Menu/ColorRect/GridContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 180.0
+texture = ExtResource("2_b8n15")
+expand_mode = 1
 
 [node name="Button1" type="Button" parent="Menu/ColorRect/GridContainer/Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+theme_override_styles/normal = ExtResource("3_57e3c")
 
 [node name="Panel2" type="Panel" parent="Menu/ColorRect/GridContainer"]
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel2"]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+
+[node name="TextureRect2" type="TextureRect" parent="Menu/ColorRect/GridContainer/Panel2"]
+unique_name_in_owner = true
+offset_right = 240.0
+offset_bottom = 180.0
+texture = ExtResource("2_b8n15")
+expand_mode = 1
 
 [node name="Button2" type="Button" parent="Menu/ColorRect/GridContainer/Panel2"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+theme_override_styles/normal = ExtResource("3_57e3c")
 
 [node name="Panel3" type="Panel" parent="Menu/ColorRect/GridContainer"]
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel3"]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+
+[node name="TextureRect3" type="TextureRect" parent="Menu/ColorRect/GridContainer/Panel3"]
+unique_name_in_owner = true
+offset_right = 240.0
+offset_bottom = 180.0
+texture = ExtResource("2_b8n15")
+expand_mode = 1
 
 [node name="Button3" type="Button" parent="Menu/ColorRect/GridContainer/Panel3"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+theme_override_styles/normal = ExtResource("3_57e3c")
 
 [node name="Panel4" type="Panel" parent="Menu/ColorRect/GridContainer"]
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel4"]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+
+[node name="TextureRect4" type="TextureRect" parent="Menu/ColorRect/GridContainer/Panel4"]
+unique_name_in_owner = true
+offset_right = 240.0
+offset_bottom = 180.0
+texture = ExtResource("2_b8n15")
+expand_mode = 1
 
 [node name="Button4" type="Button" parent="Menu/ColorRect/GridContainer/Panel4"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+theme_override_styles/normal = ExtResource("3_57e3c")
 
 [node name="Panel5" type="Panel" parent="Menu/ColorRect/GridContainer"]
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel5"]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+
+[node name="TextureRect5" type="TextureRect" parent="Menu/ColorRect/GridContainer/Panel5"]
+unique_name_in_owner = true
+offset_right = 240.0
+offset_bottom = 180.0
+texture = ExtResource("2_b8n15")
+expand_mode = 1
 
 [node name="Button5" type="Button" parent="Menu/ColorRect/GridContainer/Panel5"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+theme_override_styles/normal = ExtResource("3_57e3c")
 
 [node name="Panel6" type="Panel" parent="Menu/ColorRect/GridContainer"]
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel6"]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+
+[node name="TextureRect6" type="TextureRect" parent="Menu/ColorRect/GridContainer/Panel6"]
+unique_name_in_owner = true
+offset_right = 240.0
+offset_bottom = 180.0
+texture = ExtResource("2_b8n15")
+expand_mode = 1
 
 [node name="Button6" type="Button" parent="Menu/ColorRect/GridContainer/Panel6"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+theme_override_styles/normal = ExtResource("3_57e3c")
 
 [node name="Panel7" type="Panel" parent="Menu/ColorRect/GridContainer"]
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel7"]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+
+[node name="TextureRect7" type="TextureRect" parent="Menu/ColorRect/GridContainer/Panel7"]
+unique_name_in_owner = true
+offset_right = 240.0
+offset_bottom = 180.0
+texture = ExtResource("2_b8n15")
+expand_mode = 1
 
 [node name="Button7" type="Button" parent="Menu/ColorRect/GridContainer/Panel7"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+theme_override_styles/normal = ExtResource("3_57e3c")
 
 [node name="Panel8" type="Panel" parent="Menu/ColorRect/GridContainer"]
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Menu/ColorRect/GridContainer/Panel8"]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+
+[node name="TextureRect8" type="TextureRect" parent="Menu/ColorRect/GridContainer/Panel8"]
+unique_name_in_owner = true
+offset_right = 240.0
+offset_bottom = 180.0
+texture = ExtResource("2_b8n15")
+expand_mode = 1
 
 [node name="Button8" type="Button" parent="Menu/ColorRect/GridContainer/Panel8"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 240.0
+offset_bottom = 180.0
+theme_override_styles/normal = ExtResource("3_57e3c")
 
 [connection signal="pressed" from="Menu/ColorRect/GridContainer/Panel/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Menu/ColorRect/GridContainer/Panel2/Button2" to="." method="_on_button_2_pressed"]

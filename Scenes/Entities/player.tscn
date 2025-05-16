@@ -291,6 +291,22 @@ tracks/4/keys = {
 "values": [Vector3(0, 0.796454, -0.396346), Vector3(0, -0.296, -0.396)]
 }
 
+[sub_resource type="Animation" id="Animation_awhfe"]
+resource_name = "shield_recoil"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CamNode3D/CamSmooth:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.6),
+"transitions": PackedFloat32Array(0.164939, 1.31951, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.020944, 0, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_m131b"]
 resource_name = "uncrouch"
 length = 0.10001
@@ -353,22 +369,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, -0.296, -0.396), Vector3(0, 0.796454, -0.396346)]
-}
-
-[sub_resource type="Animation" id="Animation_awhfe"]
-resource_name = "shield_recoil"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CamNode3D/CamSmooth:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.6),
-"transitions": PackedFloat32Array(0.164939, 1.31951, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.020944, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ase6f"]
