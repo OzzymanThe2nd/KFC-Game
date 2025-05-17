@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bl8gbeul6p088"
+path="res://.godot/imported/firstarea.10.map-a1d358e85cc9c476c65ae8260fdcaae1.tres"
+
+[deps]
+
+source_file="res://Scenes/Levels/autosave/firstarea.10.map"
+dest_files=["res://.godot/imported/firstarea.10.map-a1d358e85cc9c476c65ae8260fdcaae1.tres"]
+
+[params]
+

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://nj7ulommsor7"]
+
+[ext_resource type="Texture2D" uid="uid://hg7jts42y5p3" path="res://textures/mossbricksfloor32.png" id="1_lyfky"]
+
+[resource]
+albedo_texture = ExtResource("1_lyfky")
+metallic_specular = 0.0
+texture_filter = 2

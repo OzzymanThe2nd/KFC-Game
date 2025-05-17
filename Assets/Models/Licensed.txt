@@ -1,0 +1,8 @@
+"D:\Games\KFC\king's-field-clone\Assets\Models\buckler"
+"D:\Games\KFC\king's-field-clone\Assets\Models\low_poly_knight"
+"D:\Games\KFC\king's-field-clone\Assets\Models\low_poly_sword_handpainted"
+"D:\Games\KFC\king's-field-clone\Assets\Models\lowpoly_bonfire"
+"D:\Games\KFC\king's-field-clone\Assets\Models\medieval_combat_dummy"
+"D:\Games\KFC\king's-field-clone\Assets\Models\ps1_psx_knight"
+"D:\Games\KFC\king's-field-clone\Assets\Models\psx_style_low_poly_crate_1"
+"D:\Games\KFC\king's-field-clone\Assets\Models\rusted_knight"
