@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=4 uid="uid://b76nwk6ol3lu3"]
+[gd_scene load_steps=100 format=4 uid="uid://b76nwk6ol3lu3"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_7gml4"]
 [ext_resource type="Script" path="res://Scripts/Levels/first_area.gd" id="1_8jc6o"]
@@ -13,6 +13,7 @@
 [ext_resource type="Material" uid="uid://cc87fqp0u6bqd" path="res://textures/mossbricks32.tres" id="8_0phht"]
 [ext_resource type="Material" uid="uid://dcqp3ul7wxgg0" path="res://textures/planks_dark32.tres" id="9_7hxsw"]
 [ext_resource type="Script" path="res://Scripts/spawner.gd" id="12_bs8ul"]
+[ext_resource type="PackedScene" uid="uid://bk7275hc57yde" path="res://Scenes/Entities/debug_enemy.tscn" id="14_tqwy3"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_2wm04"]
 _surfaces = [{
@@ -647,6 +648,9 @@ wait_time = 15.0
 
 [node name="StartSword" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97933, 1, -1.86923)
+
+[node name="Enemy" parent="." instance=ExtResource("14_tqwy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.237906, 5, -11.9209)
 
 [connection signal="body_entered" from="Spawner" to="Spawner" method="_on_body_entered"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

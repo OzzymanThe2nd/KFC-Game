@@ -763,6 +763,103 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="EquippedSpells" type="Control" parent="CamNode3D/CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="SpellSlot1" type="Panel" parent="CamNode3D/CanvasLayer/EquippedSpells"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -251.0
+offset_right = 135.0
+offset_bottom = -146.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="CamNode3D/CanvasLayer/EquippedSpells/SpellSlot1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_hbyo1")
+expand_mode = 1
+
+[node name="SpellSprite1" type="TextureRect" parent="CamNode3D/CanvasLayer/EquippedSpells/SpellSlot1/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -52.5
+offset_right = 52.5
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="SpellSlot2" type="Panel" parent="CamNode3D/CanvasLayer/EquippedSpells"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 146.0
+offset_top = -251.0
+offset_right = 251.0
+offset_bottom = -146.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="CamNode3D/CanvasLayer/EquippedSpells/SpellSlot2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_hbyo1")
+expand_mode = 1
+
+[node name="SpellSprite2" type="TextureRect" parent="CamNode3D/CanvasLayer/EquippedSpells/SpellSlot2/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -52.5
+offset_right = 52.5
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
 [node name="DashText" type="Label" parent="CamNode3D/CanvasLayer"]
 unique_name_in_owner = true
 visible = false
@@ -872,103 +969,6 @@ grow_horizontal = 0
 grow_vertical = 0
 label_settings = ExtResource("7_yux4u")
 horizontal_alignment = 2
-
-[node name="EquippedSpells" type="Control" parent="CamNode3D/CanvasLayer"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
-grow_vertical = 0
-
-[node name="SpellSlot1" type="Panel" parent="CamNode3D/CanvasLayer/EquippedSpells"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = -251.0
-offset_right = 135.0
-offset_bottom = -146.0
-grow_vertical = 0
-
-[node name="TextureRect" type="TextureRect" parent="CamNode3D/CanvasLayer/EquippedSpells/SpellSlot1"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = -54.0
-offset_right = 54.0
-offset_bottom = 54.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_hbyo1")
-expand_mode = 1
-
-[node name="SpellSprite1" type="TextureRect" parent="CamNode3D/CanvasLayer/EquippedSpells/SpellSlot1/TextureRect"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -52.5
-offset_top = -52.5
-offset_right = 52.5
-offset_bottom = 52.5
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-
-[node name="SpellSlot2" type="Panel" parent="CamNode3D/CanvasLayer/EquippedSpells"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 146.0
-offset_top = -251.0
-offset_right = 251.0
-offset_bottom = -146.0
-grow_vertical = 0
-
-[node name="TextureRect" type="TextureRect" parent="CamNode3D/CanvasLayer/EquippedSpells/SpellSlot2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = -54.0
-offset_right = 54.0
-offset_bottom = 54.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_hbyo1")
-expand_mode = 1
-
-[node name="SpellSprite2" type="TextureRect" parent="CamNode3D/CanvasLayer/EquippedSpells/SpellSlot2/TextureRect"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -52.5
-offset_top = -52.5
-offset_right = 52.5
-offset_bottom = 52.5
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_wx2fv")
