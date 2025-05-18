@@ -1,5 +1,5 @@
 extends Control
-var load_level_path = "res://Scenes/Levels/test.tscn"
+var load_level_path = "res://Scenes/Levels/first_area.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

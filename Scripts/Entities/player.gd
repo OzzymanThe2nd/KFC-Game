@@ -111,6 +111,7 @@ func _ready():
 	%PCamera.transform.basis = Basis() # reset rotation
 	%PCamera.rotate_object_local(Vector3(1, 0, 0), rot_y) # then rotate in X
 	Playerstatus.loading_image_clear()
+	%InteractPrompt.visible = false
 
 func is_too_steep(normal : Vector3) -> bool:
 	return normal.angle_to(Vector3.UP) > self.floor_max_angle

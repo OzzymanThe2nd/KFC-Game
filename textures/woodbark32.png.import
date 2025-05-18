@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0xmnh5vvhdwb"
-path.s3tc="res://.godot/imported/SwordTex.png-ac0f99e8493c557c7eb91a6d6605f433.s3tc.ctex"
+uid="uid://be4sloupbpf2y"
+path.s3tc="res://.godot/imported/woodbark32.png-950afc308c86538f06b7c7fbb6b4006e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/SwordModel/SwordTex.png"
-dest_files=["res://.godot/imported/SwordTex.png-ac0f99e8493c557c7eb91a6d6605f433.s3tc.ctex"]
+source_file="res://textures/woodbark32.png"
+dest_files=["res://.godot/imported/woodbark32.png-950afc308c86538f06b7c7fbb6b4006e.s3tc.ctex"]
 
 [params]
 

@@ -1,7 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://jk80nskm3yhf"]
+[gd_scene load_steps=16 format=3 uid="uid://jk80nskm3yhf"]
 
 [ext_resource type="Script" path="res://Scripts/Items/sword.gd" id="1_1rsed"]
 [ext_resource type="PackedScene" uid="uid://ck4o5rndncf67" path="res://Assets/Models/SwordModel/sword.glb" id="2_sephx"]
+[ext_resource type="Shader" path="res://Resources/ps1model.gdshader" id="3_48bi3"]
+[ext_resource type="Texture2D" uid="uid://d0xmnh5vvhdwb" path="res://Assets/Models/SwordModel/SwordTex.png" id="4_mnkii"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1opiw"]
+render_priority = 0
+shader = ExtResource("3_48bi3")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.674
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("4_mnkii")
 
 [sub_resource type="BoxMesh" id="BoxMesh_0fdh2"]
 size = Vector3(0.1, 1.4, 0.1)
@@ -438,6 +449,9 @@ basedmg = 4
 [node name="sword" parent="." instance=ExtResource("2_sephx")]
 transform = Transform3D(-0.00197449, -0.119983, 0.000344556, 0.119691, -0.00194557, 0.00838967, -0.00838293, 0.000481709, 0.119706, -0.497109, -0.672494, -0.539781)
 
+[node name="Cube_001" parent="sword" index="0"]
+material_overlay = SubResource("ShaderMaterial_1opiw")
+
 [node name="EnemyDet" type="RayCast3D" parent="sword"]
 unique_name_in_owner = true
 transform = Transform3D(7.78049, -0.295637, 2.97001, 2.97272, 0.0259416, -7.78503, 0.26694, 8.32804, 0.129682, 0.266, 0, -0.066)
@@ -471,3 +485,5 @@ one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+
+[editable path="sword"]

@@ -1,9 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://bk7275hc57yde"]
+[gd_scene load_steps=21 format=3 uid="uid://bk7275hc57yde"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/debug_enemy.gd" id="1_6yxyo"]
 [ext_resource type="PackedScene" uid="uid://c0g3t3vbk83gd" path="res://Assets/Models/low_poly_sword_handpainted/scene.gltf" id="2_g5qsc"]
 [ext_resource type="PackedScene" uid="uid://lee2rhywf5a8" path="res://Assets/Models/SkeletonModel/Skeleton.glb" id="3_hvuwa"]
+[ext_resource type="Shader" path="res://Resources/ps1model.gdshader" id="4_1iwl2"]
 [ext_resource type="PackedScene" uid="uid://ck4o5rndncf67" path="res://Assets/Models/SwordModel/sword.glb" id="4_ihuvv"]
+[ext_resource type="Texture2D" uid="uid://dg78hly2v1808" path="res://Assets/Models/SkeletonModel/SkeletonTex.png" id="5_ltkr0"]
+[ext_resource type="Texture2D" uid="uid://d0xmnh5vvhdwb" path="res://Assets/Models/SwordModel/SwordTex.png" id="7_2hrgg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2i0gp"]
 
@@ -897,6 +900,24 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_uo88f"]
 size = Vector3(0.485611, 1, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qlkjp"]
+render_priority = 0
+shader = ExtResource("4_1iwl2")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.5
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("5_ltkr0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ts15u"]
+render_priority = 0
+shader = ExtResource("4_1iwl2")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.5
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("7_2hrgg")
+
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_6yxyo")
@@ -988,6 +1009,9 @@ bones/17/rotation = Quaternion(4.41636e-08, 1.62715e-07, 0.0264797, 0.999649)
 bones/17/scale = Vector3(1, 1, 1)
 bones/18/rotation = Quaternion(-0.624395, 1.16276e-09, -2.44603e-07, 0.781108)
 
+[node name="SkeletonMesh" parent="Skeleton/SkeletonArmature/Skeleton3D" index="0"]
+material_overlay = SubResource("ShaderMaterial_qlkjp")
+
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Skeleton/SkeletonArmature/Skeleton3D" index="1"]
 transform = Transform3D(-0.996379, -0.0845767, -0.00855872, 0.0559423, -0.576557, -0.815138, 0.0640072, -0.812667, 0.579201, 3.34032, 15.8357, -4.70138)
 bone_name = "hand.R"
@@ -995,6 +1019,9 @@ bone_idx = 5
 
 [node name="sword" parent="Skeleton/SkeletonArmature/Skeleton3D/BoneAttachment3D" instance=ExtResource("4_ihuvv")]
 transform = Transform3D(-0.183727, -1.36539, 0.248941, -1.38747, 0.174479, -0.0670249, 0.0343429, -0.255509, -1.37606, 0.385804, 0.924955, -0.898778)
+
+[node name="Cube_001" parent="Skeleton/SkeletonArmature/Skeleton3D/BoneAttachment3D/sword" index="0"]
+material_overlay = SubResource("ShaderMaterial_ts15u")
 
 [node name="Shield Det" type="RayCast3D" parent="Skeleton/SkeletonArmature/Skeleton3D/BoneAttachment3D/sword"]
 unique_name_in_owner = true
@@ -1017,3 +1044,4 @@ hit_from_inside = true
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
 
 [editable path="Skeleton"]
+[editable path="Skeleton/SkeletonArmature/Skeleton3D/BoneAttachment3D/sword"]
