@@ -1,10 +1,12 @@
 extends Node
 var level
+var viewer
+var load_queued = false
 var player_level : int = 1
 var player_experience : int = 0
 var maxlevel : bool = false
 var loading_new_game : bool = false
-var loading_image
+var loading_images = []
 var strength : int = 1
 var strength_exp : int = 0
 var archery : int = 1
@@ -63,7 +65,7 @@ func reset_to_default():
 	player_experience = 0
 	maxlevel = false
 	loading_new_game = false
-	loading_image = null
+	loading_images = []
 	strength = 1
 	strength_exp = 0
 	archery = 1
@@ -174,10 +176,16 @@ func level_change(level, warp_position : Vector3):
 	loading_image_appear()
 	await get_tree().process_frame
 	ResourceLoader.load_threaded_request(load_level)
+	if keepplayer != null: keepplayer.get_parent().queue_free()
+	for i in AreaData.free_on_load:
+		AreaData.free_on_load.erase(i)
+		if is_instance_valid(i): i.queue_free()
 	while ResourceLoader.load_threaded_get_status(load_level) != 3:
 		pass
 	if ResourceLoader.THREAD_LOAD_LOADED:
-		get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(load_level))
+		#print(viewer.get_node("Game").get_children())
+		#viewer.get_node("Game").get_children()[0].queue_free()
+		viewer.get_node("Game").add_child((ResourceLoader.load_threaded_get(load_level)).instantiate())
 		loading_image_clear()
 
 func save_all(player):
@@ -220,7 +228,8 @@ func save_all(player):
 		save_file.store_line(json_string)
 
 func loading_image_appear():
-	loading_image = loading_image_path.instantiate()
+	var loading_image = loading_image_path.instantiate()
+	loading_images.append(loading_image)
 	get_tree().get_root().add_child(loading_image)
 
 func exp_gain(x):
@@ -389,8 +398,9 @@ func load_game():
 	loading_image_clear()
 
 func loading_image_clear():
-	if loading_image != null:
-		loading_image.queue_free()
+	for i in loading_images:
+		loading_images.erase(i)
+		if is_instance_valid(i): i.queue_free()
 
 func clear_nodes():
 	if keepplayer != null:

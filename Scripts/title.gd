@@ -17,6 +17,7 @@ func _on_button_pressed() -> void:
 	Playerstatus.reset_to_default()
 	AreaData.reset_to_default()
 	Playerstatus.loading_new_game = true
+	Playerstatus.loading_image_appear()
 	get_tree().change_scene_to_file(loading_path)
 
 func _on_button_2_pressed() -> void:
@@ -24,8 +25,9 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_button_3_pressed() -> void:
-	Playerstatus.load_game()
-	queue_free()
+	Playerstatus.loading_image_appear()
+	get_tree().change_scene_to_file(loading_path)
+	Playerstatus.load_queued = true
 
 
 func _on_button_4_pressed() -> void:

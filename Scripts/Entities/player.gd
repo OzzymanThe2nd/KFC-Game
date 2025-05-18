@@ -274,6 +274,10 @@ func _input(event):
 			equipbow()
 		elif Input.is_action_just_pressed("4"):
 			if Playerstatus.spellcasting_unlocked: equip_spells()
+		elif Input.is_action_just_pressed("8"):
+			print(get_tree().root.get_children()[-1].get_children()[0].get_children())
+		elif Input.is_action_just_pressed("9"):
+			print(get_tree().root.get_children()[-1].get_children())
 		elif Input.is_action_just_pressed("f5"):
 			Playerstatus.save_all(self)
 		elif Input.is_action_just_pressed("f9"):

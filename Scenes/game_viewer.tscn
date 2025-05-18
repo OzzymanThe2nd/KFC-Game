@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2q1andwdfnly"]
+
+[ext_resource type="Shader" path="res://Resources/post_processing.gdshader" id="1_mnhso"]
+[ext_resource type="Script" path="res://Scripts/game_viewer.gd" id="2_dyw14"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqt83"]
+shader = ExtResource("1_mnhso")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 12
+shader_parameter/dither_size = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+process_mode = 3
+material = SubResource("ShaderMaterial_gqt83")
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_dyw14")
+
+[node name="Game" type="SubViewport" parent="."]
+process_mode = 3
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4

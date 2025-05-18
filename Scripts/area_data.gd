@@ -1,6 +1,6 @@
 extends Node
 var first_area_sword_grabbed : bool = false
-
+var free_on_load = []
 # Called when the node enters the scene tree for the first time.
 func reset_to_default():
 	first_area_sword_grabbed = false
