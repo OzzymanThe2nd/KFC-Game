@@ -542,6 +542,7 @@ shape = SubResource("BoxShape3D_q3558")
 
 [node name="Pixelate" type="ColorRect" parent="CamNode3D/CanvasLayer2"]
 unique_name_in_owner = true
+visible = false
 material = SubResource("ShaderMaterial_8cyek")
 anchors_preset = 15
 anchor_right = 1.0

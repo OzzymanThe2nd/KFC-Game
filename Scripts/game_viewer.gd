@@ -1,5 +1,5 @@
 extends SubViewportContainer
-var first_level = "res://Scenes/Levels/test.tscn"
+var first_level = "res://Scenes/Levels/first_area.tscn"
 var loading : bool = true
 var loading_destination 
 # Called when the node enters the scene tree for the first time.
