@@ -1013,7 +1013,7 @@ bones/18/rotation = Quaternion(-0.624395, 1.16276e-09, -2.44603e-07, 0.781108)
 material_overlay = SubResource("ShaderMaterial_qlkjp")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Skeleton/SkeletonArmature/Skeleton3D" index="1"]
-transform = Transform3D(-0.988383, -0.0362963, -0.147578, 0.0828083, -0.942871, -0.322702, -0.127434, -0.331175, 0.934924, 3.48622, 13.9124, -0.735121)
+transform = Transform3D(-0.996379, -0.0845767, -0.00855872, 0.0559423, -0.576557, -0.815138, 0.0640072, -0.812667, 0.579201, 3.34032, 15.8357, -4.70138)
 bone_name = "hand.R"
 bone_idx = 5
 

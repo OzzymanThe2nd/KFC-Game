@@ -97,7 +97,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		item_drop.global_position = self.global_position
 		item_drop.set_id("res://Scripts/Inventory/debug_item.tres")
 		get_tree().get_root().get_child(1).add_child(item_drop)
-		print(get_tree().get_root().get_child(1))
 		AreaData.free_on_load.append(item_drop)
 		Playerstatus.exp_gain(5)
 		death.emit()

@@ -19,15 +19,15 @@ func _ready() -> void:
 		if item.mesh != "":
 			itemmesh = load(item.mesh).instantiate()
 			%ModelSpot.add_child(itemmesh)
+			itemmesh.rotation_degrees.x = item.rotate[0]
+			itemmesh.rotation_degrees.y = item.rotate[1]
+			itemmesh.rotation_degrees.z = item.rotate[2]
 		else: 
 			$NinePatchRect/SubViewportContainer/SubViewport/ModelSpot/MeshInstance3D.visible = true
 		if item.scale != 1:
 			itemmesh.scale.x = item.scale
 			itemmesh.scale.y = item.scale
 			itemmesh.scale.z = item.scale
-		itemmesh.rotation_degrees.x = item.rotate[0]
-		itemmesh.rotation_degrees.y = item.rotate[1]
-		itemmesh.rotation_degrees.z = item.rotate[2]
 		%ModelSpot.position.x = item.x_off
 		%ModelSpot.position.y = item.y_off
 		%ModelSpot.position.z = item.z_off
