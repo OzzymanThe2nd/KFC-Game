@@ -17,9 +17,9 @@ func _ready() -> void:
 		%ItemName.text = str(item.name).capitalize()
 		%ItemDescription.text = item.desc
 		if item.mesh != "":
-			itemmesh = load(item.mesh).instantiate() 
+			itemmesh = load(item.mesh).instantiate()
 			%ModelSpot.add_child(itemmesh)
-		else:
+		else: 
 			$NinePatchRect/SubViewportContainer/SubViewport/ModelSpot/MeshInstance3D.visible = true
 		if item.scale != 1:
 			itemmesh.scale.x = item.scale

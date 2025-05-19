@@ -1008,7 +1008,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596649, 0)
 light_color = Color(1, 1, 0.870588, 1)
 light_energy = 2.0
 light_indirect_energy = 3.0
-omni_range = 32.4
+omni_range = 69.015
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.840963, 0)

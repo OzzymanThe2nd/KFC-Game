@@ -1,9 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcpb8m3wggtuh"]
+[gd_scene load_steps=8 format=3 uid="uid://dcpb8m3wggtuh"]
 
 [ext_resource type="Script" path="res://Scripts/menus/inspect_menu.gd" id="1_j0eqt"]
 [ext_resource type="Texture2D" uid="uid://cpgapsu55fnj1" path="res://textures/border.png" id="2_tl1gi"]
+[ext_resource type="Shader" path="res://Resources/ps1model.gdshader" id="3_4rkj7"]
 [ext_resource type="FontFile" uid="uid://cmtxgcvukvcbw" path="res://Assets/Fonts/pixeldroidMenuRegular.otf" id="3_8m2c3"]
 [ext_resource type="LabelSettings" uid="uid://4q4ec65ooiba" path="res://menu_font.tres" id="4_4mwue"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pit18"]
+render_priority = 0
+shader = ExtResource("3_4rkj7")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(320, 240)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bgu5u"]
 
@@ -69,6 +78,7 @@ unique_name_in_owner = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NinePatchRect/SubViewportContainer/SubViewport/ModelSpot"]
 transform = Transform3D(1, 0, 0, 0, 0.998085, -0.0618499, 0, 0.0618499, 0.998085, 0, 0, 0)
 visible = false
+material_overlay = SubResource("ShaderMaterial_pit18")
 mesh = SubResource("BoxMesh_bgu5u")
 skeleton = NodePath("../..")
 

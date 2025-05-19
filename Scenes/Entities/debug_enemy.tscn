@@ -898,14 +898,14 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uo88f"]
-size = Vector3(0.485611, 1, 0.72583)
+size = Vector3(0.485611, 1, 0.751377)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qlkjp"]
 render_priority = 0
 shader = ExtResource("4_1iwl2")
 shader_parameter/affine_mapping = false
 shader_parameter/alpha_scissor = 0.5
-shader_parameter/jitter = 0.702
+shader_parameter/jitter = 0.545
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/albedo = ExtResource("5_ltkr0")
 
@@ -962,7 +962,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000757873, 0, 0.137085)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000757873, 0, 0.124312)
 shape = SubResource("BoxShape3D_uo88f")
 
 [node name="Skeleton" parent="." instance=ExtResource("3_hvuwa")]
@@ -1013,7 +1013,7 @@ bones/18/rotation = Quaternion(-0.624395, 1.16276e-09, -2.44603e-07, 0.781108)
 material_overlay = SubResource("ShaderMaterial_qlkjp")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Skeleton/SkeletonArmature/Skeleton3D" index="1"]
-transform = Transform3D(-0.996379, -0.0845767, -0.00855872, 0.0559423, -0.576557, -0.815138, 0.0640072, -0.812667, 0.579201, 3.34032, 15.8357, -4.70138)
+transform = Transform3D(-0.988383, -0.0362963, -0.147578, 0.0828083, -0.942871, -0.322702, -0.127434, -0.331175, 0.934924, 3.48622, 13.9124, -0.735121)
 bone_name = "hand.R"
 bone_idx = 5
 

@@ -31,7 +31,8 @@ func _physics_process(delta: float) -> void:
 		var look_pos = player.position
 		look_pos.y = self.position.y
 		turn()
-		if dead == false and not $AnimationPlayer.current_animation == "attack" and not $AnimationPlayer.current_animation == "bounceback" and global_position.distance_to(player.global_position) > 1.9 and global_position.distance_to(player.global_position) < 11:
+		if dead == false and not $AnimationPlayer.current_animation == "attack" and not $AnimationPlayer.current_animation == "bounceback":
+		#and global_position.distance_to(player.global_position) > 1.9 and global_position.distance_to(player.global_position) < 11:
 			#velocity = (((self.transform.basis) * Vector3(0, 0, -1)).normalized()) * SPEED 
 			velocity.x = movespeed * direction.x
 			velocity.z = movespeed * direction.z

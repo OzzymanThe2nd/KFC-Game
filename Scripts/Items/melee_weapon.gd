@@ -12,7 +12,7 @@ var busy = true
 var temppos = Vector3(0,0,0)
 var playerstrength = Playerstatus.strength
 var dmg = basedmg + (playerstrength / 2)
-var swingspeed = Playerstatus.swingspeed
+var swingspeed = Playerstatus.swingspeed 
 var swingspeed_slow = swingspeed * 0.08
 var hit_recovery : bool = false
 signal sword_unequipped
