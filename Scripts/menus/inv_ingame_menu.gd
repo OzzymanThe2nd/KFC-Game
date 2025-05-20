@@ -2,9 +2,9 @@ extends Control
 
 var player
 var inventory: inv
-@onready var slots : Array = $ColorRect/"Full Inventory/GridContainer".get_children()
+@onready var slots : Array = $SubViewportContainer/SubViewport/ColorRect/"Full Inventory/GridContainer".get_children()
 var equipment: inv
-@onready var equipment_slots : Array = $ColorRect/Equipment/GridContainer.get_children()
+@onready var equipment_slots : Array = $SubViewportContainer/SubViewport/ColorRect/Equipment/GridContainer.get_children()
 var is_open = false
 var stored_item
 var stored_slot
@@ -14,6 +14,8 @@ var inspect_windows = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#$SubViewportContainer.position.x = DisplayServer.screen_get_size()[0] / 4
+	#$SubViewportContainer.position.y = DisplayServer.screen_get_size()[1] / 4
 	player = get_parent()
 	for i in 2:
 		player = player.get_parent()
@@ -93,15 +95,15 @@ func update_slots():
 		slots[i].item_run = i
 	for i in range(min(equipment.slots.size(),equipment_slots.size())):
 		equipment_slots[i].update(equipment.slots[i])
-	$ColorRect/Equipment/ColorRect/Slash.text = "Slash Protection: %s" % str(Playerstatus.protslash)
-	$ColorRect/Equipment/ColorRect/Crush.text = "Crush Protection: %s" % str(Playerstatus.protcrush)
-	$ColorRect/Equipment/ColorRect/Stab.text = "Stab Protection: %s" % str(Playerstatus.protstab)
-	$ColorRect/Equipment/ColorRect/Damage.text = "Melee Damage: %s" % str(Playerstatus.display_damage)
-	$ColorRect/Equipment/ColorRect/Level.text = "Level: %s" % str(Playerstatus.player_level)
-	$ColorRect/Equipment/ColorRect/Strength.text = "Strength: %s" % str(Playerstatus.strength)
-	$ColorRect/Equipment/ColorRect/Archery.text = "Archery: %s" % str(Playerstatus.archery)
-	$ColorRect/Equipment/ColorRect/Magic.text = "Magic: %s" % str(Playerstatus.magic)
-	$ColorRect/Equipment/ColorRect/RangedDamage.text = "Ranged Damage: %s" % str(Playerstatus.arrow_damage + Playerstatus.bow_damage)
+	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Slash.text = "Slash Protection: %s" % str(Playerstatus.protslash)
+	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Crush.text = "Crush Protection: %s" % str(Playerstatus.protcrush)
+	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Stab.text = "Stab Protection: %s" % str(Playerstatus.protstab)
+	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Damage.text = "Melee Damage: %s" % str(Playerstatus.display_damage)
+	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Level.text = "Level: %s" % str(Playerstatus.player_level)
+	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Strength.text = "Strength: %s" % str(Playerstatus.strength)
+	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Archery.text = "Archery: %s" % str(Playerstatus.archery)
+	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Magic.text = "Magic: %s" % str(Playerstatus.magic)
+	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/RangedDamage.text = "Ranged Damage: %s" % str(Playerstatus.arrow_damage + Playerstatus.bow_damage)
 	var level_up_threshold = int(100 * (1.25 ** Playerstatus.player_level))
 	var strength_up_threshold = int(100 * (1.25 ** Playerstatus.strength))
 	var archery_up_threshold = int(100 * (1.25 ** Playerstatus.archery))
@@ -115,9 +117,9 @@ func update_slots():
 	%RangeXPnum.text = "%s/%s" %[str(Playerstatus.archery_exp), str(archery_up_threshold)]
 	%RangeXP.max_value = archery_up_threshold
 	%RangeXP.value = Playerstatus.archery_exp
-	if Playerstatus.spellcasting_unlocked: 
-		$ColorRect/Equipment/ColorRect/Magic.visible = true
-		$ColorRect/Equipment/ColorRect/MagXP.visible = true
+	if Playerstatus.spellcasting_unlocked:
+		$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Magic.visible = true
+		$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/MagXP.visible = true
 	%MagXPnum.text = "%s/%s" %[str(Playerstatus.magic_exp), str(magic_up_threshold)]
 	%MagXP.max_value = magic_up_threshold
 	%MagXP.value = Playerstatus.magic_exp

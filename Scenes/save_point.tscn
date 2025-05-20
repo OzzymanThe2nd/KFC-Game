@@ -78,9 +78,11 @@ skeleton = NodePath("")
 [node name="Menu" type="Control" parent="."]
 visible = false
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -91,10 +93,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -300.0
-offset_right = 400.0
-offset_bottom = 300.0
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.294118, 0.294118, 0.294118, 0.796078)
@@ -108,7 +110,7 @@ offset_left = -117.0
 offset_right = 117.0
 offset_bottom = 161.0
 grow_horizontal = 2
-theme_override_constants/separation = 110
+theme_override_constants/separation = 65
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/ColorRect/VBoxContainer"]
 layout_mode = 2

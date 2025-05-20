@@ -2,9 +2,9 @@ extends Control
 
 var player
 var inventory: inv
-@onready var slots : Array = $"ColorRect/Full Inventory/GridContainer".get_children()
+@onready var slots : Array = $"SubViewportContainer/SubViewport/ColorRect/Full Inventory/GridContainer".get_children()
 var chest: inv
-@onready var chest_slots : Array = $ColorRect/Chest/GridContainer.get_children()
+@onready var chest_slots : Array = $SubViewportContainer/SubViewport/ColorRect/Chest/GridContainer.get_children()
 var is_open = false
 var stored_item
 var stored_slot

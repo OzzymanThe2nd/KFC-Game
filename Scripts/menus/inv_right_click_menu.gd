@@ -23,12 +23,10 @@ func _ready() -> void:
 	inventory_slot = get_parent()
 	if chest == false:
 		if get_player == true:
-			player = get_parent()
-			for i in 7:
-				player = player.get_parent()
+			player = Playerstatus.keepplayer
 		if get_inv == true:
 			inventory = get_parent()
-			for i in 4:
+			for i in 6:
 				inventory = inventory.get_parent()
 		if get_player_equipment == true:
 			equipment = player.equipment
@@ -37,7 +35,7 @@ func _ready() -> void:
 			player = Playerstatus.keepplayer
 		if get_inv == true:
 			inventory = get_parent()
-			for i in 4:
+			for i in 6:
 				inventory = inventory.get_parent()
 		if get_player_equipment == true:
 			equipment = player.equipment
@@ -354,6 +352,8 @@ func _on_inspect_pressed() -> void:
 	inspect = inspect.instantiate()
 	inspect.item = item
 	inventory.add_child(inspect)
+	inspect.position.x = (DisplayServer.screen_get_size()[0] / 4) - 100
+	inspect.position.y = (DisplayServer.screen_get_size()[1] / 4) - 100
 	inventory.inspect_windows.append(inspect)
 	queue_free()
 

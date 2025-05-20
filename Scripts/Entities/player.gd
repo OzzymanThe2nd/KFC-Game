@@ -279,6 +279,8 @@ func _input(event):
 			overheal(INF)
 		elif Input.is_action_just_pressed("6"):
 			gain_magic_points(INF)
+		elif Input.is_action_just_pressed("7"):
+			Playerstatus.level_change("res://Scenes/Levels/test.tscn", Vector3(0, 0, 0))
 		elif Input.is_action_just_pressed("8"):
 			print(get_tree().root.get_children()[-1].get_children()[0].get_children())
 		elif Input.is_action_just_pressed("9"):

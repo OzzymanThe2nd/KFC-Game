@@ -4,6 +4,8 @@ var loading : bool = true
 var loading_destination 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Game.size.x = DisplayServer.screen_get_size()[0]
+	$Game.size.y = DisplayServer.screen_get_size()[1]
 	Playerstatus.viewer = self
 	if Playerstatus.load_queued: loading_from_save()
 	elif Playerstatus.loading_new_game: 

@@ -1,7 +1,7 @@
 extends Control
 var active : bool = true
 var player
-@onready var select_slots = $"Selection/Select Slots".get_children()
+@onready var select_slots = $"SubViewportContainer/SubViewport/Selection/Select Slots".get_children()
 #Formatting: sprite path, cost, cast speed, description
 var spelltable_dict = {
 	"fireball" : ["res://icon.svg", 8, 0.3, "A small fireball, dealing minimal damage for modest amounts of spirit."],
@@ -46,9 +46,9 @@ func update_slots():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func info_update(spell):
-	$Info/MPcost.text = "Spirit Cost: " + str(spelltable_dict[spell][1])
-	$"Info/Cast Speed".text = "Cast Speed: " + str(spelltable_dict[spell][2])
-	$Info/Description.text = str(spelltable_dict[spell][3])
+	$SubViewportContainer/SubViewport/Info/MPcost.text = "Spirit Cost: " + str(spelltable_dict[spell][1])
+	$"SubViewportContainer/SubViewport/Info/Cast Speed".text = "Cast Speed: " + str(spelltable_dict[spell][2])
+	$SubViewportContainer/SubViewport/Info/Description.text = str(spelltable_dict[spell][3])
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
