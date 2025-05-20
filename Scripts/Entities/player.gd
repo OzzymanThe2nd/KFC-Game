@@ -274,6 +274,11 @@ func _input(event):
 			equipbow()
 		elif Input.is_action_just_pressed("4"):
 			if Playerstatus.spellcasting_unlocked: equip_spells()
+		#Remove 5 to F9 for general release, these are cheats/debug tools.
+		elif Input.is_action_just_pressed("5"):
+			overheal(INF)
+		elif Input.is_action_just_pressed("6"):
+			gain_magic_points(INF)
 		elif Input.is_action_just_pressed("8"):
 			print(get_tree().root.get_children()[-1].get_children()[0].get_children())
 		elif Input.is_action_just_pressed("9"):
