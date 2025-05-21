@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://rpl5amivov5f"]
+[gd_scene load_steps=37 format=3 uid="uid://rpl5amivov5f"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/player.gd" id="1_7gcer"]
 [ext_resource type="Texture2D" uid="uid://dng2ohdubklb0" path="res://Assets/Textures/crosshair.png" id="2_suhvn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://Shaders/pixelate.gdshader" id="4_1o6bh"]
 [ext_resource type="Script" path="res://Scripts/Misc/meshinterpolation.gd" id="4_xd1iw"]
 [ext_resource type="PackedScene" uid="uid://dbj563ox2wh47" path="res://Scenes/Menus/inv_ingame_menu.tscn" id="6_inds5"]
+[ext_resource type="FontFile" uid="uid://cmtxgcvukvcbw" path="res://Assets/Fonts/pixeldroidMenuRegular.otf" id="6_r35oe"]
 [ext_resource type="Texture2D" uid="uid://cpgapsu55fnj1" path="res://textures/border.png" id="7_hbyo1"]
 [ext_resource type="LabelSettings" uid="uid://4q4ec65ooiba" path="res://menu_font.tres" id="7_yux4u"]
 
@@ -120,7 +121,6 @@ shader = ExtResource("4_1o6bh")
 shader_parameter/pixel_size = 3.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wx2fv"]
-radius = 0.6
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_od6rl"]
 
@@ -607,14 +607,35 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -69.0
+offset_left = -106.0
 offset_top = -23.0
-offset_right = 69.0
+offset_right = 70.0
 offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 theme_override_font_sizes/font_size = 31
 text = "You Died"
+label_settings = ExtResource("7_yux4u")
+horizontal_alignment = 1
+
+[node name="Quit" type="Button" parent="CamNode3D/CanvasLayer/Deathscreen"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = 123.0
+offset_right = 53.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_r35oe")
+theme_override_font_sizes/font_size = 68
+text = "Quit"
 
 [node name="magtext" type="Label" parent="CamNode3D/CanvasLayer"]
 unique_name_in_owner = true
@@ -784,9 +805,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 30.0
+offset_left = 9.0
 offset_top = -251.0
-offset_right = 135.0
+offset_right = 114.0
 offset_bottom = -146.0
 grow_vertical = 0
 
@@ -827,9 +848,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 146.0
+offset_left = 125.0
 offset_top = -251.0
-offset_right = 251.0
+offset_right = 230.0
 offset_bottom = -146.0
 grow_vertical = 0
 
@@ -1031,9 +1052,15 @@ volume_db = -80.0
 unit_size = 1.0
 pitch_scale = 0.8
 
+[node name="CrouchCheck" type="RayCast3D" parent="."]
+unique_name_in_owner = true
+target_position = Vector3(0, 1, 0)
+hit_from_inside = true
+
 [connection signal="child_exiting_tree" from="CamNode3D/CamSmooth/PCamera/SwordSpawn" to="." method="_on_sword_spawn_child_exiting_tree"]
 [connection signal="body_entered" from="CamNode3D/CamSmooth/PCamera/InteractWindowDetect" to="." method="_on_interact_window_detect_body_entered"]
 [connection signal="body_exited" from="CamNode3D/CamSmooth/PCamera/InteractWindowDetect" to="." method="_on_interact_window_detect_body_exited"]
+[connection signal="pressed" from="CamNode3D/CanvasLayer/Deathscreen/Quit" to="." method="_on_quit_pressed"]
 [connection signal="timeout" from="CamNode3D/CanvasLayer/PopUpText/PopUpTimer" to="." method="_on_pop_up_timer_timeout"]
 [connection signal="animation_finished" from="PlayerAnim" to="." method="_on_player_anim_animation_finished"]
 [connection signal="timeout" from="DashLength" to="." method="_on_dash_length_timeout"]

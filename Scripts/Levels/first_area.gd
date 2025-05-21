@@ -32,6 +32,7 @@ func _on_startsword_grabbed():
 
 func _on_player_dead() -> void:
 	$Player/CamNode3D/CanvasLayer/Deathscreen.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
 
 func _input(event: InputEvent) -> void:

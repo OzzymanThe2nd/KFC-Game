@@ -6,6 +6,7 @@ extends CharacterBody3D
 @onready var inventory = load("res://Scripts/Inventory/player_inven.tres")
 @onready var equipment = load("res://Scripts/Inventory/player_equipped.tres")
 @onready var maingame = self.get_parent_node_3d()
+var trying_uncrouch : bool = false
 var stored_level
 var stored_coord
 var loadSWORD
@@ -194,12 +195,17 @@ func _physics_process(delta):
 			%PlayerAnim.play("crouch")
 			crouch = true
 		elif crouch == true and crouchtoggle == true:
-			%PlayerAnim.play("uncrouch")
-			crouch = false
+			if not %CrouchCheck.is_colliding():
+				%PlayerAnim.play("uncrouch")
+				crouch = false
+			else: trying_uncrouch = true
 	if Input.is_action_just_released("move_crouch") and crouchtoggle == false:
 		if crouch == true:
-			%PlayerAnim.play("uncrouch")
-			crouch = false
+			if not %CrouchCheck.is_colliding():
+				%PlayerAnim.play("uncrouch")
+				crouch = false
+			else:
+				trying_uncrouch = true
 	if Input.is_action_pressed("zoom"):
 		if SHIELD != null:
 			if SHIELD.busy == false and swordout == false and shieldblocking == false:
@@ -220,6 +226,11 @@ func _physics_process(delta):
 				SPELLCASTER.cast_main()
 		else:
 			bowshoot()
+	if trying_uncrouch:
+		if not %CrouchCheck.is_colliding():
+			$PlayerAnim.play("uncrouch")
+			trying_uncrouch = false
+			crouch = false
 	if is_on_floor():
 		if stepqueued:
 			footstep()
@@ -650,3 +661,10 @@ func _on_interact_window_detect_body_exited(body: Node3D) -> void:
 
 func _on_footstep_finished() -> void:
 	$Footstep.volume_db = 0
+
+
+func _on_quit_pressed() -> void:
+	get_tree().paused = false
+	if Playerstatus.keepplayer != null:
+		Playerstatus.keepplayer.queue_free()
+	get_tree().change_scene_to_packed(load("res://Scenes/Menus/title.tscn"))
