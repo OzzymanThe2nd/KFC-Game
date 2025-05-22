@@ -282,10 +282,13 @@ func skill_level_up(skill : String, value : int):
 
 func load_game():
 	loading_new_game = false
-	loading_image_appear()
 	if not FileAccess.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
+	for i in AreaData.free_on_load:
+		AreaData.free_on_load.erase(i)
+		if is_instance_valid(i): i.queue_free()
+	loading_image_appear()
 	while save_file.get_position() < save_file.get_length():
 		var area_json_string = save_file.get_line()
 
