@@ -95,6 +95,7 @@ func _ready():
 	%MagText.text = "%s" % str(Playerstatus.magic_points)
 	%Bobbloid.play("wobble")
 	%Bobbloid.pause()
+	%SpringArm3D.add_excluded_object(self)
 	$CamNode3D/CamSmooth/PCamera/InteractWindowDetect.area_entered.connect(_on_interact_window_detect_body_entered)
 	$CamNode3D/CamSmooth/PCamera/InteractWindowDetect.area_exited.connect(_on_interact_window_detect_body_exited)
 	if Playerstatus.loading_new_game == true:
@@ -240,7 +241,7 @@ func _physics_process(delta):
 			footstep_val -= 1
 			if footstep_val <= 0:
 				footstep()
-	weaponbobble()
+	#weaponbobble()
 	if not _snap_up_stairs_check(delta):
 		move_and_slide()
 	slide_cam_back(delta)

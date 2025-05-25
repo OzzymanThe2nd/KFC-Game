@@ -12,9 +12,7 @@ signal shield_unequipped
 
 func _ready() -> void:
 	$AnimationPlayer.play("equip")
-	player = get_parent()
-	for i in range(0,5):
-		player = player.get_parent()
+	player = Playerstatus.keepplayer
 
 func shield_damage(x):
 	health -= x

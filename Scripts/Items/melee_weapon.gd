@@ -19,9 +19,7 @@ signal sword_unequipped
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimationPlayer.play("unsheath")
-	player = get_parent()
-	for i in range(0, 5):
-		player = player.get_parent()
+	player = Playerstatus.keepplayer
 
 func second_swing():
 	alreadyhit.clear()
