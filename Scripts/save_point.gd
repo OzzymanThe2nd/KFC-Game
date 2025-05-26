@@ -12,7 +12,6 @@ func interact_with_player(player_grab):
 	if Playerstatus.healthcurrent < Playerstatus.healthmax:
 		player.heal(INF)
 	player.gain_magic_points(INF)
-	Playerstatus.save_all(player)
 	get_tree().paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	active = true
