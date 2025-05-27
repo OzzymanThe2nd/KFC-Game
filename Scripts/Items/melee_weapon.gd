@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 		else:
 			hit_recovery = false
 			$AnimationPlayer.speed_scale = swingspeed
-	if $AnimationPlayer.current_animation == "RESET" and player.velocity.x == 0 and player.velocity.z == 0 or $AnimationPlayer.is_playing() == false and player.velocity.x == 0 and player.velocity.z == 0:
+	if $AnimationPlayer.current_animation == "RESET" or $AnimationPlayer.is_playing() == false:
 		$AnimationPlayer.play("idle_bounce")
 
 

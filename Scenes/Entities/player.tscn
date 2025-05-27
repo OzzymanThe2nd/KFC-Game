@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://rpl5amivov5f"]
+[gd_scene load_steps=37 format=3 uid="uid://rpl5amivov5f"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/player.gd" id="1_7gcer"]
 [ext_resource type="Texture2D" uid="uid://dng2ohdubklb0" path="res://Assets/Textures/crosshair.png" id="2_suhvn"]
@@ -69,17 +69,11 @@ _data = {
 "wobble": SubResource("Animation_noy3w")
 }
 
-[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_aohhr"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_u4mwl"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_22nuk"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_je7ht"]
 size = Vector3(0.1, 0.1, 0.1)
-
-[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_r8h3n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8cyek"]
 shader = ExtResource("4_1o6bh")
@@ -521,42 +515,27 @@ libraries = {
 "": SubResource("AnimationLibrary_d0s5x")
 }
 
-[node name="SpringArmSword" type="SpringArm3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0.727, -0.431, 0.483)
-shape = SubResource("SeparationRayShape3D_aohhr")
-margin = 0.5
-
-[node name="SwordBobbleLoc" type="Marker3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble/SpringArmSword"]
+[node name="SwordBobbleLoc" type="Marker3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0.000140011, 9.99868e-05, -1)
+transform = Transform3D(1, 0, 0, 0, 1, -1.74846e-07, 0, 1.74846e-07, 1, 0.72714, -0.4311, -0.517)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble/SpringArmSword/SwordBobbleLoc"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble/SwordBobbleLoc"]
 visible = false
 mesh = SubResource("BoxMesh_u4mwl")
 
-[node name="SpringArmShield" type="SpringArm3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.513, -0.237, 0.688)
-shape = SubResource("SeparationRayShape3D_22nuk")
-margin = 0.5
-
-[node name="ShieldBobbleLoc" type="Marker3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble/SpringArmShield"]
+[node name="ShieldBobbleLoc" type="Marker3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0.000220001, -0.000164032, -1.00004)
+transform = Transform3D(1, 0, 0, 0, 1, -1.74846e-07, 0, 1.74846e-07, 1, -0.51278, -0.236836, -0.31196)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble/SpringArmShield/ShieldBobbleLoc"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble/ShieldBobbleLoc"]
 visible = false
 mesh = SubResource("BoxMesh_je7ht")
 
-[node name="SpringArmBow" type="SpringArm3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 1)
-shape = SubResource("SeparationRayShape3D_r8h3n")
-margin = 0.5
-
-[node name="BowBobble" type="Marker3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble/SpringArmBow"]
+[node name="BowBobble" type="Marker3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 1.19209e-07, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 2.98023e-08)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble/SpringArmBow/BowBobble"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble/BowBobble"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.184654, -0.219634)
 visible = false
 mesh = SubResource("BoxMesh_je7ht")

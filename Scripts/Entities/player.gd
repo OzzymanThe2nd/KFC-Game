@@ -29,10 +29,10 @@ var spells_equipped : bool = false
 var swordout = false
 var steptype : String = "metal"
 var stepqueued : bool = false
-const SPEED = 3.5
+const SPEED = 2.5
 const SPRINTSPEED = 7.0
-const CROUCHSPEED = 2.0
-const JUMP_VELOCITY = 3.5
+const CROUCHSPEED = 1.5
+const JUMP_VELOCITY = 2.5
 const MAX_STEP_HEIGHT = 0.5
 var snapped_to_stairs = false
 var mouse_sens = 0.0035
@@ -180,12 +180,15 @@ func _physics_process(delta):
 		if crouch == true:
 			velocity.x = direction.x * CROUCHSPEED
 			velocity.z = direction.z * CROUCHSPEED
+		elif SWORD == null and SHIELD == null and BOW == null and SPELLCASTER == null:
+			velocity.x = direction.x * (SPEED + 0.5)
+			velocity.z = direction.z * (SPEED + 0.5)
 		else:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED-2.5)
-		velocity.z = move_toward(velocity.z, 0, SPEED-2.5)
+		velocity.x = move_toward(velocity.x, 0, SPEED-1.5)
+		velocity.z = move_toward(velocity.z, 0, SPEED-1.5)
 		footstep_val = 6
 	#if Input.is_action_just_pressed("flashlight"): #Flashlight stuff
 		#if smgready==true:
