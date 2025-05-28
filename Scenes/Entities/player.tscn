@@ -525,7 +525,7 @@ mesh = SubResource("BoxMesh_u4mwl")
 
 [node name="ShieldBobbleLoc" type="Marker3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, -1.74846e-07, 0, 1.74846e-07, 1, -0.51278, -0.236836, -0.31196)
+transform = Transform3D(1, 0, 0, 0, 1, -1.74846e-07, 0, 1.74846e-07, 1, -0.51278, -0.236836, -0.245746)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CamNode3D/CamSmooth/PCamera/WeaponBobble/ShieldBobbleLoc"]
 visible = false

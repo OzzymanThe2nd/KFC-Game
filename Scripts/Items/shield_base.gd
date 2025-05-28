@@ -33,7 +33,7 @@ func putaway():
 	$AnimationPlayer.play("unequip")
 
 func _physics_process(delta: float) -> void:
-	if not $AnimationPlayer.is_playing() and stopblocking == true:
+	if $AnimationPlayer.current_animation == "wobble_while_blocked" and stopblocking == true:
 		stopblocking = false
 		blocking = false
 		$AnimationPlayer.play("return_block")
@@ -53,5 +53,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		if shield_damaged == true:
 			shield_damaged = false
 			busy = false
-	if anim_name == "equip" or anim_name == "block":
+	if anim_name == "equip": busy = false
+	if anim_name == "block":
 		busy = false
+		$AnimationPlayer.play("wobble_while_blocked")
