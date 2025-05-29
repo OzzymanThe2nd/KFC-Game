@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 		stopblocking = false
 		blocking = false
 		$AnimationPlayer.play("return_block")
-	if $AnimationPlayer.is_playing() == false and player.velocity.x==0 and blocking == false or $AnimationPlayer.is_playing() == false and player.velocity.z==0 and blocking == false:
+	if $AnimationPlayer.is_playing() == false and blocking == false:
 		$AnimationPlayer.play("idle_bounce")
 	if blocking != true:
 		%CollisionShape3D.disabled = true
