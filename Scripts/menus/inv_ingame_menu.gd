@@ -95,9 +95,9 @@ func update_slots():
 		slots[i].item_run = i
 	for i in range(min(equipment.slots.size(),equipment_slots.size())):
 		equipment_slots[i].update(equipment.slots[i])
-	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Slash.text = "Slash Protection: %s" % str(Playerstatus.protslash)
-	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Crush.text = "Crush Protection: %s" % str(Playerstatus.protcrush)
-	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Stab.text = "Stab Protection: %s" % str(Playerstatus.protstab)
+	#$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Slash.text = "Slash Protection: %s" % str(Playerstatus.protstab)
+	#$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Crush.text = "Crush Protection: %s" % str(Playerstatus.protcrush)
+	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Stab.text = "Defence: %s" % str(Playerstatus.protslash)
 	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Damage.text = "Melee Damage: %s" % str(Playerstatus.display_damage)
 	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Level.text = "Level: %s" % str(Playerstatus.player_level)
 	$SubViewportContainer/SubViewport/ColorRect/Equipment/ColorRect/Strength.text = "Strength: %s" % str(Playerstatus.strength)
