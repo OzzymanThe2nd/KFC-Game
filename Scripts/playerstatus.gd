@@ -40,22 +40,22 @@ var unlocked_spells = ["fireball","heal"]
 var equipped_spells = ["fireball","heal"]
 #Formatting: Slash protection, crush protection, stab protection
 var armorstats_dict = {
-	"debug helmet": [3,3,3],
-	"debug chest": [3,3,3],
-	"debug gloves": [3,3,3],
-	"debug legs": [3,3,3],
+	"rusted helmet": [3,3,3],
+	"rusted chest": [3,3,3],
+	"rusted gloves": [3,3,3],
+	"rusted platelegs": [3,3,3],
 }
 
 var swords_dict = {
-	"debug sword": ["res://Scenes/Items/sword.tscn", 4]
+	"shoddy sword": ["res://Scenes/Items/sword.tscn", 4]
 }
 
 var shield_dict = {
-	"debug shield": "res://Scenes/Items/shield.tscn"
+	"standard shield": "res://Scenes/Items/shield.tscn"
 }
 
 var bow_dict = {
-	"debug bow": ["res://Scenes/Items/bow.tscn", 2]
+	"shortbow": ["res://Scenes/Items/bow.tscn", 2]
 }
 func reset_to_default():
 	bow_damage = 0

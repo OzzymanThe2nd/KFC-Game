@@ -26,9 +26,8 @@ shader_parameter/jitter = 0.529
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/albedo = ExtResource("4_3tq27")
 
-[sub_resource type="Animation" id="Animation_vif1w"]
-resource_name = "open"
-length = 1.3
+[sub_resource type="Animation" id="Animation_cfmnv"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,10 +35,10 @@ tracks/0/path = NodePath("door/Cube_001:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 1), Vector3(-3, 0, 4)]
+"values": [Vector3(0, 0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -48,10 +47,10 @@ tracks/1/path = NodePath("door/Cube_001:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0, 4.71239, 0)]
+"values": [Vector3(0, 3.14159, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -72,10 +71,10 @@ tracks/3/path = NodePath("door/Cube_002:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0, 1.5708, 0)]
+"values": [Vector3(0, 3.14159, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_dqevb"]
@@ -130,8 +129,9 @@ tracks/3/keys = {
 "values": [Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_cfmnv"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_vif1w"]
+resource_name = "open"
+length = 1.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -139,10 +139,10 @@ tracks/0/path = NodePath("door/Cube_001:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 1)]
+"values": [Vector3(0, 0, 1), Vector3(-3, 0, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -151,10 +151,10 @@ tracks/1/path = NodePath("door/Cube_001:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 3.14159, 0)]
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 4.71239, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -175,10 +175,10 @@ tracks/3/path = NodePath("door/Cube_002:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 3.14159, 0)]
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 1.5708, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m0oa2"]
@@ -195,7 +195,7 @@ script = ExtResource("1_xvjcw")
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Cube_001" parent="door" index="0" groups=["door"]]
-transform = Transform3D(-1, 0, 3.89414e-07, 0, 1, 0, -3.89414e-07, 0, -1, 0, 0, 1)
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 1)
 material_overlay = SubResource("ShaderMaterial_24n2o")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="door/Cube_001" index="0"]
@@ -206,7 +206,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.25, -1.5)
 shape = SubResource("BoxShape3D_wsuli")
 
 [node name="Cube_002" parent="door" index="1" groups=["door"]]
-transform = Transform3D(-1, 0, 3.89414e-07, 0, 1, 0, -3.89414e-07, 0, -1, 0, 0, -4)
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, -4)
 material_overlay = SubResource("ShaderMaterial_q30tf")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="door/Cube_002" index="0"]

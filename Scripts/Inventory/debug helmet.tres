@@ -5,6 +5,14 @@
 
 [resource]
 script = ExtResource("2_k33ro")
-name = "debug helmet"
+name = "rusted helmet"
 img = ExtResource("1_gspop")
 type = "helmet"
+desc = "A poorly crafted helmet, likely made by an inexperienced blacksmith. "
+mesh = ""
+x_off = 0.0
+y_off = 0.0
+z_off = 0.0
+rotate = [0, 0, 0]
+scale = 1.0
+soundtype = ""

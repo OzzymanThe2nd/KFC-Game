@@ -5,6 +5,14 @@
 
 [resource]
 script = ExtResource("2_ebva7")
-name = "debug legs"
+name = "rusted platelegs"
 img = ExtResource("1_7onry")
 type = "legs"
+desc = "A set of boots and platelegs, hardly still in solid shape. There are holes along the entire length of the legs, and the boots seem rotted in spots. Still, it's better than mere cloth."
+mesh = ""
+x_off = 0.0
+y_off = 0.0
+z_off = 0.0
+rotate = [0, 0, 0]
+scale = 1.0
+soundtype = ""

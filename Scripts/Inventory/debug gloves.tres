@@ -5,6 +5,14 @@
 
 [resource]
 script = ExtResource("2_kphpn")
-name = "debug gloves"
+name = "rusted gloves"
 img = ExtResource("1_7u4va")
 type = "gloves"
+desc = "The rusted gloves of a mordougne knight, including full length armguards. One of the fingers is missing, and probably has been for years."
+mesh = ""
+x_off = 0.0
+y_off = 0.0
+z_off = 0.0
+rotate = [0, 0, 0]
+scale = 1.0
+soundtype = ""

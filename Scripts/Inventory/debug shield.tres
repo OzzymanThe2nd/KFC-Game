@@ -5,13 +5,14 @@
 
 [resource]
 script = ExtResource("2_8pjws")
-name = "debug shield"
+name = "standard shield"
 img = ExtResource("1_d7mn0")
 type = "shield"
-desc = "A small wooden shield. Filler description"
+desc = "A standarn, albeit worn, iron shield. A decent combination of size and speed, it can take decent enough care of you."
 mesh = "res://Assets/Models/buckler/scene.gltf"
 x_off = 0.0
 y_off = -1.0
 z_off = -1.0
+rotate = [0, 0, 0]
 scale = 55.0
 soundtype = "blunt"

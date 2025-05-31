@@ -5,6 +5,14 @@
 
 [resource]
 script = ExtResource("2_1s2l5")
-name = "debug chest"
+name = "rusted chest"
 img = ExtResource("1_2u1cb")
 type = "chest"
+desc = "The chestplate of a Mordougne guard, rusty and missing a tabard. This type of armor has been common across the kingdom for years, more because it's easy to make than because it's effective."
+mesh = ""
+x_off = 0.0
+y_off = 0.0
+z_off = 0.0
+rotate = [0, 0, 0]
+scale = 1.0
+soundtype = ""

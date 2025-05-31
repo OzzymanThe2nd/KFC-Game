@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("2_foydp")
-name = "debug sword"
+name = "shoddy sword"
 img = ExtResource("1_8ufey")
 type = "weapon"
-desc = "A worn shortsword. Filler description"
+desc = "A worn shortsword, found laying in mud at the bottom of a pit. Not a good weapon, but better than nothing."
 mesh = "res://Assets/Models/SwordModel/sword.glb"
 x_off = 0.0
 y_off = -0.5

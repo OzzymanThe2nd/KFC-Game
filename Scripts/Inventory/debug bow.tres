@@ -5,12 +5,14 @@
 
 [resource]
 script = ExtResource("2_24lq5")
-name = "debug bow"
+name = "shortbow"
 img = ExtResource("1_ghar4")
 type = "bow"
-desc = "Testing how several lines, or big text in general is handled by the inspect menu. \\n Test \\n Test \\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n TestTesting how several lines, or big text in general is handled by the inspect menu. \\n Test \\n Test \\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n TestTesting how several lines, or big text in general is handled by the inspect menu. \\n Test \\n Test \\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n TestTesting how several lines, or big text in general is handled by the inspect menu. \\n Test \\n Test \\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n TestTesting how several lines, or big text in general is handled by the inspect menu. \\n Test \\n Test \\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n TestTesting how several lines, or big text in general is handled by the inspect menu. \\n Test \\n Test \\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test\\n Test"
+desc = "A conventional shortbow, made of wood and string. It'd be hard to call the weapon poorly made, but it wouldn't be your first choice to use in a fight."
 mesh = ""
 x_off = 0.0
 y_off = 0.0
 z_off = 0.0
+rotate = [0, 0, 0]
 scale = 1.0
+soundtype = ""
