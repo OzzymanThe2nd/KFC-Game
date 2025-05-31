@@ -310,6 +310,10 @@ func _input(event):
 					body.interact()
 				elif body.has_method("interact_with_player"):
 					body.interact_with_player(self)
+				elif body.is_in_group("door"):
+					for i in 2: 
+						body = body.get_parent()
+					body.interact()
 
 func equipsword():
 	if BOW != null:
@@ -646,7 +650,7 @@ func _on_pop_up_timer_timeout() -> void:
 
 func _on_interact_window_detect_body_entered(body: Node3D) -> void:
 	body = body.get_parent()
-	if body.has_method("interact") or body.has_method("interact_with_player"):
+	if body.has_method("interact") or body.has_method("interact_with_player") or body.is_in_group("door"):
 		%InteractPrompt.visible = true
 		if "interact_text" in body:
 			var new_text = body.interact_text
@@ -658,7 +662,7 @@ func _on_interact_window_detect_body_entered(body: Node3D) -> void:
 
 func _on_interact_window_detect_body_exited(body: Node3D) -> void:
 	body = body.get_parent()
-	if body.has_method("interact") or body.has_method("interact_with_player"):
+	if body.has_method("interact") or body.has_method("interact_with_player") or body.is_in_group("door"):
 		%InteractPrompt.visible = false
 
 

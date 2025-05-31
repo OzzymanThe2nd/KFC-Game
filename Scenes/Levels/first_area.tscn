@@ -1,4 +1,4 @@
-[gd_scene load_steps=483 format=4 uid="uid://b76nwk6ol3lu3"]
+[gd_scene load_steps=484 format=4 uid="uid://b76nwk6ol3lu3"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_7gml4"]
 [ext_resource type="Script" path="res://Scripts/Levels/first_area.gd" id="1_8jc6o"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/spawner.gd" id="12_bs8ul"]
 [ext_resource type="Texture2D" uid="uid://bn8ohu8p2lnyn" path="res://textures/sky.png" id="13_jno6s"]
 [ext_resource type="PackedScene" uid="uid://n8bnh4p88hv7" path="res://Scenes/save_point.tscn" id="16_cddkw"]
+[ext_resource type="PackedScene" uid="uid://cjg0so52va36w" path="res://Scenes/Entities/door.tscn" id="16_q7elo"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qh72u"]
 _surfaces = [{
@@ -2946,6 +2947,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77306, 1, -1.86923)
 
 [node name="Save Point" parent="." instance=ExtResource("16_cddkw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1529, 9.5, -1.99937)
+
+[node name="Door" parent="." instance=ExtResource("16_q7elo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.75, 9.75, 2.75)
 
 [connection signal="dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="body_entered" from="Spawner" to="Spawner" method="_on_body_entered"]
