@@ -1,0 +1,15 @@
+I absolutely couldn't have made any of this without the help of my friends and the kind souls who make free-to-use assets, thanks to all of you!
+
+Sound:
+Croatian man I know who possibly doesn't wish to be credited directly
+
+Textures:
+Most textures for environments are edited images from ambientcg.com
+
+Models:
+Skeleton model and the sword they wield are made by "Kismet", and served as a basis for most other weapons/enemies
+Starting shield taken from "PS1 Medieval Weapons - Sword, Spear, Shield and Mace" on opengameart.com
+Debug room dummy: This work is based on "Medieval Combat Dummy" (https://sketchfab.com/3d-models/medieval-combat-dummy-0b3ab64360374a0e9ee3a5923c437995) by CaptainHC (https://sketchfab.com/CaptainHC) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+Save point: This work is based on "LowPoly bonfire" (https://sketchfab.com/3d-models/lowpoly-bonfire-6c0ca6f74536435ab7d54eb17a1155bb) by LEX_GFX (https://sketchfab.com/boltex360) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+Old start shield: This work is based on "Buckler" (https://sketchfab.com/3d-models/buckler-a15ecb00c0d14ca29ddc9cb03c5557a1) by colton.smith.art (https://sketchfab.com/colton.smith.art) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+Rusted armour: This work is based on "Rusted Knight" (https://sketchfab.com/3d-models/rusted-knight-533c169e5b034e1e8f4bdc27216c812c) by Sinjo (https://sketchfab.com/Sinjo) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
