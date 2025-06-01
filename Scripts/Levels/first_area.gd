@@ -55,3 +55,8 @@ func _input(event: InputEvent) -> void:
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		if Input.is_action_just_pressed("0"):
 			print(get_children())
+
+
+func _on_spawner_body_entered(body: Node3D) -> void:
+	for i in 15: await get_tree().process_frame
+	$Spawner.spawned_at_once = 0

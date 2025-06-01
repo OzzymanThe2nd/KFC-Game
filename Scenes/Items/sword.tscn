@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Items/sword.gd" id="1_1rsed"]
 [ext_resource type="PackedScene" uid="uid://ck4o5rndncf67" path="res://Assets/Models/SwordModel/sword.glb" id="2_sephx"]
 [ext_resource type="Shader" path="res://Resources/ps1model.gdshader" id="3_48bi3"]
-[ext_resource type="Texture2D" uid="uid://d0xmnh5vvhdwb" path="res://Assets/Models/SwordModel/SwordTex.png" id="4_mnkii"]
+[ext_resource type="Texture2D" uid="uid://bxbsgnrud14yt" path="res://Assets/Models/SwordModel/sword_SwordTex.png" id="4_lhd8r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1opiw"]
 render_priority = 0
@@ -12,7 +12,7 @@ shader_parameter/affine_mapping = false
 shader_parameter/alpha_scissor = 0.5
 shader_parameter/jitter = 0.576
 shader_parameter/resolution = Vector2i(320, 240)
-shader_parameter/albedo = ExtResource("4_mnkii")
+shader_parameter/albedo = ExtResource("4_lhd8r")
 
 [sub_resource type="BoxMesh" id="BoxMesh_0fdh2"]
 size = Vector3(0.1, 1.4, 0.1)
@@ -444,7 +444,7 @@ _data = {
 [node name="Sword" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.825254, 0.371164, -1.0486)
 script = ExtResource("1_1rsed")
-basedmg = 4
+basedmg = 3
 
 [node name="sword" parent="." instance=ExtResource("2_sephx")]
 unique_name_in_owner = true
@@ -456,7 +456,7 @@ material_overlay = SubResource("ShaderMaterial_1opiw")
 [node name="EnemyDet" type="RayCast3D" parent="sword"]
 unique_name_in_owner = true
 transform = Transform3D(7.78049, -0.295637, 2.97001, 2.97272, 0.0259416, -7.78503, 0.26694, 8.32804, 0.129682, 0.266, 0, -0.066)
-target_position = Vector3(0, 1.4, 0)
+target_position = Vector3(0, 0.9, 0)
 collision_mask = 2
 hit_from_inside = true
 collide_with_areas = true
@@ -464,7 +464,7 @@ collide_with_areas = true
 [node name="WallDet2" type="RayCast3D" parent="sword"]
 unique_name_in_owner = true
 transform = Transform3D(7.78049, -0.295637, 2.97001, 2.97272, 0.0259416, -7.78504, 0.26694, 8.32805, 0.129683, 0.266, 0, -0.067)
-target_position = Vector3(0, 1.1, 0)
+target_position = Vector3(0, 0.9, 0)
 hit_from_inside = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
