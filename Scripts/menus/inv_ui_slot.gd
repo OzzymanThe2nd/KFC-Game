@@ -34,6 +34,8 @@ func update(slot: invslot):
 			var dmg
 			if slot.item.name == "shoddy dagger":
 				dmg = 3
+			elif slot.item.name == "shiny longsword":
+				dmg = 7
 			tooltip_text = "%s\n%s\nBase Damage: %s" % [str(slot.item.name).capitalize(), str(slot.item.type).capitalize(), str(dmg)]
 		elif slot.item.type == "bow":
 			var dmg

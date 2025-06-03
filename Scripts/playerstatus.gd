@@ -47,7 +47,8 @@ var armorstats_dict = {
 }
 
 var swords_dict = {
-	"shoddy dagger": ["res://Scenes/Items/sword.tscn", 3]
+	"shoddy dagger": ["res://Scenes/Items/sword.tscn", 3],
+	"shiny longsword": ["res://Scenes/Items/longsword.tscn", 7]
 }
 
 var shield_dict = {

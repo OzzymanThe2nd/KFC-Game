@@ -1,0 +1,1 @@
+extends melee_weapon

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://crwjgauom20a3"]
+
+[ext_resource type="Texture2D" uid="uid://csfl1mef5nfgx" path="res://icon.svg" id="1_2p2nf"]
+[ext_resource type="Script" path="res://Scripts/inv_items.gd" id="2_ldb7m"]
+
+[resource]
+script = ExtResource("2_ldb7m")
+name = "shiny longsword"
+img = ExtResource("1_2p2nf")
+type = "weapon"
+desc = "A longsword. Placeholder"
+mesh = "res://Assets/Models/SwordModel/longsword.glb"
+x_off = 0.0
+y_off = -0.5
+z_off = 0.0
+rotate = [-90, 180, 0]
+scale = 0.22
+soundtype = "sharp"

@@ -1,0 +1,356 @@
+[gd_scene load_steps=14 format=3 uid="uid://df8dpgx6xqeli"]
+
+[ext_resource type="Script" path="res://Scripts/Items/longsword.gd" id="1_3fcna"]
+[ext_resource type="PackedScene" uid="uid://5k5mue761f1t" path="res://Assets/Models/SwordModel/longsword.glb" id="2_j8a31"]
+[ext_resource type="Shader" path="res://Resources/ps1model.gdshader" id="3_xf4i2"]
+[ext_resource type="Texture2D" uid="uid://clqwcyhr5j45o" path="res://Assets/Models/SwordModel/longsword_SwordTex.png" id="4_bleg6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i2v0p"]
+render_priority = 0
+shader = ExtResource("3_xf4i2")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.512
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("4_bleg6")
+
+[sub_resource type="Animation" id="Animation_ina6i"]
+resource_name = "unsheath"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1),
+"transitions": PackedFloat32Array(0.329877, 1, 1),
+"update": 0,
+"values": [Vector3(-0.497109, -0.607231, -2.1959), Vector3(-0.497109, -0.607231, -0.885387), Vector3(-0.497109, -0.672494, -0.539781)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1),
+"transitions": PackedFloat32Array(0.176777, 0.176777, 1),
+"update": 0,
+"values": [Vector3(-0.0104128, -3.13793, -1.60307), Vector3(-0.0104128, -3.13793, -1.60307), Vector3(-3.14159, -3.1381, -1.60221)]
+}
+
+[sub_resource type="Animation" id="Animation_cpcaa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.497109, -0.672494, -0.539781)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sword/EnemyDet:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sword/WallDet2:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:second_swing_possible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_635ae"]
+resource_name = "swing"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46, 1, 1.4),
+"transitions": PackedFloat32Array(0.683019, 0.683019, 0.683019, 0.683019),
+"update": 0,
+"values": [Vector3(-0.432357, -0.799425, 0.690466), Vector3(-2, -0.484, -0.818), Vector3(-2.199, -0.484, -1.029), Vector3(-0.497109, -0.672494, -0.539781)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46, 1, 1.4),
+"transitions": PackedFloat32Array(0.615572, 0.267943, 0.267943, 1),
+"update": 0,
+"values": [Vector3(-1.03891, 0.698059, 1.05138), Vector3(-1.53667, 2.15151, -0.0897332), Vector3(-1.53667, 2.15151, -0.0897331), Vector3(-0.0699709, 0.00287834, 1.58705)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sword/EnemyDet:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.766667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sword/WallDet2:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:second_swing_possible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.566667, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_uyit3"]
+resource_name = "sheath"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1),
+"transitions": PackedFloat32Array(0.659754, 0.392292, 0.329877),
+"update": 0,
+"values": [Vector3(-0.497109, -0.672494, -0.539781), Vector3(-0.497109, -0.624635, -0.585036), Vector3(-0.497109, -0.607231, -2.1959)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1),
+"transitions": PackedFloat32Array(0.392292, 0.707107, 0.176777),
+"update": 0,
+"values": [Vector3(-0.0699709, 0.00287834, 1.58705), Vector3(-3.35103, 0, 1.57778), Vector3(-3.14159, 0, 1.55509)]
+}
+
+[sub_resource type="Animation" id="Animation_bs8pc"]
+resource_name = "second_swing"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667, 0.633334, 0.933334, 1.16667, 1.7),
+"transitions": PackedFloat32Array(0.812253, 0.812253, 0.535, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2, -0.794, -0.616), Vector3(-2.2, -0.794, -0.576), Vector3(-2, -0.794, -0.555), Vector3(-0.60051, -0.259173, -0.925335), Vector3(-0.411509, -0.245587, -1.10631), Vector3(-0.497109, -0.672494, -0.539781)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.633334, 0.933334, 1.16667, 1.7),
+"transitions": PackedFloat32Array(0.784584, 0.784584, 0.757, 1.46, 1.46, 1),
+"update": 0,
+"values": [Vector3(-1.41701, -1.92021, 3.02924), Vector3(-0.460467, -0.245514, 1.38581), Vector3(-0.107184, -0.215559, 1.13039), Vector3(-1.19509, -0.300104, 1.34656), Vector3(-1.18776, -0.354294, 1.4049), Vector3(-0.0699709, 0.00287834, 1.58705)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sword/EnemyDet:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.666667, 1.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sword/WallDet2:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.666667, 1.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_uhxlw"]
+resource_name = "idle_bounce"
+length = 2.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.03333),
+"transitions": PackedFloat32Array(1.6245, 1.6245),
+"update": 0,
+"values": [Vector3(-0.497109, -0.672494, -0.539781), Vector3(-0.497109, -0.672494, -0.509651)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.03333),
+"transitions": PackedFloat32Array(1.6245, 1.6245),
+"update": 0,
+"values": [Vector3(-0.0699709, 0.00287834, 1.58705), Vector3(-0.0126895, 0.00287153, 1.58721)]
+}
+
+[sub_resource type="Animation" id="Animation_0p4bj"]
+resource_name = "bounce"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(0.45, 1),
+"update": 0,
+"values": [Vector3(-0.199001, -0.373616, -0.0186878), Vector3(-0.199001, -0.493498, -0.0186877)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(0.45, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(0.261799, 0, -1.51844)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mrdqq"]
+_data = {
+"RESET": SubResource("Animation_cpcaa"),
+"bounce": SubResource("Animation_0p4bj"),
+"idle_bounce": SubResource("Animation_uhxlw"),
+"second_swing": SubResource("Animation_bs8pc"),
+"sheath": SubResource("Animation_uyit3"),
+"swing": SubResource("Animation_635ae"),
+"unsheath": SubResource("Animation_ina6i")
+}
+
+[node name="Sword" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.825254, 0.371164, -1.0486)
+script = ExtResource("1_3fcna")
+basedmg = 7
+
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="sword" parent="." instance=ExtResource("2_j8a31")]
+unique_name_in_owner = true
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -0.497109, -0.672494, -0.539781)
+
+[node name="Cube_001" parent="sword" index="0"]
+material_overlay = SubResource("ShaderMaterial_i2v0p")
+
+[node name="EnemyDet" type="RayCast3D" parent="sword"]
+unique_name_in_owner = true
+transform = Transform3D(-3.09955, 0.00283881, 7.73543, 7.73273, -0.220713, 3.09856, 0.205933, 8.33041, 0.0794592, -0.00456619, 0.260701, -0.084421)
+target_position = Vector3(0, 0.9, 0)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="WallDet2" type="RayCast3D" parent="sword"]
+unique_name_in_owner = true
+transform = Transform3D(-3.09955, 0.00283815, 7.73545, 7.73273, -0.220713, 3.09853, 0.205933, 8.33042, 0.0794594, -0.00456929, 0.260631, -0.0854185)
+target_position = Vector3(0, 0.7, 0)
+hit_from_inside = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mrdqq")
+}
+
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="sword"]

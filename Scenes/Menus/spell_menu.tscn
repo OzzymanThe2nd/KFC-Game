@@ -38,8 +38,8 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="Equipped" type="NinePatchRect" parent="SubViewportContainer/SubViewport"]
-offset_right = 367.0
-offset_bottom = 244.0
+offset_right = 528.0
+offset_bottom = 320.0
 texture = ExtResource("2_dtcmd")
 patch_margin_left = 8
 patch_margin_top = 8
@@ -82,7 +82,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -960.0
-offset_top = -420.0
+offset_top = -340.0
 offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -94,14 +94,14 @@ patch_margin_bottom = 8
 
 [node name="Select Slots" type="GridContainer" parent="SubViewportContainer/SubViewport/Selection"]
 layout_mode = 1
-offset_left = 29.0
-offset_top = 59.0
-offset_right = 2353.0
-offset_bottom = 475.0
+offset_left = 59.0
+offset_top = 69.0
+offset_right = 2383.0
+offset_bottom = 485.0
 scale = Vector2(0.8, 0.8)
-theme_override_constants/h_separation = 36
+theme_override_constants/h_separation = 90
 theme_override_constants/v_separation = 16
-columns = 10
+columns = 6
 
 [node name="EquipPanel" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
 layout_mode = 2
@@ -121,48 +121,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="EquipPanel6" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel7" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel8" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel9" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel10" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel11" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel12" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel13" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel14" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel15" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel16" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel17" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel18" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel19" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
-layout_mode = 2
-
-[node name="EquipPanel20" parent="SubViewportContainer/SubViewport/Selection/Select Slots" instance=ExtResource("3_5sjdh")]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Selection"]

@@ -40,7 +40,7 @@ func _input(event: InputEvent) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready() -> void:
 	spell_menu = get_parent()
-	for i in 2:
+	for i in 4:
 		spell_menu = spell_menu.get_parent()
 
 func context_mouse_entered():
