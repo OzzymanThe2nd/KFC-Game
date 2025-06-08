@@ -625,6 +625,8 @@ func collect(item):
 func use_item(item):
 	if item == "debug":
 		overheal(100)
+	if item == "medicinal herb":
+		heal(15)
 
 func _on_bow_unequipped():
 	BOW.queue_free()

@@ -3491,6 +3491,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.75, 9.75, 2.75)
 process_mode = 1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0.234416, -8.759)
 
+[node name="HealHerb1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.38, 10, -2.176)
+
 [connection signal="dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="body_entered" from="Spawner" to="." method="_on_spawner_body_entered"]
 [connection signal="body_entered" from="Spawner" to="Spawner" method="_on_body_entered"]

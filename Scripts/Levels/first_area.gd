@@ -24,11 +24,23 @@ func _ready() -> void:
 		startsword.grabbed.connect(_on_startsword_grabbed)
 		startsword.set_id("res://Scripts/Inventory/debug sword.tres")
 		startsword.process_mode = Node.PROCESS_MODE_PAUSABLE
+	if AreaData.first_area_healherb1_grabbed == false:
+		var herbheal = item_pickup.instantiate()
+		herbheal.despawn_timer = false
+		$HealHerb1.add_child(herbheal)
+		herbheal.global_position = $HealHerb1.global_position
+		herbheal.grabbed.connect(_on_healherb_grabbed)
+		var herbheal_inven = load("res://Scripts/Inventory/healherb.tres")
+		herbheal.set_id("res://Scripts/Inventory/healherb.tres")
+		herbheal.process_mode = Node.PROCESS_MODE_PAUSABLE
 
 func _on_startsword_grabbed():
 	AreaData.first_area_sword_grabbed = true
 	var button = str(InputMap.action_get_events("inventory")[0].as_text()).split(" ")[0]
 	Playerstatus.keepplayer.show_text("Press %s to open the inventory" %[str(button)], 5)
+
+func _on_healherb_grabbed():
+	AreaData.first_area_healherb1_grabbed = true
 
 func _on_player_dead() -> void:
 	$Player/CamNode3D/CanvasLayer/Deathscreen.visible = true
