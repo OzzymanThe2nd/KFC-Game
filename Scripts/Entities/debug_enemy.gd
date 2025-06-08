@@ -93,11 +93,12 @@ func _on_animation_player_animation_started(anim_name: StringName) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "death":
-		item_drop = item_drop.instantiate()
-		item_drop.global_position = self.global_position
-		item_drop.set_id("res://Scripts/Inventory/debug_item.tres")
-		get_tree().get_root().get_child(1).add_child(item_drop)
-		AreaData.free_on_load.append(item_drop)
+		if randi_range(1, 10) == 10:
+			item_drop = item_drop.instantiate()
+			item_drop.global_position = self.global_position
+			item_drop.set_id("res://Scripts/Inventory/healherb.tres")
+			get_tree().get_root().get_child(1).add_child(item_drop)
+			AreaData.free_on_load.append(item_drop)
 		Playerstatus.exp_gain(5)
 		death.emit()
 		queue_free()
