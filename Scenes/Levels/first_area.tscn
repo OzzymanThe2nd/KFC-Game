@@ -3490,6 +3490,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.75, 9.75, 2.75)
 [node name="Door2" parent="." instance=ExtResource("16_q7elo")]
 process_mode = 1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0.234416, -8.759)
+autoclose_door = false
 
 [node name="HealHerb1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.38, 10, -2.176)

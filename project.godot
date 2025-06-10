@@ -39,6 +39,7 @@ import/blender/enabled=false
 spawner="Marker3Ds used to mark enemy spawns"
 Persist=""
 Level=""
+interact_hidden=""
 
 [input]
 
