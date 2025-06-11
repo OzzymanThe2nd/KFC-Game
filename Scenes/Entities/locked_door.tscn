@@ -1,21 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bi204bq6ehog4"]
+[gd_scene load_steps=12 format=3 uid="uid://bi204bq6ehog4"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/locked_door.gd" id="1_miewk"]
-[ext_resource type="PackedScene" uid="uid://dkyhto5gtpb8m" path="res://Assets/Models/Door/door.glb" id="2_4cd7k"]
+[ext_resource type="PackedScene" uid="uid://cjk716mmtv3wf" path="res://Assets/Models/Door/lockeddoor.glb" id="2_qsui7"]
 [ext_resource type="Shader" path="res://Resources/ps1model.gdshader" id="3_87rde"]
-[ext_resource type="Texture2D" uid="uid://yav8d14481ix" path="res://Assets/Models/Door/door_woodbark32.png" id="4_os51v"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_24n2o"]
-render_priority = 0
-shader = ExtResource("3_87rde")
-shader_parameter/affine_mapping = false
-shader_parameter/alpha_scissor = 0.5
-shader_parameter/jitter = 0.529
-shader_parameter/resolution = Vector2i(320, 240)
-shader_parameter/albedo = ExtResource("4_os51v")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wsuli"]
-size = Vector3(2, 9.5, 5)
+[ext_resource type="Texture2D" uid="uid://mxb74pypckch" path="res://Assets/Models/Door/lockeddoor_lockeddoor_woodbark32.png" id="4_cesxt"]
 
 [sub_resource type="Animation" id="Animation_cfmnv"]
 length = 0.001
@@ -179,16 +167,46 @@ _data = {
 "open": SubResource("Animation_vif1w")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qdlh7"]
+render_priority = 0
+shader = ExtResource("3_87rde")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("4_cesxt")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wsuli"]
+size = Vector3(2, 9.5, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x14yh"]
+render_priority = 0
+shader = ExtResource("3_87rde")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("4_cesxt")
+
 [node name="Locked Door" type="Node3D"]
 script = ExtResource("1_miewk")
 autoclose_door = false
 
-[node name="door" parent="." instance=ExtResource("2_4cd7k")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m0oa2")
+}
+
+[node name="SelfShut" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="door" parent="." instance=ExtResource("2_qsui7")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Cube_001" parent="door" index="0" groups=["door"]]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 1)
-material_overlay = SubResource("ShaderMaterial_24n2o")
+material_overlay = SubResource("ShaderMaterial_qdlh7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="door/Cube_001" index="0"]
 collision_mask = 0
@@ -199,7 +217,7 @@ shape = SubResource("BoxShape3D_wsuli")
 
 [node name="Cube_003" parent="door" index="1" groups=["door"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0270908, -1)
-material_overlay = SubResource("ShaderMaterial_24n2o")
+material_overlay = SubResource("ShaderMaterial_x14yh")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="door/Cube_003" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.027, 0)
@@ -208,15 +226,6 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door/Cube_003/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.25, -1.5)
 shape = SubResource("BoxShape3D_wsuli")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_m0oa2")
-}
-
-[node name="SelfShut" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
 
 [connection signal="timeout" from="SelfShut" to="." method="_on_self_shut_timeout"]
 
