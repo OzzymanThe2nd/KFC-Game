@@ -44,9 +44,10 @@ func _input(event):
 					#stored_item = i.slot_keep
 					stored_slot = run
 					stored_item = inventory.slots[run].duplicate()
-					if i.slot_keep.item != null:
-						current_sound = i.slot_keep.item.soundtype
-						play_pick_sound(current_sound)
+					if i.slot_keep:
+						if i.slot_keep.item != null:
+							current_sound = i.slot_keep.item.soundtype
+							play_pick_sound(current_sound)
 				run += 1
 		if Input.is_action_just_released("left_click"):
 			var run = 0

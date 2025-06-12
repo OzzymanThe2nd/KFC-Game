@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dhxpibyjw3dkd"]
+
+[ext_resource type="Texture2D" uid="uid://csfl1mef5nfgx" path="res://icon.svg" id="1_lhcio"]
+[ext_resource type="Script" path="res://Scripts/inv_items.gd" id="2_xxjhu"]
+
+[resource]
+script = ExtResource("2_xxjhu")
+name = "rusty storage key"
+img = ExtResource("1_lhcio")
+type = "key"
+desc = "A rusty key, with the word \"storage\" etched into it."
+mesh = "res://Assets/Models/MedievalWeaponsPack/Spear.glb"
+x_off = 0.0
+y_off = 0.0
+z_off = 0.0
+rotate = [0, 0, 0]
+scale = 1.0
+soundtype = ""

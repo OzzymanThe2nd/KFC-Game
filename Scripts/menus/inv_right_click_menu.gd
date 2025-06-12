@@ -52,6 +52,13 @@ func text_update():
 	if item.type == "usable" and player and inventory and not inventory_slot.is_equipment_slot:
 		use.disabled = false
 		use.visible = true
+	elif item.type == "key" and player and inventory and not inventory_slot.is_equipment_slot:
+		use.disabled = true
+		use.visible = false
+		discard.visible = false
+		discard.disabled = true
+		drop.visible = false
+		drop.disabled = true
 	elif not check_if_helmet():
 		if not check_if_chest():
 			if not check_if_gloves():
