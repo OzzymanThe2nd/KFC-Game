@@ -14,8 +14,12 @@ var inspect_windows = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$SubViewportContainer.size.x = DisplayServer.screen_get_size()[0]
+	$SubViewportContainer.size.y = DisplayServer.screen_get_size()[1]
 	#$SubViewportContainer.position.x = DisplayServer.screen_get_size()[0] / 4
 	#$SubViewportContainer.position.y = DisplayServer.screen_get_size()[1] / 4
+	$SubViewportContainer.position.x = 0
+	$SubViewportContainer.position.y = 0
 	player = get_parent()
 	for i in 2:
 		player = player.get_parent()
